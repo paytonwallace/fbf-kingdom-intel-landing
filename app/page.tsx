@@ -5,16 +5,31 @@ import { useEffect, useRef, useCallback } from "react";
 
 const REGISTER_URL = "https://fbfchallenge.com";
 
-const glassCard = {
-  background: "rgba(255,255,255,0.06)",
+const lightCard = {
+  background: "#FFFFFF",
+  border: "1px solid #E8E4DC",
+  borderRadius: "16px",
+  boxShadow: "0 4px 24px rgba(0,0,0,0.07)",
+} as const;
+
+const glassCardDark = {
+  background: "rgba(255,255,255,0.08)",
   backdropFilter: "blur(20px) saturate(180%)",
   WebkitBackdropFilter: "blur(20px) saturate(180%)",
   border: "1px solid rgba(255,255,255,0.12)",
-  borderRadius: "20px",
+  borderRadius: "16px",
 } as const;
 
-/* ── SECTION LABEL (consistent across all sections) ── */
-function SectionLabel({ children, center }: { children: React.ReactNode; center?: boolean }) {
+/* ── SECTION LABEL ── */
+function SectionLabel({
+  children,
+  center,
+  dark,
+}: {
+  children: React.ReactNode;
+  center?: boolean;
+  dark?: boolean;
+}) {
   return (
     <p
       style={{
@@ -22,7 +37,7 @@ function SectionLabel({ children, center }: { children: React.ReactNode; center?
         fontWeight: 600,
         letterSpacing: "0.2em",
         textTransform: "uppercase",
-        color: "#C9A55A",
+        color: "#B8943F",
         marginBottom: "16px",
         display: "flex",
         alignItems: "center",
@@ -35,7 +50,7 @@ function SectionLabel({ children, center }: { children: React.ReactNode; center?
           display: "inline-block",
           width: "24px",
           height: "2px",
-          background: "#C9A55A",
+          background: "#B8943F",
           flexShrink: 0,
         }}
       />
@@ -68,7 +83,13 @@ function useScrollReveal() {
 }
 
 /* ── ANIMATED COUNTER ── */
-function AnimatedNumber({ value, suffix = "" }: { value: number; suffix?: string }) {
+function AnimatedNumber({
+  value,
+  suffix = "",
+}: {
+  value: number;
+  suffix?: string;
+}) {
   const ref = useRef<HTMLSpanElement>(null);
   const hasAnimated = useRef(false);
 
@@ -102,7 +123,7 @@ function AnimatedNumber({ value, suffix = "" }: { value: number; suffix?: string
   return <span ref={ref}>0{suffix}</span>;
 }
 
-/* ── NAV ── */
+/* ── NAV (Light background) ── */
 function Nav() {
   return (
     <nav
@@ -116,10 +137,10 @@ function Nav() {
         justifyContent: "space-between",
         alignItems: "center",
         padding: "18px clamp(20px, 5vw, 80px)",
-        background: "rgba(13,13,13,0.85)",
-        backdropFilter: "blur(30px)",
-        WebkitBackdropFilter: "blur(30px)",
-        borderBottom: "1px solid rgba(201,165,90,0.2)",
+        background: "rgba(250,250,248,0.95)",
+        backdropFilter: "blur(20px)",
+        WebkitBackdropFilter: "blur(20px)",
+        borderBottom: "1px solid #E8E4DC",
       }}
     >
       <span className="fbf-logo">FBF</span>
@@ -137,11 +158,11 @@ function Nav() {
             padding: "10px 28px",
             fontSize: "14px",
             fontWeight: 600,
-            color: "#FFFFFF",
+            color: "#0d0d0d",
             textDecoration: "none",
             borderRadius: "50px",
-            border: "1px solid #C9A55A",
-            background: "rgba(201,165,90,0.12)",
+            border: "none",
+            background: "linear-gradient(135deg, #B8943F, #D4AD4A)",
             letterSpacing: "0.5px",
             transition: "all 0.3s ease",
           }}
@@ -153,7 +174,7 @@ function Nav() {
   );
 }
 
-/* ── HERO ── */
+/* ── HERO (DARK — navy #052134 background) ── */
 function Hero() {
   const ref = useScrollReveal();
   return (
@@ -163,7 +184,7 @@ function Hero() {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        background: "linear-gradient(180deg, #111111 0%, #0d0d0d 100%)",
+        background: "linear-gradient(180deg, #052134 0%, #0D0D0D 100%)",
         position: "relative",
         overflow: "hidden",
         padding: "120px clamp(20px, 5vw, 80px) 80px",
@@ -175,7 +196,7 @@ function Hero() {
           position: "absolute",
           inset: 0,
           backgroundImage:
-            "radial-gradient(rgba(201,165,90,0.08) 1px, transparent 1px)",
+            "radial-gradient(rgba(184,148,63,0.08) 1px, transparent 1px)",
           backgroundSize: "40px 40px",
           pointerEvents: "none",
         }}
@@ -190,7 +211,7 @@ function Hero() {
           height: "600px",
           borderRadius: "50%",
           background:
-            "radial-gradient(circle, rgba(201,165,90,0.15) 0%, transparent 70%)",
+            "radial-gradient(circle, rgba(184,148,63,0.15) 0%, transparent 70%)",
           pointerEvents: "none",
         }}
       />
@@ -205,7 +226,7 @@ function Hero() {
           height: "900px",
           borderRadius: "50%",
           background:
-            "radial-gradient(circle, rgba(201,165,90,0.12) 0%, transparent 70%)",
+            "radial-gradient(circle, rgba(184,148,63,0.12) 0%, transparent 70%)",
           pointerEvents: "none",
         }}
       />
@@ -233,8 +254,8 @@ function Hero() {
               display: "inline-block",
               padding: "8px 20px",
               borderRadius: "50px",
-              background: "rgba(201,165,90,0.12)",
-              border: "1px solid rgba(201,165,90,0.3)",
+              background: "rgba(184,148,63,0.12)",
+              border: "1px solid rgba(184,148,63,0.3)",
               marginBottom: "24px",
               animation: "gentleBounce 3s ease-in-out infinite",
             }}
@@ -244,7 +265,7 @@ function Hero() {
                 fontSize: "13px",
                 fontWeight: 700,
                 letterSpacing: "0.1em",
-                color: "#E8C070",
+                color: "#D4AD4A",
               }}
             >
               FREE — LIMITED SEATS
@@ -256,7 +277,7 @@ function Hero() {
               fontWeight: 600,
               letterSpacing: "0.2em",
               textTransform: "uppercase",
-              color: "#C9A55A",
+              color: "#B8943F",
               marginBottom: "20px",
               display: "flex",
               alignItems: "center",
@@ -268,7 +289,7 @@ function Hero() {
                 display: "inline-block",
                 width: "24px",
                 height: "2px",
-                background: "#C9A55A",
+                background: "#B8943F",
               }}
             />
             Free Live Event &mdash; April 14&ndash;16, 2026
@@ -280,7 +301,8 @@ function Hero() {
               lineHeight: 1.1,
               marginBottom: "20px",
               letterSpacing: "-0.02em",
-              background: "linear-gradient(135deg, #FFFFFF, #C9A55A, #FFFFFF)",
+              background:
+                "linear-gradient(135deg, #FFFFFF, #B8943F, #FFFFFF)",
               backgroundSize: "200% 200%",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
@@ -307,7 +329,7 @@ function Hero() {
               className="hero-cta"
               style={{
                 display: "inline-block",
-                background: "linear-gradient(135deg, #C9A55A, #E8C070)",
+                background: "linear-gradient(135deg, #B8943F, #D4AD4A)",
                 color: "#0d0d0d",
                 fontWeight: 600,
                 padding: "18px 48px",
@@ -352,7 +374,7 @@ function Hero() {
           </p>
         </div>
 
-        {/* Right: photo */}
+        {/* Right: photo — clean white-bordered frame */}
         <div style={{ flex: "0 1 380px", position: "relative" }}>
           {/* Gold glow behind photo */}
           <div
@@ -365,18 +387,19 @@ function Hero() {
               height: "450px",
               borderRadius: "50%",
               background:
-                "radial-gradient(circle, rgba(201,165,90,0.25) 0%, transparent 70%)",
+                "radial-gradient(circle, rgba(184,148,63,0.25) 0%, transparent 70%)",
               pointerEvents: "none",
             }}
           />
           <div
             style={{
-              ...glassCard,
+              background: "#FFFFFF",
               padding: "8px",
+              borderRadius: "20px",
               overflow: "hidden",
               transform: "translateY(-10px)",
               boxShadow:
-                "0 30px 80px rgba(0,0,0,0.5), 0 0 60px rgba(201,165,90,0.1)",
+                "0 30px 80px rgba(0,0,0,0.5), 0 0 60px rgba(184,148,63,0.1)",
               position: "relative",
             }}
           >
@@ -401,7 +424,7 @@ function Hero() {
   );
 }
 
-/* ── SOCIAL PROOF BAR ── */
+/* ── SOCIAL PROOF BAR (Light — white bg, gold borders) ── */
 const stats = [
   { number: 35, suffix: "+", label: "Years Business Experience" },
   { number: 5, suffix: "", label: "U.S. Presidents Shared Stages With" },
@@ -412,10 +435,11 @@ function SocialProof() {
   return (
     <section
       style={{
-        background: "rgba(201,165,90,0.08)",
-        borderTop: "1px solid rgba(201,165,90,0.2)",
-        borderBottom: "1px solid rgba(201,165,90,0.2)",
+        background: "#FFFFFF",
+        borderTop: "2px solid #B8943F",
+        borderBottom: "2px solid #B8943F",
         padding: "48px clamp(20px, 5vw, 80px)",
+        boxShadow: "0 4px 24px rgba(0,0,0,0.06)",
       }}
     >
       <div
@@ -438,7 +462,7 @@ function SocialProof() {
               padding: "16px 32px",
               borderRight:
                 i < stats.length - 1
-                  ? "1px solid rgba(201,165,90,0.2)"
+                  ? "1px solid #E8E4DC"
                   : "none",
             }}
           >
@@ -446,7 +470,7 @@ function SocialProof() {
               style={{
                 fontSize: "48px",
                 fontWeight: 700,
-                color: "#FFFFFF",
+                color: "#111111",
                 marginBottom: "8px",
                 lineHeight: 1,
               }}
@@ -456,7 +480,7 @@ function SocialProof() {
             <p
               style={{
                 fontSize: "14px",
-                color: "#C9A55A",
+                color: "#B8943F",
                 letterSpacing: "0.05em",
                 fontWeight: 500,
               }}
@@ -470,7 +494,7 @@ function SocialProof() {
   );
 }
 
-/* ── THE PROBLEM ── */
+/* ── THE PROBLEM (Light — warm white bg, white cards) ── */
 const painPoints = [
   {
     num: "01",
@@ -495,32 +519,23 @@ function Problem() {
     <section
       id="learn-more"
       style={{
-        background: "linear-gradient(180deg, #111111 0%, #0d0d0d 100%)",
+        background: "#F5F3EF",
         padding: "120px clamp(20px, 5vw, 80px)",
         position: "relative",
       }}
     >
-      {/* Glowing gold line separator */}
       <div
-        style={{
-          position: "absolute",
-          top: 0,
-          left: "50%",
-          transform: "translateX(-50%)",
-          width: "200px",
-          height: "2px",
-          background:
-            "linear-gradient(90deg, transparent, #C9A55A, transparent)",
-        }}
-      />
-      <div ref={ref} className="section-reveal" style={{ maxWidth: "1100px", margin: "0 auto" }}>
+        ref={ref}
+        className="section-reveal"
+        style={{ maxWidth: "1100px", margin: "0 auto" }}
+      >
         <SectionLabel>Who This Is For</SectionLabel>
         <h2
           style={{
             fontSize: "clamp(32px, 4vw, 48px)",
             fontWeight: 700,
             lineHeight: 1.1,
-            color: "#FFFFFF",
+            color: "#111111",
             marginBottom: "56px",
             maxWidth: "700px",
           }}
@@ -537,12 +552,11 @@ function Problem() {
           {painPoints.map((p, i) => (
             <div
               key={p.num}
-              className="glass-card-hover"
+              className="light-card-hover"
               style={{
-                ...glassCard,
-                borderTop: "2px solid #C9A55A",
+                ...lightCard,
+                borderTop: "3px solid #B8943F",
                 padding: "36px 32px",
-                animationDelay: `${i * 0.15}s`,
               }}
             >
               {/* Gold circle number */}
@@ -551,8 +565,8 @@ function Problem() {
                   width: "48px",
                   height: "48px",
                   borderRadius: "50%",
-                  background: "rgba(201,165,90,0.15)",
-                  border: "1px solid rgba(201,165,90,0.3)",
+                  background: "rgba(184,148,63,0.12)",
+                  border: "1px solid rgba(184,148,63,0.3)",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
@@ -563,7 +577,7 @@ function Problem() {
                   style={{
                     fontSize: "14px",
                     fontWeight: 700,
-                    color: "#E8C070",
+                    color: "#B8943F",
                     letterSpacing: "0.1em",
                   }}
                 >
@@ -574,7 +588,7 @@ function Problem() {
                 style={{
                   fontSize: "20px",
                   fontWeight: 700,
-                  color: "#FFFFFF",
+                  color: "#111111",
                   marginBottom: "12px",
                   lineHeight: 1.3,
                 }}
@@ -584,7 +598,7 @@ function Problem() {
               <p
                 style={{
                   fontSize: "16px",
-                  color: "#C8C8C8",
+                  color: "#555555",
                   lineHeight: 1.7,
                 }}
               >
@@ -598,7 +612,7 @@ function Problem() {
   );
 }
 
-/* ── THE SOLUTION ── */
+/* ── THE SOLUTION (Light — white bg) ── */
 const features = [
   {
     num: "01",
@@ -622,38 +636,12 @@ function Solution() {
   return (
     <section
       style={{
-        background: "#0d0d0d",
+        background: "#FFFFFF",
         padding: "120px clamp(20px, 5vw, 80px)",
         position: "relative",
         overflow: "hidden",
       }}
     >
-      {/* Navy blue radial glow */}
-      <div
-        style={{
-          position: "absolute",
-          top: "50%",
-          left: "50%",
-          transform: "translate(-50%, -50%)",
-          width: "800px",
-          height: "800px",
-          borderRadius: "50%",
-          background:
-            "radial-gradient(circle, rgba(5,52,82,0.4) 0%, transparent 70%)",
-          pointerEvents: "none",
-        }}
-      />
-      {/* Dot pattern background */}
-      <div
-        style={{
-          position: "absolute",
-          inset: 0,
-          backgroundImage:
-            "radial-gradient(rgba(255,255,255,0.03) 1px, transparent 1px)",
-          backgroundSize: "32px 32px",
-          pointerEvents: "none",
-        }}
-      />
       <div
         ref={ref}
         className="section-reveal"
@@ -671,7 +659,7 @@ function Solution() {
             fontSize: "clamp(32px, 4vw, 48px)",
             fontWeight: 700,
             lineHeight: 1.1,
-            color: "#FFFFFF",
+            color: "#111111",
             marginBottom: "40px",
             maxWidth: "800px",
             margin: "0 auto 40px",
@@ -680,22 +668,22 @@ function Solution() {
           AI increases speed. Kingdom Intelligence determines dominion.
         </h2>
 
-        {/* Quote block — more prominent */}
+        {/* Quote block — white card with gold left border */}
         <div
           style={{
-            ...glassCard,
-            background: "rgba(255,255,255,0.08)",
+            ...lightCard,
+            background: "#FFFFFF",
             padding: "48px 40px",
             maxWidth: "800px",
             margin: "0 auto 64px",
-            borderLeft: "4px solid #C9A55A",
+            borderLeft: "4px solid #B8943F",
             textAlign: "left",
           }}
         >
           <p
             style={{
               fontSize: "18px",
-              color: "#FFFFFF",
+              color: "#111111",
               lineHeight: 1.7,
             }}
           >
@@ -708,6 +696,16 @@ function Solution() {
           </p>
         </div>
 
+        {/* Gold horizontal rule */}
+        <div
+          style={{
+            width: "120px",
+            height: "2px",
+            background: "linear-gradient(90deg, transparent, #B8943F, transparent)",
+            margin: "0 auto 64px",
+          }}
+        />
+
         {/* Three columns */}
         <div
           style={{
@@ -718,12 +716,16 @@ function Solution() {
           }}
         >
           {features.map((f) => (
-            <div key={f.num} className="feature-col" style={{ paddingBottom: "8px" }}>
+            <div
+              key={f.num}
+              className="feature-col"
+              style={{ paddingBottom: "8px" }}
+            >
               <span
                 style={{
                   fontSize: "48px",
                   fontWeight: 700,
-                  color: "#C9A55A",
+                  color: "#B8943F",
                   lineHeight: 1,
                   display: "block",
                   marginBottom: "16px",
@@ -736,7 +738,7 @@ function Solution() {
                 style={{
                   fontSize: "20px",
                   fontWeight: 700,
-                  color: "#FFFFFF",
+                  color: "#111111",
                   marginBottom: "12px",
                   lineHeight: 1.3,
                 }}
@@ -746,7 +748,7 @@ function Solution() {
               <p
                 style={{
                   fontSize: "16px",
-                  color: "#C8C8C8",
+                  color: "#555555",
                   lineHeight: 1.7,
                 }}
               >
@@ -760,7 +762,7 @@ function Solution() {
   );
 }
 
-/* ── WHAT YOU WILL LEARN ── */
+/* ── WHAT YOU WILL LEARN (Light — warm white bg) ── */
 const checklist = [
   "Increase profit without adding complexity",
   "Build systems your team actually follows",
@@ -782,13 +784,13 @@ function CheckmarkSVG({ delay }: { delay: number }) {
         cx="14"
         cy="14"
         r="12"
-        stroke="#C9A55A"
+        stroke="#B8943F"
         strokeWidth="1.5"
-        fill="rgba(201,165,90,0.1)"
+        fill="rgba(184,148,63,0.1)"
       />
       <path
         d="M9 14.5L12.5 18L19 11"
-        stroke="#E8C070"
+        stroke="#B8943F"
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -807,18 +809,22 @@ function Learn() {
   return (
     <section
       style={{
-        background: "linear-gradient(180deg, #0d0d0d 0%, #111827 100%)",
+        background: "#F5F3EF",
         padding: "120px clamp(20px, 5vw, 80px)",
       }}
     >
-      <div ref={ref} className="section-reveal" style={{ maxWidth: "1100px", margin: "0 auto" }}>
+      <div
+        ref={ref}
+        className="section-reveal"
+        style={{ maxWidth: "1100px", margin: "0 auto" }}
+      >
         <SectionLabel>Inside the Master Class</SectionLabel>
         <h2
           style={{
             fontSize: "clamp(32px, 4vw, 48px)",
             fontWeight: 700,
             lineHeight: 1.1,
-            color: "#FFFFFF",
+            color: "#111111",
             marginBottom: "56px",
             maxWidth: "600px",
           }}
@@ -849,7 +855,7 @@ function Learn() {
               <span
                 style={{
                   fontSize: "17px",
-                  color: "#FFFFFF",
+                  color: "#111111",
                   lineHeight: 1.7,
                 }}
               >
@@ -863,7 +869,7 @@ function Learn() {
           className="hero-cta"
           style={{
             display: "inline-block",
-            background: "linear-gradient(135deg, #C9A55A, #E8C070)",
+            background: "linear-gradient(135deg, #B8943F, #D4AD4A)",
             color: "#0d0d0d",
             fontWeight: 600,
             padding: "18px 48px",
@@ -881,13 +887,13 @@ function Learn() {
   );
 }
 
-/* ── ABOUT STACI ── */
+/* ── ABOUT STACI (Light — white bg) ── */
 function About() {
   const ref = useScrollReveal();
   return (
     <section
       style={{
-        background: "linear-gradient(180deg, #111111 0%, #0d0d0d 100%)",
+        background: "#FFFFFF",
         padding: "120px clamp(20px, 5vw, 80px)",
       }}
     >
@@ -903,14 +909,14 @@ function About() {
           flexWrap: "wrap",
         }}
       >
-        {/* Text — animate from left */}
+        {/* Text */}
         <div style={{ flex: "1 1 400px", minWidth: "280px", order: 1 }}>
           <SectionLabel>Your Host</SectionLabel>
           <h2
             style={{
               fontSize: "clamp(32px, 4vw, 48px)",
               fontWeight: 700,
-              color: "#FFFFFF",
+              color: "#111111",
               marginBottom: "8px",
               lineHeight: 1.1,
             }}
@@ -931,13 +937,13 @@ function About() {
                 display: "inline-block",
                 width: "40px",
                 height: "2px",
-                background: "linear-gradient(90deg, #C9A55A, #E8C070)",
+                background: "linear-gradient(90deg, #B8943F, #D4AD4A)",
               }}
             />
             <p
               style={{
                 fontSize: "15px",
-                color: "#C9A55A",
+                color: "#B8943F",
                 lineHeight: 1.5,
               }}
             >
@@ -948,7 +954,7 @@ function About() {
           <p
             style={{
               fontSize: "17px",
-              color: "#C8C8C8",
+              color: "#555555",
               lineHeight: 1.7,
               marginBottom: "32px",
             }}
@@ -964,7 +970,7 @@ function About() {
           <p
             style={{
               fontSize: "20px",
-              color: "#E8C070",
+              color: "#B8943F",
               fontStyle: "italic",
               fontWeight: 500,
             }}
@@ -973,31 +979,16 @@ function About() {
           </p>
         </div>
 
-        {/* Photo — floating animation */}
+        {/* Photo — static, professional, clean frame with shadow */}
         <div style={{ flex: "0 1 400px", order: 2, position: "relative" }}>
-          {/* Gold glow behind photo */}
           <div
             style={{
-              position: "absolute",
-              top: "50%",
-              left: "50%",
-              transform: "translate(-50%, -50%)",
-              width: "400px",
-              height: "400px",
-              borderRadius: "50%",
-              background:
-                "radial-gradient(circle, rgba(201,165,90,0.2) 0%, transparent 70%)",
-              pointerEvents: "none",
-            }}
-          />
-          <div
-            style={{
-              ...glassCard,
+              background: "#FFFFFF",
               padding: "8px",
+              borderRadius: "16px",
               overflow: "hidden",
-              animation: "float 6s ease-in-out infinite",
-              boxShadow:
-                "0 30px 80px rgba(0,0,0,0.5), 0 0 40px rgba(201,165,90,0.1)",
+              border: "1px solid #E8E4DC",
+              boxShadow: "0 8px 40px rgba(0,0,0,0.1)",
               position: "relative",
             }}
           >
@@ -1010,7 +1001,7 @@ function About() {
                 width: "100%",
                 height: "auto",
                 display: "block",
-                borderRadius: "14px",
+                borderRadius: "12px",
                 objectFit: "cover",
               }}
             />
@@ -1021,7 +1012,7 @@ function About() {
   );
 }
 
-/* ── TESTIMONIALS ── */
+/* ── TESTIMONIALS (DARK — navy #052134) ── */
 const testimonials = [
   {
     name: "Kyler Kropf",
@@ -1049,12 +1040,18 @@ function Testimonials() {
     <section
       id="testimonials"
       style={{
-        background: "#0d0d0d",
+        background: "#052134",
         padding: "120px clamp(20px, 5vw, 80px)",
       }}
     >
-      <div ref={ref} className="section-reveal" style={{ maxWidth: "1100px", margin: "0 auto" }}>
-        <SectionLabel center>Results That Speak</SectionLabel>
+      <div
+        ref={ref}
+        className="section-reveal"
+        style={{ maxWidth: "1100px", margin: "0 auto" }}
+      >
+        <SectionLabel center dark>
+          Results That Speak
+        </SectionLabel>
         <h2
           style={{
             fontSize: "clamp(32px, 4vw, 48px)",
@@ -1079,17 +1076,16 @@ function Testimonials() {
               key={i}
               className="testimonial-card"
               style={{
-                ...glassCard,
+                ...glassCardDark,
                 padding: "40px 32px",
                 display: "flex",
                 flexDirection: "column",
                 justifyContent: "space-between",
                 position: "relative",
                 overflow: "hidden",
-                animationDelay: `${i * 0.15}s`,
               }}
             >
-              {/* Decorative quote mark */}
+              {/* Decorative gold quote mark */}
               <span
                 style={{
                   position: "absolute",
@@ -1097,7 +1093,7 @@ function Testimonials() {
                   right: "24px",
                   fontSize: "120px",
                   fontFamily: "Georgia, serif",
-                  color: "rgba(201,165,90,0.08)",
+                  color: "rgba(184,148,63,0.15)",
                   lineHeight: 1,
                   pointerEvents: "none",
                   userSelect: "none",
@@ -1123,7 +1119,7 @@ function Testimonials() {
                   style={{
                     fontSize: "16px",
                     fontWeight: 700,
-                    color: "#C9A55A",
+                    color: "#B8943F",
                     marginBottom: "4px",
                   }}
                 >
@@ -1143,48 +1139,29 @@ function Testimonials() {
   );
 }
 
-/* ── FINAL CTA ── */
+/* ── FINAL CTA (DARK — #0D0D0D) ── */
 function FinalCTA() {
   const ref = useScrollReveal();
   return (
     <section
       style={{
-        background: "linear-gradient(135deg, #C9A55A 0%, #E8C070 50%, #C9A55A 100%)",
-        backgroundSize: "200% 200%",
-        animation: "gradientShift 6s ease infinite",
+        background: "#0D0D0D",
         padding: "120px clamp(20px, 5vw, 80px)",
         textAlign: "center",
         position: "relative",
         overflow: "hidden",
       }}
     >
-      {/* Confetti-like decorative dots */}
-      {[
-        { top: "10%", left: "8%", size: 6 },
-        { top: "20%", right: "12%", size: 4 },
-        { top: "70%", left: "15%", size: 5 },
-        { top: "80%", right: "10%", size: 7 },
-        { top: "40%", left: "5%", size: 3 },
-        { top: "30%", right: "6%", size: 5 },
-        { top: "60%", right: "20%", size: 4 },
-        { top: "15%", left: "25%", size: 3 },
-      ].map((dot, i) => (
-        <div
-          key={i}
-          style={{
-            position: "absolute",
-            top: dot.top,
-            left: "left" in dot ? dot.left : undefined,
-            right: "right" in dot ? dot.right : undefined,
-            width: dot.size + "px",
-            height: dot.size + "px",
-            borderRadius: "50%",
-            background: "rgba(255,255,255,0.3)",
-            pointerEvents: "none",
-          }}
-        />
-      ))}
-      <div ref={ref} className="section-reveal" style={{ maxWidth: "700px", margin: "0 auto", position: "relative", zIndex: 1 }}>
+      <div
+        ref={ref}
+        className="section-reveal"
+        style={{
+          maxWidth: "700px",
+          margin: "0 auto",
+          position: "relative",
+          zIndex: 1,
+        }}
+      >
         <h2
           style={{
             fontSize: "clamp(36px, 5vw, 56px)",
@@ -1192,7 +1169,6 @@ function FinalCTA() {
             color: "#FFFFFF",
             marginBottom: "20px",
             lineHeight: 1.1,
-            textShadow: "0 2px 20px rgba(0,0,0,0.2)",
           }}
         >
           Your seat is waiting.
@@ -1200,10 +1176,9 @@ function FinalCTA() {
         <p
           style={{
             fontSize: "19px",
-            color: "#FFFFFF",
+            color: "#B8943F",
             lineHeight: 1.6,
             marginBottom: "40px",
-            opacity: 0.9,
           }}
         >
           Three free days. April 14&ndash;16, 2026. Built for faith-driven
@@ -1211,11 +1186,10 @@ function FinalCTA() {
         </p>
         <a
           href={REGISTER_URL}
-          className="final-cta-btn"
           style={{
             display: "inline-block",
-            background: "#0d0d0d",
-            color: "#FFFFFF",
+            background: "linear-gradient(135deg, #B8943F, #D4AD4A)",
+            color: "#0d0d0d",
             fontWeight: 600,
             padding: "18px 48px",
             borderRadius: "50px",
@@ -1223,6 +1197,8 @@ function FinalCTA() {
             fontSize: "17px",
             textDecoration: "none",
             cursor: "pointer",
+            boxShadow: "0 0 30px rgba(184,148,63,0.3)",
+            transition: "all 0.3s ease",
           }}
         >
           Save My Free Seat Now
@@ -1230,9 +1206,8 @@ function FinalCTA() {
         <p
           style={{
             fontSize: "14px",
-            color: "#FFFFFF",
+            color: "#888888",
             marginTop: "20px",
-            opacity: 0.6,
           }}
         >
           Free registration. No credit card. Live online event.
@@ -1242,12 +1217,12 @@ function FinalCTA() {
   );
 }
 
-/* ── FOOTER ── */
+/* ── FOOTER (Dark — #111111) ── */
 function Footer() {
   return (
     <footer
       style={{
-        backgroundColor: "#0d0d0d",
+        backgroundColor: "#111111",
         borderTop: "1px solid rgba(255,255,255,0.08)",
         padding: "40px clamp(20px, 5vw, 80px)",
       }}
@@ -1264,12 +1239,15 @@ function Footer() {
         }}
       >
         <div>
-          <span className="fbf-logo" style={{ fontSize: "16px", letterSpacing: "2px" }}>
+          <span
+            className="fbf-logo"
+            style={{ fontSize: "16px", letterSpacing: "2px" }}
+          >
             FBF
           </span>
           <span
             style={{
-              color: "#C8C8C8",
+              color: "#888888",
               fontSize: "14px",
               marginLeft: "16px",
             }}
@@ -1278,10 +1256,10 @@ function Footer() {
           </span>
         </div>
         <div style={{ display: "flex", gap: "24px" }}>
-          <a href="#" className="nav-link">
+          <a href="#" className="nav-link-light">
             Privacy Policy
           </a>
-          <a href="#" className="nav-link">
+          <a href="#" className="nav-link-light">
             Terms
           </a>
         </div>

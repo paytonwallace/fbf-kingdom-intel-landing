@@ -34,8 +34,8 @@ export default function RootLayout({
   100% { background-position: 200% center; }
 }
 @keyframes pulse {
-  0%, 100% { box-shadow: 0 0 20px rgba(201,165,90,0.3); }
-  50% { box-shadow: 0 0 40px rgba(201,165,90,0.6); }
+  0%, 100% { box-shadow: 0 0 20px rgba(184,148,63,0.3); }
+  50% { box-shadow: 0 0 40px rgba(184,148,63,0.6); }
 }
 @keyframes float {
   0%, 100% { transform: translateY(0px); }
@@ -59,28 +59,36 @@ export default function RootLayout({
   50% { transform: translateY(-8px); }
 }
 
-.nav-link { position: relative; text-decoration: none; color: #C8C8C8; font-size: 14px; font-weight: 500; transition: color 0.3s; }
-.nav-link:hover { color: #E8C070; }
-.nav-link::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px; background: #C9A55A; transition: width 0.3s; }
+.nav-link { position: relative; text-decoration: none; color: #555555; font-size: 14px; font-weight: 500; transition: color 0.3s; }
+.nav-link:hover { color: #B8943F; }
+.nav-link::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px; background: #B8943F; transition: width 0.3s; }
 .nav-link:hover::after { width: 100%; }
 
-.fbf-logo { display: inline-block; font-weight: 700; font-size: 20px; letter-spacing: 3px; color: #C9A55A; background: linear-gradient(90deg, #C9A55A, #E8C070, #C9A55A); background-size: 200% 100%; -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.nav-link-light { position: relative; text-decoration: none; color: #C8C8C8; font-size: 14px; font-weight: 500; transition: color 0.3s; }
+.nav-link-light:hover { color: #B8943F; }
+.nav-link-light::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px; background: #B8943F; transition: width 0.3s; }
+.nav-link-light:hover::after { width: 100%; }
+
+.fbf-logo { display: inline-block; font-weight: 700; font-size: 20px; letter-spacing: 3px; color: #B8943F; background: linear-gradient(90deg, #B8943F, #D4AD4A, #B8943F); background-size: 200% 100%; -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
 .fbf-logo:hover { animation: shimmer 2s linear infinite; }
 
 .hero-cta { animation: pulse 3s ease-in-out infinite; }
 
+.light-card-hover { transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; }
+.light-card-hover:hover { transform: translateY(-4px); border-color: #B8943F !important; box-shadow: 0 8px 32px rgba(0,0,0,0.12); }
+
 .glass-card-hover { transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; }
-.glass-card-hover:hover { transform: scale(1.02); border-color: rgba(201,165,90,0.3) !important; box-shadow: 0 8px 32px rgba(201,165,90,0.15); }
+.glass-card-hover:hover { transform: translateY(-8px); border-color: rgba(184,148,63,0.3) !important; box-shadow: 0 12px 40px rgba(184,148,63,0.2); }
 
 .testimonial-card { transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; }
-.testimonial-card:hover { transform: translateY(-8px); border-color: rgba(201,165,90,0.3) !important; box-shadow: 0 12px 40px rgba(201,165,90,0.2); }
+.testimonial-card:hover { transform: translateY(-8px); border-color: rgba(184,148,63,0.3) !important; box-shadow: 0 12px 40px rgba(184,148,63,0.2); }
 
 .feature-col { position: relative; }
-.feature-col::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px; background: linear-gradient(90deg, #C9A55A, #E8C070); transition: width 0.4s ease; }
+.feature-col::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px; background: linear-gradient(90deg, #B8943F, #D4AD4A); transition: width 0.4s ease; }
 .feature-col:hover::after { width: 60px; }
 
 .final-cta-btn { transition: all 0.3s ease; }
-.final-cta-btn:hover { background: #C9A55A !important; color: #0d0d0d !important; }
+.final-cta-btn:hover { background: #B8943F !important; color: #0d0d0d !important; }
 
 .section-reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.7s ease-out, transform 0.7s ease-out; }
 .section-reveal.visible { opacity: 1; transform: translateY(0); }
@@ -93,8 +101,8 @@ export default function RootLayout({
           margin: 0,
           padding: 0,
           fontFamily: "'Helvetica Neue', Arial, sans-serif",
-          backgroundColor: "#0d0d0d",
-          color: "#FFFFFF",
+          backgroundColor: "#FAFAF8",
+          color: "#111111",
           WebkitFontSmoothing: "antialiased",
           MozOsxFontSmoothing: "grayscale",
         }}
