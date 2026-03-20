@@ -690,41 +690,22 @@ const testimonials4 = [
   },
 ];
 
-function GalleryCard({ t }: { t: { name: string; title: string; quote: string; photo?: string } }) {
-  return (
-    <div className="testimonial-card" style={{
-      background: "#0a0a0a",
-      border: "1px solid rgba(255,255,255,0.08)",
-      borderRadius: "12px",
-      overflow: "hidden",
-      display: "flex",
-      flexDirection: "row",
-      gap: "0",
-    }}>
-      {/* Photo — left side, square */}
-      {t.photo && (
-        <div style={{ width: "110px", flexShrink: 0, position: "relative", overflow: "hidden" }}>
-          <img
-            src={t.photo}
-            alt={t.name}
-            style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center center", display: "block", position: "absolute", top: 0, left: 0 }}
-          />
-        </div>
-      )}
-      {/* Content — right side */}
-      <div style={{ padding: "20px 20px 20px 18px", flex: 1, minWidth: 0 }}>
-        <p style={{ fontSize: "14px", fontWeight: 700, color: "#FFFFFF", marginBottom: "2px", fontFamily: "'Frank Ruhl Libre', Georgia, serif" }}>{t.name}</p>
-        <p style={{ fontSize: "11px", color: "#C9A55A", marginBottom: "10px", fontFamily: "'Work Sans', sans-serif", letterSpacing: "0.04em" }}>{t.title}</p>
-        <p style={{ fontSize: "13px", color: "rgba(255,255,255,0.7)", lineHeight: 1.65, fontStyle: "italic", fontFamily: "'Work Sans', sans-serif" }}>
-          &ldquo;{t.quote}&rdquo;
-        </p>
-      </div>
-    </div>
-  );
-}
-
 function MoreTestimonials() {
   const ref = useScrollReveal();
+  const [current, setCurrent] = useState(0);
+  const perPage = 3;
+  const total = testimonials4.length;
+  const pages = Math.ceil(total / perPage);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrent(c => (c + 1) % pages);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, [pages]);
+
+  const visible = testimonials4.slice(current * perPage, current * perPage + perPage);
+
   return (
     <section style={{ background: "#111111", padding: "80px 20px" }}>
       <div ref={ref} className="section-reveal" style={{ maxWidth: "1100px", margin: "0 auto" }}>
@@ -734,8 +715,65 @@ function MoreTestimonials() {
         <h2 style={{ fontSize: "clamp(32px, 5vw, 48px)", fontWeight: 900, color: "#FFFFFF", textAlign: "center", marginBottom: "48px", lineHeight: 1.15 }}>
           Lives Changed. Businesses Built.
         </h2>
-        <div className="testimonial-grid-4" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "16px" }}>
-          {testimonials4.map((t, i) => <GalleryCard key={i} t={t} />)}
+
+        {/* Cards */}
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "20px", marginBottom: "36px" }} className="slider-grid">
+          {visible.map((t, i) => (
+            <div key={`${current}-${i}`} className="testimonial-card" style={{
+              background: "#0a0a0a",
+              border: "1px solid rgba(255,255,255,0.08)",
+              borderRadius: "14px",
+              overflow: "hidden",
+              animation: "fadeInUp 0.4s ease both",
+            }}>
+              {/* Photo */}
+              {t.photo && (
+                <div style={{ width: "100%", height: "200px", overflow: "hidden", position: "relative" }}>
+                  <img
+                    src={t.photo}
+                    alt={t.name}
+                    style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 25%", display: "block" }}
+                  />
+                  <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, transparent 40%, #0a0a0a 100%)" }} />
+                </div>
+              )}
+              <div style={{ padding: "16px 20px 24px" }}>
+                <p style={{ fontSize: "15px", fontWeight: 700, color: "#FFFFFF", marginBottom: "2px" }}>{t.name}</p>
+                <p style={{ fontSize: "11px", color: "#C9A55A", marginBottom: "12px", fontFamily: "'Work Sans', sans-serif", letterSpacing: "0.04em" }}>{t.title}</p>
+                <p style={{ fontSize: "13px", color: "rgba(255,255,255,0.7)", lineHeight: 1.7, fontStyle: "italic", fontFamily: "'Work Sans', sans-serif" }}>
+                  &ldquo;{t.quote}&rdquo;
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Controls */}
+        <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "16px" }}>
+          <button
+            onClick={() => setCurrent(c => (c - 1 + pages) % pages)}
+            style={{ background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.12)", borderRadius: "50%", width: "40px", height: "40px", cursor: "pointer", color: "#FFFFFF", fontSize: "16px", display: "flex", alignItems: "center", justifyContent: "center", transition: "background 0.2s" }}
+          >
+            ‹
+          </button>
+
+          {/* Dots */}
+          <div style={{ display: "flex", gap: "8px" }}>
+            {Array.from({ length: pages }).map((_, i) => (
+              <button
+                key={i}
+                onClick={() => setCurrent(i)}
+                style={{ width: i === current ? "24px" : "8px", height: "8px", borderRadius: "4px", background: i === current ? "#C9A55A" : "rgba(255,255,255,0.2)", border: "none", cursor: "pointer", padding: 0, transition: "all 0.3s ease" }}
+              />
+            ))}
+          </div>
+
+          <button
+            onClick={() => setCurrent(c => (c + 1) % pages)}
+            style={{ background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.12)", borderRadius: "50%", width: "40px", height: "40px", cursor: "pointer", color: "#FFFFFF", fontSize: "16px", display: "flex", alignItems: "center", justifyContent: "center", transition: "background 0.2s" }}
+          >
+            ›
+          </button>
         </div>
       </div>
     </section>
