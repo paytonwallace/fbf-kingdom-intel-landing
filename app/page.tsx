@@ -249,7 +249,7 @@ const testimonials3 = [
   },
   {
     name: "Dallas Marley",
-    title: "Entrepreneur",
+    title: "Marketing Specialist & Entrepreneur",
     quote: "In less than 12 months, we paid off over $2 million in debt, moved to Ecuador, and stepped into the life of our dreams.",
     photo: "/images/dallas-headshot.jpg",
   },
