@@ -482,15 +482,31 @@ function Testimonials3() {
 /* ── SECTION 4: THE INVITATION ── */
 const inviteCards = [
   {
-    icon: "🔥",
+    icon: (
+      <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
+        <circle cx="18" cy="18" r="17" stroke="#C9A55A" strokeWidth="1.5" />
+        <path d="M18 8v4M18 24v4M8 18h4M24 18h4" stroke="#C9A55A" strokeWidth="1.5" strokeLinecap="round"/>
+        <circle cx="18" cy="18" r="5" stroke="#C9A55A" strokeWidth="1.5"/>
+        <circle cx="18" cy="18" r="2" fill="#C9A55A"/>
+      </svg>
+    ),
     text: "You feel called to something bigger — a God-given mission to build a business that creates real impact, generational wealth, and a lasting legacy.",
   },
   {
-    icon: "🙏",
+    icon: (
+      <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
+        <path d="M18 6L8 11v8c0 5.5 4.3 10.7 10 12 5.7-1.3 10-6.5 10-12v-8L18 6z" stroke="#C9A55A" strokeWidth="1.5" strokeLinejoin="round"/>
+        <path d="M14 18l3 3 5-5" stroke="#C9A55A" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+      </svg>
+    ),
     text: "You're passionate about scaling your company but refuse to compromise your faith, your family, or your freedom in the process.",
   },
   {
-    icon: "⚡",
+    icon: (
+      <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
+        <path d="M20 6L10 20h9l-3 10 16-14h-9l3-10z" stroke="#C9A55A" strokeWidth="1.5" strokeLinejoin="round"/>
+      </svg>
+    ),
     text: "You've lived in BEAST mode so long your health and relationships have paid the price. You're exhausted — and know there's a better way.",
   },
 ];
@@ -541,7 +557,7 @@ function Invitation() {
               gap: "14px",
               transition: "border-color 0.3s",
             }}>
-              <span style={{ fontSize: "36px", lineHeight: 1 }}>{card.icon}</span>
+              <div style={{ lineHeight: 1 }}>{card.icon}</div>
               <p style={{
                 fontSize: "16px", color: "rgba(255,255,255,0.8)",
                 lineHeight: 1.7, fontFamily: "'Work Sans', sans-serif",
