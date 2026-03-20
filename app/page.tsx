@@ -73,7 +73,7 @@ function Hero() {
     >
       {/* Logo */}
       <div className="hero-logo-bar" style={{ position: "absolute", top: 0, left: 0, width: "100%", zIndex: 10, padding: "24px 8vw" }}>
-        <img src="/images/fbf-logo-white.png" alt="Fueled By Fire" className="hero-logo" style={{ height: "48px", width: "auto", display: "block" }} />
+        <img src="/images/fbf-logo-white.png" alt="Fueled By Fire" className="hero-logo" style={{ height: "64px", width: "auto", display: "block" }} />
       </div>
 
       <div className="hero-content-row" style={{ display: "flex", flex: 1, minHeight: "100vh" }}>
@@ -154,7 +154,7 @@ function Hero() {
             src="/images/staci-larry-hero.avif"
             alt="Staci and Larry Wallace"
             className="hero-photo"
-            style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 15%" }}
+            style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", objectFit: "contain" as const, objectPosition: "center bottom", background: "#0a0a0a" }}
           />
           <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to right, rgba(10,10,10,0.45) 0%, transparent 35%)" }} />
         </div>
