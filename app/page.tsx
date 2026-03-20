@@ -1,10 +1,10 @@
-﻿"use client";
+"use client";
 
 import { useEffect, useRef } from "react";
 
 const REGISTER_URL = "https://fbfchallenge.com";
 
-/* â”€â”€ SCROLL REVEAL HOOK â”€â”€ */
+/* ── SCROLL REVEAL HOOK ── */
 function useScrollReveal() {
   const ref = useRef<HTMLDivElement>(null);
   useEffect(() => {
@@ -25,7 +25,7 @@ function useScrollReveal() {
   return ref;
 }
 
-/* â”€â”€ CTA BUTTON (Gold style) â”€â”€ */
+/* ── CTA BUTTON ── */
 function CTAButton({ text = "REGISTER FOR FREE", dark = false }: { text?: string; dark?: boolean }) {
   return (
     <div style={{ display: "inline-flex", flexDirection: "column", alignItems: "center", gap: "10px" }}>
@@ -39,7 +39,6 @@ function CTAButton({ text = "REGISTER FOR FREE", dark = false }: { text?: string
           fontWeight: 800,
           padding: "18px 48px",
           borderRadius: "5px",
-          border: "none",
           fontSize: "18px",
           textDecoration: "none",
           cursor: "pointer",
@@ -58,16 +57,13 @@ function CTAButton({ text = "REGISTER FOR FREE", dark = false }: { text?: string
   );
 }
 
-/* â”€â”€ NAVBAR removed â€” logo now lives in hero â”€â”€ */
-
-/* â”€â”€ SECTION 1: HERO â”€â”€ */
+/* ── SECTION 1: HERO ── */
 function Hero() {
   return (
     <section
       className="hero-split"
       style={{
         minHeight: "100vh",
-        paddingTop: "0",
         display: "flex",
         flexDirection: "column",
         background: "#0a0a0a",
@@ -75,306 +71,168 @@ function Hero() {
         overflow: "hidden",
       }}
     >
-      {/* TOP BAR â€” logo */}
-      <div style={{
-        position: "absolute",
-        top: 0,
-        left: 0,
-        width: "100%",
-        zIndex: 10,
-        padding: "24px 8vw",
-      }}>
-        <img
-          src="/images/fbf-logo-white.png"
-          alt="Fueled By Fire"
-          style={{ height: "48px", width: "auto", display: "block" }}
-        />
+      {/* Logo */}
+      <div style={{ position: "absolute", top: 0, left: 0, width: "100%", zIndex: 10, padding: "24px 8vw" }}>
+        <img src="/images/fbf-logo-white.png" alt="Fueled By Fire" style={{ height: "48px", width: "auto", display: "block" }} />
       </div>
 
-      {/* MAIN CONTENT ROW */}
       <div style={{ display: "flex", flex: 1, minHeight: "100vh" }}>
-      {/* LEFT SIDE â€” text content */}
-      <div
-        className="hero-left"
-        style={{
-          flex: "0 0 55%",
-          display: "flex",
-          alignItems: "center",
-          padding: "120px 48px 60px 8vw",
-          position: "relative",
-          zIndex: 2,
-        }}
-      >
-        {/* Subtle gold radial glow behind left content */}
+        {/* LEFT */}
         <div
-          style={{
-            position: "absolute",
-            top: "40%",
-            left: "30%",
-            width: "600px",
-            height: "600px",
-            borderRadius: "50%",
-            background:
-              "radial-gradient(circle, rgba(201,165,90,0.08) 0%, transparent 70%)",
-            pointerEvents: "none",
-          }}
-        />
-
-        <div
-          className="hero-reveal"
-          style={{ position: "relative", maxWidth: "560px" }}
+          className="hero-left"
+          style={{ flex: "0 0 55%", display: "flex", alignItems: "center", padding: "120px 48px 60px 8vw", position: "relative", zIndex: 2 }}
         >
-          {/* Badge */}
-          <div
-            style={{
+          <div style={{
+            position: "absolute", top: "40%", left: "30%", width: "600px", height: "600px",
+            borderRadius: "50%", background: "radial-gradient(circle, rgba(201,165,90,0.07) 0%, transparent 70%)",
+            pointerEvents: "none",
+          }} />
+
+          <div className="hero-reveal" style={{ position: "relative", maxWidth: "580px" }}>
+            {/* Badge */}
+            <div style={{
               display: "inline-block",
               background: "rgba(255,255,255,0.05)",
               border: "1px solid rgba(201,165,90,0.4)",
               borderRadius: "50px",
               padding: "10px 24px",
-              marginBottom: "28px",
-            }}
-          >
-            <span
-              style={{
-                fontSize: "12px",
-                fontWeight: 700,
-                letterSpacing: "0.2em",
-                textTransform: "uppercase" as const,
-                color: "#D4A017",
-              }}
-            >
-              BIG BUSINESS. BOLD FAITH. NO COMPROMISE.
-            </span>
-          </div>
+              marginBottom: "24px",
+            }}>
+              <span style={{ fontSize: "11px", fontWeight: 700, letterSpacing: "0.22em", textTransform: "uppercase" as const, color: "#C9A55A", fontFamily: "'Work Sans', sans-serif" }}>
+                Free 3-Day Live Event · April 14–16, 2026 · 12:00 PM CST
+              </span>
+            </div>
 
-          {/* Headline */}
-          <h1
-            style={{
-              fontSize: "clamp(40px, 6vw, 72px)",
+            {/* Headline */}
+            <h1 style={{
+              fontSize: "clamp(38px, 5.5vw, 68px)",
               fontWeight: 900,
               lineHeight: 1.0,
               color: "#FFFFFF",
-              marginBottom: "20px",
+              marginBottom: "16px",
               textTransform: "uppercase" as const,
               letterSpacing: "-0.01em",
-            }}
-          >
-            KINGDOM INTELLIGENCE{" "}
-            <span style={{ color: "#CC0000" }}>MASTERCLASS</span>
-          </h1>
+            }}>
+              AI Increases Speed.<br />
+              <span style={{ color: "#CC0000" }}>Kingdom Intelligence</span><br />
+              Determines Dominion.
+            </h1>
 
-          {/* Subhead */}
-          <p
-            style={{
-              fontSize: "19px",
-              color: "rgba(255,255,255,0.85)",
-              lineHeight: 1.6,
-              marginBottom: "20px",
+            {/* Subhead */}
+            <p style={{
+              fontSize: "18px",
+              color: "rgba(255,255,255,0.75)",
+              lineHeight: 1.65,
+              marginBottom: "12px",
               fontFamily: "'Work Sans', sans-serif",
               fontWeight: 400,
-            }}
-          >
-            Where High-Performing Leaders Scale Profitable Companies Without
-            Compromising Their Faith, Family or Freedom
-          </p>
+            }}>
+              The leaders who will thrive in this next decade aren&rsquo;t just adopting new tools.
+              They&rsquo;re developing the Spirit-led wisdom, operational foresight, and leadership structure
+              required to steward growth well.
+            </p>
 
-          {/* Event line */}
-          <p
-            style={{
+            <p style={{
               fontSize: "16px",
-              color: "#C8C8C8",
+              color: "#C9A55A",
               marginBottom: "36px",
-            }}
-          >
-            Free 3-Day Live Event &mdash; April 14-16, 2026 @ 12:00 PM CST
-          </p>
+              fontFamily: "'Work Sans', sans-serif",
+              fontWeight: 600,
+              letterSpacing: "0.02em",
+            }}>
+              Kingdom Intelligence Masterclass — FREE (A $7,500 Value)
+            </p>
 
-          {/* CTA */}
-          <div>
             <CTAButton />
-          </div>
 
-          {/* Fine print */}
-          <p
-            style={{
-              fontSize: "13px",
-              color: "#666",
-              marginTop: "16px",
-            }}
-          >
-            No cost. Limited seats. Live online event.
-          </p>
+            <p style={{ fontSize: "13px", color: "rgba(255,255,255,0.3)", marginTop: "20px", fontFamily: "'Work Sans', sans-serif" }}>
+              No hype. No shortcuts. No half-truths. Just clear, Spirit-led business strategy.
+            </p>
+          </div>
+        </div>
+
+        {/* RIGHT — photo */}
+        <div className="hero-right" style={{ flex: "0 0 45%", position: "relative", overflow: "hidden", minHeight: "100vh" }}>
+          <img
+            src="/images/staci-larry-hero.avif"
+            alt="Staci and Larry Wallace"
+            style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top" }}
+          />
+          <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to right, rgba(10,10,10,0.45) 0%, transparent 35%)" }} />
         </div>
       </div>
-
-      {/* RIGHT SIDE â€” photo */}
-      <div
-        className="hero-right"
-        style={{
-          flex: "0 0 45%",
-          position: "relative",
-          overflow: "hidden",
-          minHeight: "100vh",
-        }}
-      >
-        <img
-          src="/images/staci-larry-hero.avif"
-          alt="Staci and Larry Wallace"
-          style={{
-            position: "absolute",
-            top: 0,
-            left: 0,
-            width: "100%",
-            height: "100%",
-            objectFit: "cover",
-            objectPosition: "center top",
-          }}
-        />
-        {/* Subtle left edge fade to blend with dark background */}
-        <div
-          style={{
-            position: "absolute",
-            inset: 0,
-            background:
-              "linear-gradient(to right, rgba(10,10,10,0.4) 0%, transparent 30%)",
-          }}
-        />
-      </div>
-      </div>{/* end MAIN CONTENT ROW */}
     </section>
   );
 }
 
-/* â”€â”€ SECTION 2: EVENT DETAILS â”€â”€ */
+/* ── SECTION 2: EVENT DETAILS ── */
 function EventDetails() {
   const ref = useScrollReveal();
   return (
     <section style={{ background: "#FFFFFF", padding: "80px 20px" }}>
-      <div
-        ref={ref}
-        className="section-reveal"
-        style={{ maxWidth: "900px", margin: "0 auto", textAlign: "center" }}
-      >
-        <p
-          style={{
-            fontSize: "13px",
-            fontWeight: 700,
-            letterSpacing: "0.2em",
-            textTransform: "uppercase" as const,
-            color: "#CC0000",
-            marginBottom: "16px",
-          }}
-        >
-          EVENT DETAILS
+      <div ref={ref} className="section-reveal" style={{ maxWidth: "860px", margin: "0 auto", textAlign: "center" }}>
+        <p style={{ fontSize: "12px", fontWeight: 700, letterSpacing: "0.22em", textTransform: "uppercase" as const, color: "#CC0000", marginBottom: "16px", fontFamily: "'Work Sans', sans-serif" }}>
+          What This Is
         </p>
-        <h2
-          style={{
-            fontSize: "clamp(28px, 4vw, 42px)",
-            fontWeight: 700,
-            color: "#111111",
-            lineHeight: 1.2,
-            marginBottom: "32px",
-          }}
-        >
-          FREE 3-Day Kingdom Intelligence Masterclass &mdash; April 14-16 @
-          12:00 PM CST
+        <h2 style={{ fontSize: "clamp(28px, 4vw, 44px)", fontWeight: 900, color: "#111111", lineHeight: 1.15, marginBottom: "28px" }}>
+          We Are Entering the Most Disruptive Economic Shift in Modern History.
         </h2>
-        <p
-          style={{
-            fontSize: "18px",
-            color: "#444444",
-            lineHeight: 1.8,
-            marginBottom: "32px",
-            maxWidth: "800px",
-            margin: "0 auto 32px",
-          }}
-        >
-          Discover how to build a Purpose-Driven, HIGHLY PROFITABLE life and
-          business God&rsquo;s way! Walk through the Kingdom Intelligence
-          Framework &mdash; a proven step-by-step blueprint that has helped
-          thousands of business owners grow multi-million dollar companies
-          without sacrificing Faith, Family, or Freedom.
+        <p style={{ fontSize: "18px", color: "#444444", lineHeight: 1.85, marginBottom: "24px", maxWidth: "780px", margin: "0 auto 24px", fontFamily: "'Work Sans', sans-serif" }}>
+          AI is accelerating business at a pace the world has never seen. Ideas are generated instantly.
+          Automation is reshaping entire industries. Yet most leaders still don&rsquo;t know how to position
+          their companies for what&rsquo;s coming.
         </p>
-        <p
-          style={{
-            fontSize: "20px",
-            color: "#CC0000",
-            fontStyle: "italic",
-            fontWeight: 600,
-          }}
-        >
-          FREE For A LIMITED TIME ONLY (A $7,500 VALUE)
+        <p style={{ fontSize: "18px", color: "#111111", lineHeight: 1.85, marginBottom: "32px", maxWidth: "780px", margin: "0 auto 32px", fontFamily: "'Work Sans', sans-serif", fontWeight: 600 }}>
+          That&rsquo;s why Larry &amp; Staci Wallace created the Kingdom Intelligence Masterclass —
+          a FREE 3-day live event built to give faith-driven leaders the E.C.H.O. Framework, the
+          G.R.O.W.T.H. Method, and the spiritual intelligence to scale without sacrificing
+          what matters most.
+        </p>
+        <div style={{ display: "flex", justifyContent: "center", gap: "40px", flexWrap: "wrap", marginBottom: "32px" }}>
+          {[
+            { label: "Date", value: "April 14–16, 2026" },
+            { label: "Time", value: "12:00 PM CST Daily" },
+            { label: "Format", value: "Free Live Online Event" },
+          ].map((item, i) => (
+            <div key={i} style={{ textAlign: "center" }}>
+              <p style={{ fontSize: "11px", fontWeight: 700, letterSpacing: "0.18em", textTransform: "uppercase" as const, color: "#CC0000", marginBottom: "6px", fontFamily: "'Work Sans', sans-serif" }}>{item.label}</p>
+              <p style={{ fontSize: "18px", fontWeight: 700, color: "#111111" }}>{item.value}</p>
+            </div>
+          ))}
+        </div>
+        <p style={{ fontSize: "19px", color: "#CC0000", fontStyle: "italic", fontWeight: 700 }}>
+          FREE For A Limited Time Only (A $7,500 Value)
         </p>
       </div>
     </section>
   );
 }
 
-/* â”€â”€ SECTION 2b: VSL â”€â”€ */
+/* ── SECTION 2b: VSL ── */
 function VSLSection() {
   const ref = useScrollReveal();
   return (
     <section style={{ background: "#0a0a0a", padding: "80px 20px" }}>
-      <div
-        ref={ref}
-        className="section-reveal"
-        style={{ maxWidth: "900px", margin: "0 auto", textAlign: "center" }}
-      >
-        <p
-          style={{
-            fontSize: "13px",
-            fontWeight: 700,
-            letterSpacing: "0.2em",
-            textTransform: "uppercase" as const,
-            color: "#C9A55A",
-            marginBottom: "16px",
-            fontFamily: "'Work Sans', sans-serif",
-          }}
-        >
-          WATCH THIS FIRST
+      <div ref={ref} className="section-reveal" style={{ maxWidth: "900px", margin: "0 auto", textAlign: "center" }}>
+        <p style={{ fontSize: "12px", fontWeight: 700, letterSpacing: "0.22em", textTransform: "uppercase" as const, color: "#C9A55A", marginBottom: "16px", fontFamily: "'Work Sans', sans-serif" }}>
+          Watch This First
         </p>
-        <h2
-          style={{
-            fontSize: "clamp(26px, 3.5vw, 38px)",
-            fontWeight: 900,
-            color: "#FFFFFF",
-            marginBottom: "40px",
-            lineHeight: 1.2,
-          }}
-        >
-          See Why Thousands of Kingdom CEOs Are Going ALL IN
+        <h2 style={{ fontSize: "clamp(26px, 3.5vw, 40px)", fontWeight: 900, color: "#FFFFFF", marginBottom: "40px", lineHeight: 1.15 }}>
+          See Why Thousands of Kingdom CEOs<br />Are Going ALL IN
         </h2>
-
-        {/* Video embed placeholder â€” swap src with real YouTube/Vimeo URL */}
-        <div
-          style={{
-            position: "relative",
-            paddingBottom: "56.25%",
-            height: 0,
-            overflow: "hidden",
-            borderRadius: "12px",
-            boxShadow: "0 20px 60px rgba(0,0,0,0.6)",
-            border: "1px solid rgba(201,165,90,0.2)",
-            background: "#111",
-          }}
-        >
+        <div style={{
+          position: "relative", paddingBottom: "56.25%", height: 0, overflow: "hidden",
+          borderRadius: "12px", boxShadow: "0 20px 60px rgba(0,0,0,0.6)",
+          border: "1px solid rgba(201,165,90,0.2)", background: "#111",
+        }}>
           <iframe
             src="https://www.youtube.com/embed/VIDEO_ID_HERE?rel=0&modestbranding=1"
             title="Kingdom Intelligence Masterclass"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
-            style={{
-              position: "absolute",
-              top: 0,
-              left: 0,
-              width: "100%",
-              height: "100%",
-              border: "none",
-            }}
+            style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", border: "none" }}
           />
         </div>
-
         <div style={{ marginTop: "40px" }}>
           <CTAButton text="RESERVE MY FREE SEAT" />
         </div>
@@ -383,66 +241,41 @@ function VSLSection() {
   );
 }
 
-/* â”€â”€ SECTION 3: TESTIMONIALS (3 cards) â”€â”€ */
+/* ── SECTION 3: TESTIMONIALS (3 cards) ── */
 const testimonials3 = [
   {
     name: "Kyler Kropf",
     title: "Founder, SaddleBrookeLife",
-    quote:
-      "I was an 8th-grade dropout with zero business experience. Larry & Staci helped our company grow to $13 million in 9 months and over $60 million in 3 years!",
+    quote: "I was an 8th-grade dropout with zero business experience. Larry & Staci helped our company grow to $13 million in 9 months and over $60 million in 3 years!",
   },
   {
     name: "Dallas Marley",
     title: "Entrepreneur",
-    quote:
-      "In less than 12 months, we paid off over $2 million in debt, moved to Ecuador, and stepped into the life of our dreams.",
+    quote: "In less than 12 months, we paid off over $2 million in debt, moved to Ecuador, and stepped into the life of our dreams.",
   },
   {
     name: "Vangel Roberts",
     title: "CMO, Wade Roberts Plumbing",
-    quote:
-      "Over the last 8 months, we've experienced transformation in every area of our lives. Our company is thriving, but the greatest transformation has been in our marriage and with our kids.",
+    quote: "Our company is thriving, but the greatest transformation has been in our marriage and with our kids. Having coaches walk with us weekly and call us to a higher level has been a game-changer.",
   },
 ];
 
 function TestimonialCard({ t }: { t: { name: string; title: string; quote: string } }) {
   return (
-    <div
-      className="testimonial-card"
-      style={{
-        background: "rgba(255,255,255,0.05)",
-        border: "1px solid rgba(204,0,0,0.2)",
-        borderRadius: "16px",
-        padding: "32px",
-      }}
-    >
-      <span
-        style={{
-          fontSize: "64px",
-          fontFamily: "Georgia, serif",
-          color: "#CC0000",
-          lineHeight: 1,
-          display: "block",
-          marginBottom: "-10px",
-        }}
-      >
+    <div className="testimonial-card" style={{
+      background: "rgba(255,255,255,0.04)", border: "1px solid rgba(204,0,0,0.2)",
+      borderRadius: "16px", padding: "32px",
+    }}>
+      <span style={{ fontSize: "56px", fontFamily: "'Frank Ruhl Libre', Georgia, serif", color: "#CC0000", lineHeight: 1, display: "block", marginBottom: "-8px" }}>
         &ldquo;
       </span>
-      <p
-        style={{
-          fontSize: "16px",
-          color: "#FFFFFF",
-          lineHeight: 1.7,
-          fontStyle: "italic",
-          marginBottom: "24px",
-        }}
-      >
+      <p style={{ fontSize: "16px", color: "rgba(255,255,255,0.85)", lineHeight: 1.75, fontStyle: "italic", marginBottom: "24px", fontFamily: "'Work Sans', sans-serif" }}>
         {t.quote}
       </p>
-      <p style={{ fontSize: "15px", color: "#ccc" }}>
+      <p style={{ fontSize: "14px", color: "#ccc", fontFamily: "'Work Sans', sans-serif" }}>
         <span style={{ color: "#CC0000" }}>&mdash;</span>{" "}
         <strong style={{ color: "#FFFFFF" }}>{t.name}</strong>
-        <span style={{ color: "#888", marginLeft: "6px" }}>{t.title}</span>
+        <span style={{ color: "#666", marginLeft: "8px" }}>{t.title}</span>
       </p>
     </div>
   );
@@ -452,27 +285,15 @@ function Testimonials3() {
   const ref = useScrollReveal();
   return (
     <section style={{ background: "#111111", padding: "80px 20px" }}>
-      <div
-        ref={ref}
-        className="section-reveal"
-        style={{ maxWidth: "1100px", margin: "0 auto" }}
-      >
-        <p style={{ fontSize: "13px", fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase" as const, color: "#C9A55A", textAlign: "center", marginBottom: "12px" }}>
-          WHAT OUR CLIENTS ARE SAYING
+      <div ref={ref} className="section-reveal" style={{ maxWidth: "1100px", margin: "0 auto" }}>
+        <p style={{ fontSize: "12px", fontWeight: 700, letterSpacing: "0.22em", textTransform: "uppercase" as const, color: "#C9A55A", textAlign: "center", marginBottom: "12px", fontFamily: "'Work Sans', sans-serif" }}>
+          What Our Clients Are Saying
         </p>
-        <h2 style={{ fontSize: "clamp(28px, 4vw, 42px)", fontWeight: 900, color: "#FFFFFF", textAlign: "center", marginBottom: "48px", lineHeight: 1.2 }}>
+        <h2 style={{ fontSize: "clamp(28px, 4vw, 42px)", fontWeight: 900, color: "#FFFFFF", textAlign: "center", marginBottom: "48px", lineHeight: 1.15 }}>
           Real People. Real Results.
         </h2>
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
-            gap: "24px",
-          }}
-        >
-          {testimonials3.map((t, i) => (
-            <TestimonialCard key={i} t={t} />
-          ))}
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "24px" }}>
+          {testimonials3.map((t, i) => <TestimonialCard key={i} t={t} />)}
         </div>
       </div>
     </section>
@@ -507,7 +328,7 @@ const inviteCards = [
         <path d="M20 6L10 20h9l-3 10 16-14h-9l3-10z" stroke="#C9A55A" strokeWidth="1.5" strokeLinejoin="round"/>
       </svg>
     ),
-    text: "You've lived in BEAST mode so long your health and relationships have paid the price. You're exhausted — and know there's a better way.",
+    text: "You've been running hard — but something feels off. Your growth has outpaced your infrastructure, and you know it.",
   },
 ];
 
@@ -516,101 +337,45 @@ function Invitation() {
   const ref2 = useScrollReveal();
   return (
     <section style={{ background: "#0d0d0d", padding: "100px 20px 0", overflow: "hidden" }}>
-
-      {/* TOP: eyebrow + headline + cards */}
-      <div
-        ref={ref}
-        className="section-reveal"
-        style={{ maxWidth: "900px", margin: "0 auto", textAlign: "center", paddingBottom: "64px" }}
-      >
-        <p style={{
-          fontSize: "13px", fontWeight: 700, letterSpacing: "0.22em",
-          textTransform: "uppercase" as const, color: "#C9A55A", marginBottom: "20px",
-          fontFamily: "'Work Sans', sans-serif",
-        }}>
-          THIS IS FOR YOU IF...
+      <div ref={ref} className="section-reveal" style={{ maxWidth: "900px", margin: "0 auto", textAlign: "center", paddingBottom: "64px" }}>
+        <p style={{ fontSize: "12px", fontWeight: 700, letterSpacing: "0.22em", textTransform: "uppercase" as const, color: "#C9A55A", marginBottom: "20px", fontFamily: "'Work Sans', sans-serif" }}>
+          This Is For You If...
         </p>
-        <h2 style={{
-          fontSize: "clamp(34px, 5vw, 58px)", fontWeight: 900,
-          color: "#FFFFFF", lineHeight: 1.05, marginBottom: "56px",
-          textTransform: "uppercase" as const,
-        }}>
+        <h2 style={{ fontSize: "clamp(34px, 5vw, 58px)", fontWeight: 900, color: "#FFFFFF", lineHeight: 1.05, marginBottom: "56px", textTransform: "uppercase" as const }}>
           NOW IS THE TIME<br />TO GO <span style={{ color: "#CC0000" }}>ALL IN</span>
         </h2>
 
-        {/* 3 icon cards */}
-        <div style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
-          gap: "20px",
-          marginBottom: "64px",
-          textAlign: "left",
-        }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: "20px", marginBottom: "64px", textAlign: "left" }}>
           {inviteCards.map((card, i) => (
             <div key={i} style={{
-              background: "rgba(255,255,255,0.04)",
-              border: "1px solid rgba(201,165,90,0.2)",
-              borderRadius: "14px",
-              padding: "28px 24px",
-              display: "flex",
-              flexDirection: "column",
-              gap: "14px",
-              transition: "border-color 0.3s",
+              background: "rgba(255,255,255,0.04)", border: "1px solid rgba(201,165,90,0.2)",
+              borderRadius: "14px", padding: "28px 24px", display: "flex", flexDirection: "column", gap: "14px",
             }}>
               <div style={{ lineHeight: 1 }}>{card.icon}</div>
-              <p style={{
-                fontSize: "16px", color: "rgba(255,255,255,0.8)",
-                lineHeight: 1.7, fontFamily: "'Work Sans', sans-serif",
-              }}>{card.text}</p>
+              <p style={{ fontSize: "16px", color: "rgba(255,255,255,0.8)", lineHeight: 1.7, fontFamily: "'Work Sans', sans-serif" }}>{card.text}</p>
             </div>
           ))}
         </div>
 
-        {/* BIG QUESTION divider block */}
-        <div style={{
-          borderTop: "1px solid rgba(255,255,255,0.1)",
-          borderBottom: "1px solid rgba(255,255,255,0.1)",
-          padding: "52px 24px",
-          marginBottom: "48px",
-        }}>
-          <h3 style={{
-            fontSize: "clamp(22px, 3.5vw, 38px)", fontWeight: 900,
-            color: "#FFFFFF", lineHeight: 1.2, marginBottom: "20px",
-            textTransform: "uppercase" as const,
-          }}>
-            Is it possible to have it all<br />without forsaking Faith, Family, or Freedom?
+        <div style={{ borderTop: "1px solid rgba(255,255,255,0.1)", borderBottom: "1px solid rgba(255,255,255,0.1)", padding: "52px 24px", marginBottom: "48px" }}>
+          <h3 style={{ fontSize: "clamp(22px, 3.5vw, 38px)", fontWeight: 900, color: "#FFFFFF", lineHeight: 1.2, marginBottom: "20px", textTransform: "uppercase" as const }}>
+            Is it possible to build a 7–9 figure company<br />without forsaking Faith, Family, or Freedom?
           </h3>
-          <p style={{
-            fontSize: "clamp(20px, 2.5vw, 26px)", fontWeight: 700,
-            color: "#C9A55A", marginBottom: "20px",
-          }}>
+          <p style={{ fontSize: "clamp(20px, 2.5vw, 26px)", fontWeight: 700, color: "#C9A55A", marginBottom: "20px" }}>
             The answer is YES — and we are living proof.
           </p>
-          <p style={{
-            fontSize: "17px", color: "rgba(255,255,255,0.55)",
-            lineHeight: 1.7, maxWidth: "620px", margin: "0 auto",
-            fontFamily: "'Work Sans', sans-serif",
-          }}>
-            Get the exact blueprint we&rsquo;ve used to build multiple 7–9 figure
-            companies and a family legacy &mdash; God&rsquo;s way.
+          <p style={{ fontSize: "17px", color: "rgba(255,255,255,0.55)", lineHeight: 1.75, maxWidth: "620px", margin: "0 auto", fontFamily: "'Work Sans', sans-serif" }}>
+            Larry &amp; Staci Wallace have spent nearly four decades building companies from the ground up —
+            multiple 7, 8, and 9-figure businesses, all while keeping faith and family at the center.
+            In this Masterclass, they hand you the exact blueprint.
           </p>
         </div>
 
         <CTAButton />
       </div>
 
-      {/* WARRIORS FULL-WIDTH CINEMATIC BANNER */}
-      <div
-        ref={ref2}
-        className="section-reveal"
-        style={{
-          background: "#CC0000",
-          padding: "80px 20px",
-          textAlign: "center",
-          position: "relative",
-          overflow: "hidden",
-        }}
-      >
+      {/* WARRIORS BANNER */}
+      <div ref={ref2} className="section-reveal" style={{ background: "#CC0000", padding: "80px 20px", textAlign: "center", position: "relative", overflow: "hidden" }}>
         <div style={{
           position: "absolute", top: "-30px", left: "50%", transform: "translateX(-50%)",
           fontSize: "260px", color: "rgba(255,255,255,0.05)",
@@ -620,148 +385,62 @@ function Invitation() {
           &ldquo;
         </div>
         <p style={{
-          fontSize: "clamp(28px, 5vw, 60px)", fontWeight: 900,
-          color: "#FFFFFF", fontStyle: "italic", lineHeight: 1.1,
-          letterSpacing: "-0.01em", position: "relative", zIndex: 1,
-          textTransform: "uppercase" as const,
+          fontSize: "clamp(28px, 5vw, 60px)", fontWeight: 900, color: "#FFFFFF",
+          fontStyle: "italic", lineHeight: 1.1, letterSpacing: "-0.01em",
+          position: "relative", zIndex: 1, textTransform: "uppercase" as const,
         }}>
           Warriors don&rsquo;t retreat.<br />They reload.
         </p>
-        <div style={{
-          width: "60px", height: "3px", background: "rgba(255,255,255,0.4)",
-          margin: "24px auto 16px", borderRadius: "2px",
-        }} />
-        <p style={{
-          fontSize: "15px", color: "rgba(255,255,255,0.8)",
-          fontWeight: 700, letterSpacing: "0.15em",
-          textTransform: "uppercase" as const, position: "relative", zIndex: 1,
-          fontFamily: "'Work Sans', sans-serif",
-        }}>
+        <div style={{ width: "60px", height: "3px", background: "rgba(255,255,255,0.4)", margin: "24px auto 16px", borderRadius: "2px" }} />
+        <p style={{ fontSize: "14px", color: "rgba(255,255,255,0.8)", fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase" as const, position: "relative", zIndex: 1, fontFamily: "'Work Sans', sans-serif" }}>
           — Staci Wallace
         </p>
       </div>
     </section>
   );
 }
-/* â”€â”€ SECTION 5: ABOUT STACI â”€â”€ */
+
+/* ── SECTION 5: ABOUT STACI ── */
 function AboutStaci() {
   const ref = useScrollReveal();
   return (
     <section style={{ background: "#FFFFFF", padding: "80px 20px" }}>
-      <div
-        ref={ref}
-        className="section-reveal about-flex"
-        style={{
-          maxWidth: "1000px",
-          margin: "0 auto",
-          display: "flex",
-          alignItems: "flex-start",
-          gap: "48px",
-          flexWrap: "wrap",
-        }}
-      >
-        {/* Photo LEFT */}
+      <div ref={ref} className="section-reveal about-flex" style={{ maxWidth: "1020px", margin: "0 auto", display: "flex", alignItems: "flex-start", gap: "56px", flexWrap: "wrap" }}>
         <div style={{ flex: "0 0 auto" }}>
           <img
             src="/images/staci-headshot-best.jpg"
             alt="Staci Wallace"
             className="about-photo"
-            width={400}
-            style={{
-              width: "400px",
-              height: "auto",
-              display: "block",
-              borderRadius: "12px",
-              boxShadow: "0 20px 60px rgba(0,0,0,0.12)",
-            }}
+            style={{ width: "380px", height: "auto", display: "block", borderRadius: "12px", boxShadow: "0 20px 60px rgba(0,0,0,0.12)" }}
           />
         </div>
-
-        {/* Bio RIGHT */}
-        <div style={{ flex: "1 1 400px", minWidth: "280px" }}>
-          <p
-            style={{
-              fontSize: "13px",
-              fontWeight: 700,
-              letterSpacing: "0.2em",
-              textTransform: "uppercase" as const,
-              color: "#CC0000",
-              marginBottom: "8px",
-            }}
-          >
-            YOUR HOST
+        <div style={{ flex: "1 1 380px", minWidth: "280px" }}>
+          <p style={{ fontSize: "12px", fontWeight: 700, letterSpacing: "0.22em", textTransform: "uppercase" as const, color: "#CC0000", marginBottom: "8px", fontFamily: "'Work Sans', sans-serif" }}>
+            Your Host
           </p>
-          <h2
-            style={{
-              fontSize: "clamp(28px, 4vw, 40px)",
-              fontWeight: 700,
-              color: "#111111",
-              marginBottom: "8px",
-            }}
-          >
+          <h2 style={{ fontSize: "clamp(28px, 4vw, 44px)", fontWeight: 900, color: "#111111", marginBottom: "6px" }}>
             STACI WALLACE
           </h2>
-          <p
-            style={{
-              fontSize: "17px",
-              fontWeight: 600,
-              color: "#CC0000",
-              marginBottom: "28px",
-              textTransform: "uppercase" as const,
-              letterSpacing: "0.04em",
-            }}
-          >
-            CEO, FUELED BY FIRE &bull; 8X BEST-SELLING AUTHOR
+          <p style={{ fontSize: "15px", fontWeight: 700, color: "#CC0000", marginBottom: "28px", textTransform: "uppercase" as const, letterSpacing: "0.05em", fontFamily: "'Work Sans', sans-serif" }}>
+            CEO, Fueled By Fire &bull; 8x Best-Selling Author
           </p>
-          <p
-            style={{
-              fontSize: "17px",
-              color: "#444444",
-              lineHeight: 1.8,
-              marginBottom: "20px",
-            }}
-          >
-            For over four decades, I&rsquo;ve been building companies from the
-            ground up. My husband Larry and I have been married 28 years, and
-            together we&rsquo;ve built multiple 7, 8, and 9-figure businesses
-            &mdash; all while raising our family and keeping our faith at the
-            center of everything we do.
+          <p style={{ fontSize: "17px", color: "#444444", lineHeight: 1.85, marginBottom: "20px", fontFamily: "'Work Sans', sans-serif" }}>
+            After 28 years of marriage and nearly four decades of growing companies from scratch,
+            Staci and Larry Wallace have built multiple 7, 8, and 9-figure businesses — all while
+            raising their family and keeping faith at the center of everything they do.
           </p>
-          <p
-            style={{
-              fontSize: "17px",
-              color: "#444444",
-              lineHeight: 1.8,
-              marginBottom: "20px",
-            }}
-          >
-            I&rsquo;ve had the honor of sharing stages with 5 U.S. Presidents,
-            coaching tens of thousands of business owners, and leading one of
-            the nation&rsquo;s top faith-based business coaching companies.
-            The Kingdom Intelligence Framework was born out of real experience
-            &mdash; decades of wins, losses, and the relentless pursuit of
-            building something that truly matters.
+          <p style={{ fontSize: "17px", color: "#444444", lineHeight: 1.85, marginBottom: "20px", fontFamily: "'Work Sans', sans-serif" }}>
+            Staci has shared stages with 5 U.S. Presidents, coached tens of thousands of business
+            owners, and built one of the nation&rsquo;s top faith-based business coaching companies.
+            The Kingdom Intelligence Framework was forged over decades of real wins, real losses,
+            and the relentless pursuit of building something that truly matters.
           </p>
-          <p
-            style={{
-              fontSize: "17px",
-              color: "#444444",
-              lineHeight: 1.8,
-              marginBottom: "28px",
-            }}
-          >
-            If you&rsquo;re a leader who refuses to choose between success and
-            significance &mdash; this Masterclass was built for you.
+          <p style={{ fontSize: "17px", color: "#444444", lineHeight: 1.85, marginBottom: "28px", fontFamily: "'Work Sans', sans-serif" }}>
+            <strong style={{ color: "#111" }}>Multiplying what God has given you stewardship over
+            is not just a good idea &mdash; it&rsquo;s a divine mandate.</strong>
           </p>
-          <p
-            style={{
-              fontSize: "20px",
-              fontWeight: 700,
-              fontStyle: "italic",
-              color: "#CC0000",
-            }}
-          >
-            &ldquo;Your business should fund your calling, not replace it.&rdquo;
+          <p style={{ fontSize: "19px", fontWeight: 700, fontStyle: "italic", color: "#CC0000" }}>
+            &ldquo;A dream without a plan of action is nothing but wishful thinking.&rdquo;
           </p>
         </div>
       </div>
@@ -769,23 +448,23 @@ function AboutStaci() {
   );
 }
 
-/* â”€â”€ SECTION 6: WHAT YOU WILL LEARN â”€â”€ */
+/* ── SECTION 6: WHAT YOU WILL LEARN (E.C.H.O. aligned) ── */
 const learnItems = [
-  "Identify your #1 Profit-Making Activity (PMA) and create a plan to hire the team to scale it",
-  "Increase profitability and build a thriving business without losing peace",
-  "Build better relationships with family, team, and spouse",
-  "Craft your unique brand strategy for magnetic marketing",
-  "Implement the Kingdom Intelligence Framework for scalable operations",
-  "Clarify your super-powers with our signature S.W.E.E.T. Spot Audit",
-  "Apply the 1% Method of Micro-progress",
-  "Ignite a purpose-driven life your family wants to champion",
+  { tag: "E — Economic Stewardship", text: "Install the Four Pillars of Economic Infrastructure: Vision & Strategy, Operational Systems, Leadership Infrastructure, and Financial Intelligence." },
+  { tag: "C — Culture Architecture", text: "Build a team culture that attracts, develops, and multiplies leaders who carry your vision — without you becoming the bottleneck." },
+  { tag: "H — Human Infrastructure", text: "Transition from founder-dependent to team-managed — so your company can scale beyond you, not because of you." },
+  { tag: "O — Operational Excellence", text: "Install systems, AI, and automation that remove friction, increase speed, and allow your company to scale with precision." },
+  { tag: "Kingdom Intelligence", text: "Discover the Intelligence Hierarchy — how AI, Human Intelligence, and Spirit-led Kingdom Intelligence work together for dominion in the marketplace." },
+  { tag: "G.R.O.W.T.H. Method", text: "Walk through the full G.R.O.W.T.H. framework: God-Sized Vision · Revenue Architecture · Operational Excellence · Wise Counsel · Team Multiplication · Habit Discipline." },
+  { tag: "S.W.E.E.T. Spot Audit", text: "Clarify your #1 Profit-Making Activity (PMA) and identify exactly where your time, energy, and team need to be focused for maximum scale." },
+  { tag: "The Thresher Principle", text: "Learn why pressure doesn't create cracks — it exposes them. Find and fix the small structural blind spots that could sink your ship before they become catastrophic." },
 ];
 
-function RedCheck() {
+function GoldCheck() {
   return (
-    <svg width="28" height="28" viewBox="0 0 28 28" fill="none" style={{ flexShrink: 0, marginTop: "2px" }}>
-      <circle cx="14" cy="14" r="14" fill="rgba(204,0,0,0.1)" />
-      <path d="M8 14.5L12 18.5L20 10.5" stroke="#CC0000" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" style={{ flexShrink: 0, marginTop: "3px" }}>
+      <circle cx="11" cy="11" r="10.5" stroke="#C9A55A" strokeWidth="1.2"/>
+      <path d="M6.5 11.5L9.5 14.5L15.5 8.5" stroke="#C9A55A" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
     </svg>
   );
 }
@@ -793,70 +472,35 @@ function RedCheck() {
 function WhatYouLearn() {
   const ref = useScrollReveal();
   return (
-    <section style={{ background: "#F5F5F5", padding: "80px 20px" }}>
-      <div
-        ref={ref}
-        className="section-reveal"
-        style={{ maxWidth: "900px", margin: "0 auto" }}
-      >
-        <p
-          style={{
-            fontSize: "13px",
-            fontWeight: 700,
-            letterSpacing: "0.2em",
-            textTransform: "uppercase" as const,
-            color: "#CC0000",
-            marginBottom: "16px",
-            textAlign: "center",
-          }}
-        >
-          WHAT YOU WILL LEARN
+    <section style={{ background: "#F7F6F4", padding: "80px 20px" }}>
+      <div ref={ref} className="section-reveal" style={{ maxWidth: "960px", margin: "0 auto" }}>
+        <p style={{ fontSize: "12px", fontWeight: 700, letterSpacing: "0.22em", textTransform: "uppercase" as const, color: "#CC0000", marginBottom: "16px", textAlign: "center", fontFamily: "'Work Sans', sans-serif" }}>
+          What You Will Learn
         </p>
-        <h2
-          style={{
-            fontSize: "clamp(28px, 4vw, 40px)",
-            fontWeight: 700,
-            color: "#111111",
-            marginBottom: "48px",
-            textAlign: "center",
-            lineHeight: 1.3,
-          }}
-        >
-          During This 3-Day Transformational Event, You&rsquo;ll Learn How
-          To...
+        <h2 style={{ fontSize: "clamp(28px, 4vw, 42px)", fontWeight: 900, color: "#111111", marginBottom: "12px", textAlign: "center", lineHeight: 1.2 }}>
+          The Complete E.C.H.O. Blueprint
         </h2>
-        <div
-          className="learn-grid"
-          style={{
-            display: "grid",
-            gridTemplateColumns: "1fr 1fr",
-            gap: "24px",
-          }}
-        >
+        <p style={{ fontSize: "17px", color: "#666", textAlign: "center", marginBottom: "48px", fontFamily: "'Work Sans', sans-serif", maxWidth: "680px", margin: "0 auto 48px" }}>
+          During this 3-day transformational event, you&rsquo;ll install the exact architecture required
+          to build a company that ECHOS beyond your lifetime.
+        </p>
+        <div className="learn-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "20px" }}>
           {learnItems.map((item, i) => (
-            <div
-              key={i}
-              style={{
-                display: "flex",
-                alignItems: "flex-start",
-                gap: "14px",
-                background: "#FFFFFF",
-                border: "1px solid #E5E5E5",
-                borderRadius: "12px",
-                padding: "20px",
-                boxShadow: "0 4px 20px rgba(0,0,0,0.08)",
-              }}
-            >
-              <RedCheck />
-              <p
-                style={{
-                  fontSize: "17px",
-                  color: "#444444",
-                  lineHeight: 1.6,
-                }}
-              >
-                {item}
-              </p>
+            <div key={i} style={{
+              display: "flex", alignItems: "flex-start", gap: "14px",
+              background: "#FFFFFF", border: "1px solid #E8E8E8",
+              borderRadius: "12px", padding: "20px 22px",
+              boxShadow: "0 2px 16px rgba(0,0,0,0.05)",
+            }}>
+              <GoldCheck />
+              <div>
+                <p style={{ fontSize: "12px", fontWeight: 700, color: "#C9A55A", letterSpacing: "0.1em", textTransform: "uppercase" as const, marginBottom: "4px", fontFamily: "'Work Sans', sans-serif" }}>
+                  {item.tag}
+                </p>
+                <p style={{ fontSize: "15px", color: "#444444", lineHeight: 1.65, fontFamily: "'Work Sans', sans-serif" }}>
+                  {item.text}
+                </p>
+              </div>
             </div>
           ))}
         </div>
@@ -868,79 +512,60 @@ function WhatYouLearn() {
   );
 }
 
-/* â”€â”€ SECTION 7: NOT FOR / FOR (NOTE) â”€â”€ */
+/* ── SECTION 7: NOTE / QUALIFIER ── */
 function NoteSection() {
   const ref = useScrollReveal();
   return (
     <section style={{ background: "#FFFFFF", padding: "80px 20px" }}>
-      <div
-        ref={ref}
-        className="section-reveal"
-        style={{ maxWidth: "900px", margin: "0 auto", textAlign: "center" }}
-      >
-        <div
-          style={{
-            border: "2px solid #CC0000",
-            borderRadius: "12px",
-            padding: "48px 40px",
-            marginBottom: "48px",
-            background: "#FFFFFF",
-          }}
-        >
-          <p
-            style={{
-              fontSize: "20px",
-              color: "#444444",
-              lineHeight: 1.8,
-            }}
-          >
-            <strong style={{ color: "#CC0000" }}>NOTE:</strong> This course is
-            NOT for money-chasers or passive dreamers. But it IS for the
-            entrepreneur who knows they have a God-given business the world
-            desperately needs.
+      <div ref={ref} className="section-reveal" style={{ maxWidth: "860px", margin: "0 auto", textAlign: "center" }}>
+        <div style={{ border: "2px solid #111111", borderRadius: "12px", padding: "48px 40px", marginBottom: "48px" }}>
+          <p style={{ fontSize: "12px", fontWeight: 700, letterSpacing: "0.22em", textTransform: "uppercase" as const, color: "#CC0000", marginBottom: "16px", fontFamily: "'Work Sans', sans-serif" }}>
+            A Word of Honesty
+          </p>
+          <p style={{ fontSize: "19px", color: "#222222", lineHeight: 1.8, fontFamily: "'Work Sans', sans-serif" }}>
+            This Masterclass is <strong>NOT</strong> for money-chasers, passive dreamers, or leaders
+            unwilling to do what it takes to build the infrastructure real scale demands.
+          </p>
+          <p style={{ fontSize: "19px", color: "#222222", lineHeight: 1.8, marginTop: "16px", fontFamily: "'Work Sans', sans-serif" }}>
+            But it <strong style={{ color: "#CC0000" }}>IS</strong> for the entrepreneur who knows
+            they carry a God-given business the world desperately needs — and is ready to build it
+            the right way.
           </p>
         </div>
-        <h2
-          style={{
-            fontSize: "clamp(32px, 5vw, 48px)",
-            fontWeight: 900,
-            color: "#111111",
-            marginBottom: "32px",
-          }}
-        >
-          This Is Your Moment. Don&rsquo;t Miss It.
+        <h2 style={{ fontSize: "clamp(30px, 5vw, 48px)", fontWeight: 900, color: "#111111", marginBottom: "12px" }}>
+          This Is Your Moment.
         </h2>
+        <p style={{ fontSize: "18px", color: "#666", marginBottom: "36px", fontFamily: "'Work Sans', sans-serif" }}>
+          Knowledge alone doesn&rsquo;t build companies. Implementation does — and implementation
+          requires the right room.
+        </p>
         <CTAButton dark={true} />
       </div>
     </section>
   );
 }
 
-/* â”€â”€ SECTION 8: MORE TESTIMONIALS (2x2) â”€â”€ */
+/* ── SECTION 8: MORE TESTIMONIALS ── */
 const testimonials4 = [
   {
     name: "Kolton Kropf",
     title: "CEO, SaddlebrookeLife",
-    quote:
-      "Our business was headed toward bankruptcy and after only 9 months, we turned it into an 8-figure success story on target to surpass $100 million in revenue.",
+    quote: "Our business was headed toward bankruptcy and after only 9 months, we turned it into an 8-figure success story on target to surpass $100 million in revenue. We've built a Christ-centered team culture and are paying off our new 85,000 sq ft facility.",
   },
   {
     name: "Delbert Friesen",
     title: "President, Earthmax",
-    quote:
-      "I've never heard anyone bridge the gap between elite business training with Kingdom principles like Staci. She has helped us scale profits while building Kingdom generosity and legacy impact.",
+    quote: "I've never heard anyone bridge the gap between elite business training and Kingdom principles like Staci. She has helped us scale profits while building Kingdom generosity and legacy impact. Staci and Larry are the best in the world at Kingdom Business Mastery.",
   },
   {
     name: "Eric Moland",
     title: "CEO, Black Dog Insurance",
-    quote:
-      "In one month, my income jumped 35%. The next month, the largest commission sales month in 40 years â€” more than double from the previous year. Our entire business profit is up over 50% this year alone.",
+    quote: "In one month, my income jumped 35%. The next month, the largest commission sales month in 40 years — more than double the previous year. Our entire business profit is up over 50% this year alone.",
   },
   {
     name: "Alex & Irina Chifor",
     title: "Commercial Investors",
-    quote:
-      "FBF has had a monumental impact on our lives. We've built an 8-figure commercial investment business while keeping faith and family first.",
+    quote: "FBF has had a monumental impact on our lives. We've built an 8-figure commercial investment business while keeping faith and family first.",
   },
 ];
 
@@ -948,128 +573,76 @@ function MoreTestimonials() {
   const ref = useScrollReveal();
   return (
     <section style={{ background: "#111111", padding: "80px 20px" }}>
-      <div
-        ref={ref}
-        className="section-reveal"
-        style={{ maxWidth: "1100px", margin: "0 auto" }}
-      >
-        <p
-          style={{
-            fontSize: "13px",
-            fontWeight: 700,
-            letterSpacing: "0.2em",
-            textTransform: "uppercase" as const,
-            color: "#CC0000",
-            textAlign: "center",
-            marginBottom: "16px",
-          }}
-        >
-          TESTIMONIALS
+      <div ref={ref} className="section-reveal" style={{ maxWidth: "1100px", margin: "0 auto" }}>
+        <p style={{ fontSize: "12px", fontWeight: 700, letterSpacing: "0.22em", textTransform: "uppercase" as const, color: "#C9A55A", textAlign: "center", marginBottom: "12px", fontFamily: "'Work Sans', sans-serif" }}>
+          Testimonials
         </p>
-        <h2
-          style={{
-            fontSize: "clamp(32px, 5vw, 48px)",
-            fontWeight: 700,
-            color: "#FFFFFF",
-            textAlign: "center",
-            marginBottom: "48px",
-          }}
-        >
+        <h2 style={{ fontSize: "clamp(32px, 5vw, 48px)", fontWeight: 900, color: "#FFFFFF", textAlign: "center", marginBottom: "48px", lineHeight: 1.15 }}>
           RESULTS MATTER...
         </h2>
-        <div
-          className="testimonial-grid-4"
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(2, 1fr)",
-            gap: "24px",
-          }}
-        >
-          {testimonials4.map((t, i) => (
-            <TestimonialCard key={i} t={t} />
-          ))}
+        <div className="testimonial-grid-4" style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: "24px" }}>
+          {testimonials4.map((t, i) => <TestimonialCard key={i} t={t} />)}
         </div>
       </div>
     </section>
   );
 }
 
-/* â”€â”€ SECTION 9: FINAL CTA â”€â”€ */
+/* ── SECTION 9: FINAL CTA ── */
 function FinalCTA() {
   const ref = useScrollReveal();
   return (
-    <section
-      style={{
-        background: "#111111",
-        padding: "100px 20px",
-      }}
-    >
-      <div
-        ref={ref}
-        className="section-reveal"
-        style={{ maxWidth: "900px", margin: "0 auto", textAlign: "center" }}
-      >
-        <p style={{ fontSize: "13px", fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase" as const, color: "#C9A55A", marginBottom: "16px" }}>
-          APRIL 14-16, 2026
+    <section style={{ background: "#0a0a0a", padding: "100px 20px", position: "relative", overflow: "hidden" }}>
+      <div style={{
+        position: "absolute", inset: 0,
+        background: "radial-gradient(ellipse at center, rgba(201,165,90,0.07) 0%, transparent 70%)",
+        pointerEvents: "none",
+      }} />
+      <div ref={ref} className="section-reveal" style={{ maxWidth: "820px", margin: "0 auto", textAlign: "center", position: "relative", zIndex: 1 }}>
+        <p style={{ fontSize: "12px", fontWeight: 700, letterSpacing: "0.22em", textTransform: "uppercase" as const, color: "#C9A55A", marginBottom: "20px", fontFamily: "'Work Sans', sans-serif" }}>
+          April 14–16, 2026 · Free Live Event
         </p>
-        <h2
-          style={{
-            fontSize: "clamp(36px, 5vw, 60px)",
-            fontWeight: 900,
-            color: "#FFFFFF",
-            marginBottom: "16px",
-            lineHeight: 1.05,
-          }}
-        >
-          ARE YOU READY TO<br />GO ALL IN?
+        <h2 style={{ fontSize: "clamp(34px, 5vw, 56px)", fontWeight: 900, color: "#FFFFFF", marginBottom: "20px", lineHeight: 1.1 }}>
+          Playing Small Has Never<br />Built a Kingdom.
         </h2>
-        <p
-          style={{
-            fontSize: "20px",
-            color: "rgba(255,255,255,0.7)",
-            marginBottom: "40px",
-            lineHeight: 1.6,
-            maxWidth: "600px",
-            margin: "0 auto 40px",
-          }}
-        >
-          Join thousands of faith-driven leaders building God-sized businesses &mdash; without sacrificing faith, family, or freedom.
+        <p style={{ fontSize: "19px", color: "rgba(255,255,255,0.65)", marginBottom: "12px", lineHeight: 1.7, fontFamily: "'Work Sans', sans-serif", maxWidth: "640px", margin: "0 auto 12px" }}>
+          You were not built for business as usual. You were built for an ECHO —
+          leadership that outlives the founder, vision that multiplies through culture,
+          impact that reverberates through generations.
+        </p>
+        <p style={{ fontSize: "17px", color: "#C9A55A", marginBottom: "40px", fontFamily: "'Work Sans', sans-serif", fontWeight: 600 }}>
+          Join thousands of Kingdom CEOs who are building God-sized businesses —<br />without sacrificing what matters most.
         </p>
         <CTAButton text="CLAIM YOUR FREE SEAT" />
+        <p style={{ fontSize: "12px", color: "rgba(255,255,255,0.3)", marginTop: "24px", fontFamily: "'Work Sans', sans-serif" }}>
+          Free for a limited time. Live online event April 14–16, 2026.
+        </p>
       </div>
     </section>
   );
 }
 
-/* â”€â”€ FOOTER â”€â”€ */
+/* ── FOOTER ── */
 function Footer() {
   return (
-    <footer
-      style={{
-        background: "#111111",
-        borderTop: "1px solid rgba(255,255,255,0.1)",
-        padding: "40px 20px",
-        textAlign: "center",
-      }}
-    >
-      <img
-        src="/images/fbf-logo-white.png"
-        alt="Fueled By Fire"
-        style={{ height: "40px", width: "auto", marginBottom: "16px", display: "inline-block" }}
-      />
-      <p style={{ fontSize: "14px", color: "rgba(255,255,255,0.5)", marginBottom: "8px" }}>
+    <footer style={{ background: "#0a0a0a", borderTop: "1px solid rgba(255,255,255,0.08)", padding: "48px 20px", textAlign: "center" }}>
+      <img src="/images/fbf-logo-white.png" alt="Fueled By Fire" style={{ height: "40px", width: "auto", display: "inline-block", marginBottom: "20px" }} />
+      <p style={{ fontSize: "14px", color: "rgba(255,255,255,0.3)", marginBottom: "6px", fontFamily: "'Work Sans', sans-serif" }}>
         &copy; 2026 Fueled By Fire. All Rights Reserved.
       </p>
-      <div style={{ display: "flex", justifyContent: "center", gap: "24px", marginTop: "8px" }}>
-        <a href="#" style={{ fontSize: "13px", color: "rgba(255,255,255,0.4)" }}>Privacy Policy</a>
-        <a href="#" style={{ fontSize: "13px", color: "rgba(255,255,255,0.4)" }}>Terms of Service</a>
-        <a href="#" style={{ fontSize: "13px", color: "rgba(255,255,255,0.4)" }}>Contact</a>
+      <p style={{ fontSize: "13px", color: "rgba(255,255,255,0.2)", marginBottom: "20px", fontFamily: "'Work Sans', sans-serif" }}>
+        10% of every program fee supports Epiphany Global (Uganda) &amp; EMwomen.
+      </p>
+      <div style={{ display: "flex", justifyContent: "center", gap: "28px" }}>
+        <a href="#" style={{ fontSize: "12px", color: "rgba(255,255,255,0.3)", fontFamily: "'Work Sans', sans-serif" }}>Privacy Policy</a>
+        <a href="#" style={{ fontSize: "12px", color: "rgba(255,255,255,0.3)", fontFamily: "'Work Sans', sans-serif" }}>Terms of Service</a>
+        <a href="#" style={{ fontSize: "12px", color: "rgba(255,255,255,0.3)", fontFamily: "'Work Sans', sans-serif" }}>Contact</a>
       </div>
     </footer>
   );
 }
 
-/* â”€â”€ PAGE â”€â”€ */
+/* ── PAGE ── */
 export default function Home() {
   return (
     <main>
