@@ -675,25 +675,27 @@ function GalleryCard({ t }: { t: { name: string; title: string; quote: string; p
     <div className="testimonial-card" style={{
       background: "#0a0a0a",
       border: "1px solid rgba(255,255,255,0.08)",
-      borderRadius: "16px",
+      borderRadius: "12px",
       overflow: "hidden",
+      display: "flex",
+      flexDirection: "row",
+      gap: "0",
     }}>
-      {/* Full photo */}
+      {/* Photo — left side, square */}
       {t.photo && (
-        <div style={{ width: "100%", height: "220px", overflow: "hidden", position: "relative" }}>
+        <div style={{ width: "110px", flexShrink: 0, position: "relative", overflow: "hidden" }}>
           <img
             src={t.photo}
             alt={t.name}
-            style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top", display: "block" }}
+            style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center center", display: "block", position: "absolute", top: 0, left: 0 }}
           />
-          <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, transparent 50%, #0a0a0a 100%)" }} />
         </div>
       )}
-      {/* Content */}
-      <div style={{ padding: "24px 28px 28px" }}>
-        <p style={{ fontSize: "15px", fontWeight: 700, color: "#FFFFFF", marginBottom: "2px" }}>{t.name}</p>
-        <p style={{ fontSize: "12px", color: "#C9A55A", marginBottom: "16px", fontFamily: "'Work Sans', sans-serif", letterSpacing: "0.04em" }}>{t.title}</p>
-        <p style={{ fontSize: "15px", color: "rgba(255,255,255,0.75)", lineHeight: 1.75, fontStyle: "italic", fontFamily: "'Work Sans', sans-serif" }}>
+      {/* Content — right side */}
+      <div style={{ padding: "20px 20px 20px 18px", flex: 1, minWidth: 0 }}>
+        <p style={{ fontSize: "14px", fontWeight: 700, color: "#FFFFFF", marginBottom: "2px", fontFamily: "'Frank Ruhl Libre', Georgia, serif" }}>{t.name}</p>
+        <p style={{ fontSize: "11px", color: "#C9A55A", marginBottom: "10px", fontFamily: "'Work Sans', sans-serif", letterSpacing: "0.04em" }}>{t.title}</p>
+        <p style={{ fontSize: "13px", color: "rgba(255,255,255,0.7)", lineHeight: 1.65, fontStyle: "italic", fontFamily: "'Work Sans', sans-serif" }}>
           &ldquo;{t.quote}&rdquo;
         </p>
       </div>
@@ -712,7 +714,7 @@ function MoreTestimonials() {
         <h2 style={{ fontSize: "clamp(32px, 5vw, 48px)", fontWeight: 900, color: "#FFFFFF", textAlign: "center", marginBottom: "48px", lineHeight: 1.15 }}>
           Lives Changed. Businesses Built.
         </h2>
-        <div className="testimonial-grid-4" style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: "24px" }}>
+        <div className="testimonial-grid-4" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px" }}>
           {testimonials4.map((t, i) => <GalleryCard key={i} t={t} />)}
         </div>
       </div>
