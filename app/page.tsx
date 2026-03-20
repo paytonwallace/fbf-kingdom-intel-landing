@@ -585,9 +585,8 @@ const prepSteps = [
 
 function NoteSection() {
   const ref = useScrollReveal();
-  const ref2 = useScrollReveal();
   return (
-    <section style={{ background: "#FFFFFF", padding: "80px 20px 0" }}>
+    <section style={{ background: "#FFFFFF", padding: "80px 20px" }}>
 
       {/* HOW TO PREPARE */}
       <div ref={ref} className="section-reveal" style={{ maxWidth: "960px", margin: "0 auto", paddingBottom: "80px" }}>
@@ -622,22 +621,7 @@ function NoteSection() {
         </div>
       </div>
 
-      {/* QUALIFIER — dark full-width strip */}
-      <div ref={ref2} className="section-reveal" style={{ background: "#0a0a0a", padding: "64px 20px" }}>
-        <div style={{ maxWidth: "760px", margin: "0 auto", textAlign: "center" }}>
-          <p style={{ fontSize: "12px", fontWeight: 700, letterSpacing: "0.22em", textTransform: "uppercase" as const, color: "#C9A55A", marginBottom: "20px", fontFamily: "'Work Sans', sans-serif" }}>
-            A Word of Honesty
-          </p>
-          <p style={{ fontSize: "19px", color: "rgba(255,255,255,0.8)", lineHeight: 1.8, fontFamily: "'Work Sans', sans-serif", marginBottom: "16px" }}>
-            This Masterclass is <strong style={{ color: "#FFFFFF" }}>NOT</strong> for money-chasers, passive dreamers, or leaders
-            unwilling to build the infrastructure real scale demands.
-          </p>
-          <p style={{ fontSize: "19px", color: "rgba(255,255,255,0.8)", lineHeight: 1.8, fontFamily: "'Work Sans', sans-serif" }}>
-            But it <strong style={{ color: "#CC0000" }}>IS</strong> for the entrepreneur who knows they carry a God-given business
-            the world desperately needs — and is ready to build it the right way.
-          </p>
-        </div>
-      </div>
+
     </section>
   );
 }
