@@ -103,51 +103,48 @@ function Hero() {
               </span>
             </div>
 
-            {/* Headline */}
+            {/* H1 */}
             <h1 style={{
-              fontSize: "clamp(38px, 5.5vw, 68px)",
+              fontSize: "clamp(42px, 6vw, 76px)",
               fontWeight: 900,
-              lineHeight: 1.0,
+              lineHeight: 0.95,
               color: "#FFFFFF",
-              marginBottom: "16px",
+              marginBottom: "20px",
               textTransform: "uppercase" as const,
-              letterSpacing: "-0.01em",
+              letterSpacing: "-0.02em",
             }}>
-              AI Increases Speed.<br />
-              <span style={{ color: "#CC0000" }}>Kingdom Intelligence</span><br />
-              Determines Dominion.
+              Kingdom<br />Intelligence<br />
+              <span style={{ color: "#CC0000" }}>Masterclass</span>
             </h1>
+
+            {/* Power line */}
+            <p style={{
+              fontSize: "17px",
+              color: "#C9A55A",
+              lineHeight: 1.5,
+              marginBottom: "16px",
+              fontFamily: "'Work Sans', sans-serif",
+              fontWeight: 700,
+              letterSpacing: "0.01em",
+            }}>
+              AI Increases Speed. Kingdom Intelligence Determines Dominion.
+            </p>
 
             {/* Subhead */}
             <p style={{
-              fontSize: "18px",
-              color: "rgba(255,255,255,0.75)",
-              lineHeight: 1.65,
-              marginBottom: "12px",
+              fontSize: "17px",
+              color: "rgba(255,255,255,0.65)",
+              lineHeight: 1.7,
+              marginBottom: "36px",
               fontFamily: "'Work Sans', sans-serif",
               fontWeight: 400,
             }}>
-              The leaders who will thrive in this next decade aren&rsquo;t just adopting new tools.
-              They&rsquo;re developing the Spirit-led wisdom, operational foresight, and leadership structure
+              The leaders who will thrive in this next decade aren&rsquo;t just adopting new tools —
+              they&rsquo;re developing the Spirit-led wisdom and leadership structure
               required to steward growth well.
             </p>
 
-            <p style={{
-              fontSize: "16px",
-              color: "#C9A55A",
-              marginBottom: "36px",
-              fontFamily: "'Work Sans', sans-serif",
-              fontWeight: 600,
-              letterSpacing: "0.02em",
-            }}>
-              Kingdom Intelligence Masterclass — FREE (A $7,500 Value)
-            </p>
-
             <CTAButton />
-
-            <p style={{ fontSize: "13px", color: "rgba(255,255,255,0.3)", marginTop: "20px", fontFamily: "'Work Sans', sans-serif" }}>
-              No hype. No shortcuts. No half-truths. Just clear, Spirit-led business strategy.
-            </p>
           </div>
         </div>
 
@@ -411,7 +408,7 @@ function AboutStaci() {
             src="/images/staci-headshot-best.jpg"
             alt="Staci Wallace"
             className="about-photo"
-            style={{ width: "380px", height: "auto", display: "block", borderRadius: "12px", boxShadow: "0 20px 60px rgba(0,0,0,0.12)" }}
+            style={{ width: "100%", maxWidth: "380px", height: "auto", display: "block", borderRadius: "12px", boxShadow: "0 20px 60px rgba(0,0,0,0.12)" }}
           />
         </div>
         <div style={{ flex: "1 1 380px", minWidth: "280px" }}>
@@ -472,15 +469,15 @@ function GoldCheck() {
 function WhatYouLearn() {
   const ref = useScrollReveal();
   return (
-    <section style={{ background: "#F7F6F4", padding: "80px 20px" }}>
+    <section style={{ background: "#111111", padding: "80px 20px" }}>
       <div ref={ref} className="section-reveal" style={{ maxWidth: "960px", margin: "0 auto" }}>
-        <p style={{ fontSize: "12px", fontWeight: 700, letterSpacing: "0.22em", textTransform: "uppercase" as const, color: "#CC0000", marginBottom: "16px", textAlign: "center", fontFamily: "'Work Sans', sans-serif" }}>
+        <p style={{ fontSize: "12px", fontWeight: 700, letterSpacing: "0.22em", textTransform: "uppercase" as const, color: "#C9A55A", marginBottom: "16px", textAlign: "center", fontFamily: "'Work Sans', sans-serif" }}>
           What You Will Learn
         </p>
-        <h2 style={{ fontSize: "clamp(28px, 4vw, 42px)", fontWeight: 900, color: "#111111", marginBottom: "12px", textAlign: "center", lineHeight: 1.2 }}>
+        <h2 style={{ fontSize: "clamp(28px, 4vw, 42px)", fontWeight: 900, color: "#FFFFFF", marginBottom: "12px", textAlign: "center", lineHeight: 1.2 }}>
           The Complete E.C.H.O. Blueprint
         </h2>
-        <p style={{ fontSize: "17px", color: "#666", textAlign: "center", marginBottom: "48px", fontFamily: "'Work Sans', sans-serif", maxWidth: "680px", margin: "0 auto 48px" }}>
+        <p style={{ fontSize: "17px", color: "rgba(255,255,255,0.55)", textAlign: "center", marginBottom: "48px", fontFamily: "'Work Sans', sans-serif", maxWidth: "680px", margin: "0 auto 48px" }}>
           During this 3-day transformational event, you&rsquo;ll install the exact architecture required
           to build a company that ECHOS beyond your lifetime.
         </p>
@@ -488,16 +485,15 @@ function WhatYouLearn() {
           {learnItems.map((item, i) => (
             <div key={i} style={{
               display: "flex", alignItems: "flex-start", gap: "14px",
-              background: "#FFFFFF", border: "1px solid #E8E8E8",
+              background: "rgba(255,255,255,0.04)", border: "1px solid rgba(201,165,90,0.15)",
               borderRadius: "12px", padding: "20px 22px",
-              boxShadow: "0 2px 16px rgba(0,0,0,0.05)",
             }}>
               <GoldCheck />
               <div>
-                <p style={{ fontSize: "12px", fontWeight: 700, color: "#C9A55A", letterSpacing: "0.1em", textTransform: "uppercase" as const, marginBottom: "4px", fontFamily: "'Work Sans', sans-serif" }}>
+                <p style={{ fontSize: "11px", fontWeight: 700, color: "#C9A55A", letterSpacing: "0.12em", textTransform: "uppercase" as const, marginBottom: "5px", fontFamily: "'Work Sans', sans-serif" }}>
                   {item.tag}
                 </p>
-                <p style={{ fontSize: "15px", color: "#444444", lineHeight: 1.65, fontFamily: "'Work Sans', sans-serif" }}>
+                <p style={{ fontSize: "15px", color: "rgba(255,255,255,0.75)", lineHeight: 1.65, fontFamily: "'Work Sans', sans-serif" }}>
                   {item.text}
                 </p>
               </div>
@@ -505,7 +501,7 @@ function WhatYouLearn() {
           ))}
         </div>
         <div style={{ textAlign: "center", marginTop: "48px" }}>
-          <CTAButton dark={true} />
+          <CTAButton />
         </div>
       </div>
     </section>
@@ -517,16 +513,16 @@ function NoteSection() {
   const ref = useScrollReveal();
   return (
     <section style={{ background: "#FFFFFF", padding: "80px 20px" }}>
-      <div ref={ref} className="section-reveal" style={{ maxWidth: "860px", margin: "0 auto", textAlign: "center" }}>
-        <div className="note-inner" style={{ border: "2px solid #111111", borderRadius: "12px", padding: "48px 40px", marginBottom: "48px" }}>
-          <p style={{ fontSize: "12px", fontWeight: 700, letterSpacing: "0.22em", textTransform: "uppercase" as const, color: "#CC0000", marginBottom: "16px", fontFamily: "'Work Sans', sans-serif" }}>
+      <div ref={ref} className="section-reveal" style={{ maxWidth: "820px", margin: "0 auto", textAlign: "center" }}>
+        <div className="note-inner" style={{ background: "#0a0a0a", borderRadius: "12px", padding: "48px 40px", marginBottom: "48px", border: "1px solid rgba(201,165,90,0.2)" }}>
+          <p style={{ fontSize: "12px", fontWeight: 700, letterSpacing: "0.22em", textTransform: "uppercase" as const, color: "#C9A55A", marginBottom: "16px", fontFamily: "'Work Sans', sans-serif" }}>
             A Word of Honesty
           </p>
-          <p style={{ fontSize: "19px", color: "#222222", lineHeight: 1.8, fontFamily: "'Work Sans', sans-serif" }}>
-            This Masterclass is <strong>NOT</strong> for money-chasers, passive dreamers, or leaders
-            unwilling to do what it takes to build the infrastructure real scale demands.
+          <p style={{ fontSize: "18px", color: "rgba(255,255,255,0.8)", lineHeight: 1.8, fontFamily: "'Work Sans', sans-serif" }}>
+            This Masterclass is <strong style={{ color: "#FFFFFF" }}>NOT</strong> for money-chasers, passive dreamers, or leaders
+            unwilling to build the infrastructure real scale demands.
           </p>
-          <p style={{ fontSize: "19px", color: "#222222", lineHeight: 1.8, marginTop: "16px", fontFamily: "'Work Sans', sans-serif" }}>
+          <p style={{ fontSize: "18px", color: "rgba(255,255,255,0.8)", lineHeight: 1.8, marginTop: "16px", fontFamily: "'Work Sans', sans-serif" }}>
             But it <strong style={{ color: "#CC0000" }}>IS</strong> for the entrepreneur who knows
             they carry a God-given business the world desperately needs — and is ready to build it
             the right way.
