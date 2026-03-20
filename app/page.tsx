@@ -679,12 +679,7 @@ const testimonials4 = [
     quote: "Since joining Fueled by Fire, my husband got baptized, we are expanding our law firm nationally, and God has been downloading BIG audacious goals for our future.",
     photo: "/images/kristina-hess.png",
   },
-  {
-    name: "Christina Willis",
-    title: "FBF Client",
-    quote: "I am now debt-free, have lost over 60 pounds, and am walking in total freedom from the past. Fueled by Fire has changed everything for me and my family!",
-    photo: "/images/christina-willis.jpeg",
-  },
+
   // Slide 4
   {
     name: "Lynn Vennefron",
