@@ -794,7 +794,7 @@ function FinalCTA() {
           April 14–16, 2026 · Free Live Event
         </p>
         <h2 style={{ fontSize: "clamp(34px, 5vw, 56px)", fontWeight: 900, color: "#FFFFFF", marginBottom: "20px", lineHeight: 1.1 }}>
-          Playing Small Has Never<br />Built a Kingdom.
+          Playing Small Has Never<br />Changed The World.
         </h2>
         <p style={{ fontSize: "19px", color: "rgba(255,255,255,0.65)", marginBottom: "12px", lineHeight: 1.7, fontFamily: "'Work Sans', sans-serif", maxWidth: "640px", margin: "0 auto 12px" }}>
           You were not built for business as usual. You were built for an ECHO —
