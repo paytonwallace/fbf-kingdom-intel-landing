@@ -1,13 +1,15 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { useRouter } from "next/navigation";
 
 const REGISTER_URL = "#register";
 
 /* -- REGISTRATION MODAL -- */
 function RegisterModal({ onClose }: { onClose: () => void }) {
   const [form, setForm] = useState({ email: "", firstName: "", lastName: "", phone: "", agreed: false });
-  const [status, setStatus] = useState<"idle"|"loading"|"success"|"error">("idle");
+  const [status, setStatus] = useState<"idle"|"loading"|"error">("idle");
+  const router = useRouter();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -19,7 +21,7 @@ function RegisterModal({ onClose }: { onClose: () => void }) {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form),
       });
-      if (res.ok) setStatus("success");
+      if (res.ok) router.push("/thank-you");
       else setStatus("error");
     } catch {
       setStatus("error");
@@ -48,19 +50,7 @@ function RegisterModal({ onClose }: { onClose: () => void }) {
       }}>
         <button onClick={onClose} style={{ position: "absolute", top: "16px", right: "20px", background: "none", border: "none", fontSize: "20px", cursor: "pointer", color: "#aaa", lineHeight: 1, fontWeight: 700 }}>X</button>
 
-        {status === "success" ? (
-          <div style={{ textAlign: "center", padding: "20px 0" }}>
-            <div style={{ fontSize: "48px", marginBottom: "16px" }}>🔥</div>
-            <h2 style={{ fontSize: "28px", fontWeight: 900, color: "#111", marginBottom: "12px" }}>You&rsquo;re In!</h2>
-            <p style={{ fontSize: "17px", color: "#555", lineHeight: 1.7, fontFamily: "'Work Sans', sans-serif" }}>
-              Check your email for confirmation. We&rsquo;ll see you April 14&ndash;16 at 12:00 PM CST.
-            </p>
-            <p style={{ fontSize: "16px", color: "#C9A55A", fontWeight: 700, marginTop: "16px", fontFamily: "'Work Sans', sans-serif" }}>
-              Now is the moment to go ALL IN.
-            </p>
-          </div>
-        ) : (
-          <>
+        <>
             <div style={{ textAlign: "center", marginBottom: "28px" }}>
               <img src="/images/fbf-logo-black.png" alt="FBF" style={{ height: "36px", marginBottom: "20px", display: "inline-block" }} />
               <h2 style={{ fontSize: "clamp(20px, 3vw, 26px)", fontWeight: 900, color: "#111", lineHeight: 1.2, marginBottom: "8px" }}>
@@ -119,8 +109,7 @@ function RegisterModal({ onClose }: { onClose: () => void }) {
                 </p>
               )}
             </form>
-          </>
-        )}
+        </>
       </div>
     </div>
   );
