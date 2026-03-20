@@ -73,10 +73,10 @@ function Hero() {
     >
       {/* Logo */}
       <div style={{ position: "absolute", top: 0, left: 0, width: "100%", zIndex: 10, padding: "24px 8vw" }}>
-        <img src="/images/fbf-logo-white.png" alt="Fueled By Fire" style={{ height: "48px", width: "auto", display: "block" }} />
+        <img src="/images/fbf-logo-white.png" alt="Fueled By Fire" className="hero-logo" style={{ height: "48px", width: "auto", display: "block" }} />
       </div>
 
-      <div style={{ display: "flex", flex: 1, minHeight: "100vh" }}>
+      <div className="hero-content-row" style={{ display: "flex", flex: 1, minHeight: "100vh" }}>
         {/* LEFT */}
         <div
           className="hero-left"
@@ -188,7 +188,7 @@ function EventDetails() {
           G.R.O.W.T.H. Method, and the spiritual intelligence to scale without sacrificing
           what matters most.
         </p>
-        <div style={{ display: "flex", justifyContent: "center", gap: "40px", flexWrap: "wrap", marginBottom: "32px" }}>
+        <div className="event-details-row" style={{ display: "flex", justifyContent: "center", gap: "40px", flexWrap: "wrap", marginBottom: "32px" }}>
           {[
             { label: "Date", value: "April 14–16, 2026" },
             { label: "Time", value: "12:00 PM CST Daily" },
@@ -345,7 +345,7 @@ function Invitation() {
           NOW IS THE TIME<br />TO GO <span style={{ color: "#CC0000" }}>ALL IN</span>
         </h2>
 
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: "20px", marginBottom: "64px", textAlign: "left" }}>
+        <div className="invite-grid" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: "20px", marginBottom: "64px", textAlign: "left" }}>
           {inviteCards.map((card, i) => (
             <div key={i} style={{
               background: "rgba(255,255,255,0.04)", border: "1px solid rgba(201,165,90,0.2)",
@@ -384,7 +384,7 @@ function Invitation() {
         }}>
           &ldquo;
         </div>
-        <p style={{
+        <p className="warriors-quote" style={{
           fontSize: "clamp(28px, 5vw, 60px)", fontWeight: 900, color: "#FFFFFF",
           fontStyle: "italic", lineHeight: 1.1, letterSpacing: "-0.01em",
           position: "relative", zIndex: 1, textTransform: "uppercase" as const,
@@ -518,7 +518,7 @@ function NoteSection() {
   return (
     <section style={{ background: "#FFFFFF", padding: "80px 20px" }}>
       <div ref={ref} className="section-reveal" style={{ maxWidth: "860px", margin: "0 auto", textAlign: "center" }}>
-        <div style={{ border: "2px solid #111111", borderRadius: "12px", padding: "48px 40px", marginBottom: "48px" }}>
+        <div className="note-inner" style={{ border: "2px solid #111111", borderRadius: "12px", padding: "48px 40px", marginBottom: "48px" }}>
           <p style={{ fontSize: "12px", fontWeight: 700, letterSpacing: "0.22em", textTransform: "uppercase" as const, color: "#CC0000", marginBottom: "16px", fontFamily: "'Work Sans', sans-serif" }}>
             A Word of Honesty
           </p>

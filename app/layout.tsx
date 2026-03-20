@@ -94,19 +94,59 @@ a { color: inherit; text-decoration: none; }
   to   { opacity: 1; }
 }
 
-/* Hero split responsive */
+/* ── MOBILE: 768px and below ── */
 @media (max-width: 768px) {
-  .hero-split { flex-direction: column !important; }
-  .hero-left { flex: none !important; width: 100% !important; padding: 100px 24px 40px !important; }
-  .hero-right { flex: none !important; width: 100% !important; height: 360px !important; min-height: 360px !important; }
+
+  /* Hero */
+  .hero-split { flex-direction: column !important; min-height: auto !important; }
+  .hero-left {
+    flex: none !important; width: 100% !important;
+    padding: 100px 20px 40px !important;
+    min-height: auto !important;
+  }
+  .hero-right {
+    flex: none !important; width: 100% !important;
+    height: 300px !important; min-height: 300px !important;
+    order: -1;
+  }
+  /* Hero content row stacks */
+  .hero-content-row { flex-direction: column !important; min-height: auto !important; }
+
+  /* About section */
+  .about-flex { flex-direction: column !important; align-items: center !important; }
+  .about-photo { width: 100% !important; max-width: 340px !important; }
+
+  /* Grids → single column */
+  .learn-grid { grid-template-columns: 1fr !important; }
+  .testimonial-grid-4 { grid-template-columns: 1fr !important; }
+
+  /* CTA button full-width feel */
+  .cta-btn { width: 100% !important; text-align: center !important; padding: 18px 24px !important; font-size: 16px !important; }
+
+  /* Event detail flex row → column */
+  .event-details-row { flex-direction: column !important; gap: 20px !important; align-items: center !important; }
+
+  /* Invite cards grid already auto-fit but make sure */
+  .invite-grid { grid-template-columns: 1fr !important; }
+
+  /* Warriors banner text */
+  .warriors-quote { font-size: 28px !important; }
+
+  /* Section padding reduction */
+  section { padding-left: 16px !important; padding-right: 16px !important; }
+
+  /* Note section inner padding */
+  .note-inner { padding: 32px 20px !important; }
+
+  /* Logo size */
+  .hero-logo { height: 38px !important; }
 }
 
-/* Checklist grid responsive */
-@media (max-width: 700px) {
-  .learn-grid { grid-template-columns: 1fr !important; }
-  .about-flex { flex-direction: column !important; align-items: center !important; }
-  .about-photo { max-width: 320px !important; }
-  .testimonial-grid-4 { grid-template-columns: 1fr !important; }
+/* ── TABLET: 769px – 1024px ── */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .hero-left { padding: 100px 32px 60px 5vw !important; }
+  .learn-grid { grid-template-columns: 1fr 1fr !important; }
+  .about-photo { width: 300px !important; }
 }
 `,
           }}
