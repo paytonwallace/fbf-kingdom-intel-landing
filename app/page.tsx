@@ -245,20 +245,23 @@ const testimonials3 = [
     name: "Kyler Kropf",
     title: "Founder, SaddleBrookeLife",
     quote: "I was an 8th-grade dropout with zero business experience. Larry & Staci helped our company grow to $13 million in 9 months and over $60 million in 3 years!",
+    photo: "/images/kyler-headshot.png",
   },
   {
     name: "Dallas Marley",
     title: "Entrepreneur",
     quote: "In less than 12 months, we paid off over $2 million in debt, moved to Ecuador, and stepped into the life of our dreams.",
+    photo: "/images/dallas-headshot.jpg",
   },
   {
     name: "Vangel Roberts",
     title: "CMO, Wade Roberts Plumbing",
     quote: "Our company is thriving, but the greatest transformation has been in our marriage and with our kids. Having coaches walk with us weekly and call us to a higher level has been a game-changer.",
+    photo: "/images/vangel-headshot.jpg",
   },
 ];
 
-function TestimonialCard({ t }: { t: { name: string; title: string; quote: string } }) {
+function TestimonialCard({ t }: { t: { name: string; title: string; quote: string; photo?: string } }) {
   return (
     <div className="testimonial-card" style={{
       background: "rgba(255,255,255,0.04)", border: "1px solid rgba(204,0,0,0.2)",
@@ -270,11 +273,15 @@ function TestimonialCard({ t }: { t: { name: string; title: string; quote: strin
       <p style={{ fontSize: "16px", color: "rgba(255,255,255,0.85)", lineHeight: 1.75, fontStyle: "italic", marginBottom: "24px", fontFamily: "'Work Sans', sans-serif" }}>
         {t.quote}
       </p>
-      <p style={{ fontSize: "14px", color: "#ccc", fontFamily: "'Work Sans', sans-serif" }}>
-        <span style={{ color: "#CC0000" }}>&mdash;</span>{" "}
-        <strong style={{ color: "#FFFFFF" }}>{t.name}</strong>
-        <span style={{ color: "#666", marginLeft: "8px" }}>{t.title}</span>
-      </p>
+      <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+        {t.photo && (
+          <img src={t.photo} alt={t.name} style={{ width: "44px", height: "44px", borderRadius: "50%", objectFit: "cover", flexShrink: 0, border: "2px solid rgba(201,165,90,0.4)" }} />
+        )}
+        <p style={{ fontSize: "14px", color: "#ccc", fontFamily: "'Work Sans', sans-serif" }}>
+          <strong style={{ color: "#FFFFFF", display: "block" }}>{t.name}</strong>
+          <span style={{ color: "#666" }}>{t.title}</span>
+        </p>
+      </div>
     </div>
   );
 }
@@ -597,21 +604,25 @@ const testimonials4 = [
     name: "Kolton Kropf",
     title: "CEO, SaddlebrookeLife",
     quote: "Our business was headed toward bankruptcy and after only 9 months, we turned it into an 8-figure success story on target to surpass $100 million in revenue. We've built a Christ-centered team culture and are paying off our new 85,000 sq ft facility.",
+    photo: "/images/kolton-headshot.png",
   },
   {
     name: "Delbert Friesen",
     title: "President, Earthmax",
     quote: "I've never heard anyone bridge the gap between elite business training and Kingdom principles like Staci. She has helped us scale profits while building Kingdom generosity and legacy impact. Staci and Larry are the best in the world at Kingdom Business Mastery.",
+    photo: "/images/delbert-headshot.png",
   },
   {
     name: "Eric Moland",
     title: "CEO, Black Dog Insurance",
     quote: "In one month, my income jumped 35%. The next month, the largest commission sales month in 40 years — more than double the previous year. Our entire business profit is up over 50% this year alone.",
+    photo: "/images/eric-headshot.jpg",
   },
   {
     name: "Alex & Irina Chifor",
     title: "Commercial Investors",
     quote: "FBF has had a monumental impact on our lives. We've built an 8-figure commercial investment business while keeping faith and family first.",
+    photo: "/images/irina-alex.webp",
   },
 ];
 
