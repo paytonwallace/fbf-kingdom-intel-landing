@@ -267,21 +267,23 @@ function TestimonialCard({ t }: { t: { name: string; title: string; quote: strin
       background: "rgba(255,255,255,0.04)", border: "1px solid rgba(204,0,0,0.2)",
       borderRadius: "16px", padding: "32px",
     }}>
-      <span style={{ fontSize: "56px", fontFamily: "'Frank Ruhl Libre', Georgia, serif", color: "#CC0000", lineHeight: 1, display: "block", marginBottom: "-8px" }}>
-        &ldquo;
-      </span>
-      <p style={{ fontSize: "16px", color: "rgba(255,255,255,0.85)", lineHeight: 1.75, fontStyle: "italic", marginBottom: "24px", fontFamily: "'Work Sans', sans-serif" }}>
-        {t.quote}
-      </p>
-      <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+      {/* Photo + name at top */}
+      <div style={{ display: "flex", alignItems: "center", gap: "14px", marginBottom: "20px" }}>
         {t.photo && (
           <img src={t.photo} alt={t.name} style={{ width: "64px", height: "64px", borderRadius: "50%", objectFit: "cover", flexShrink: 0, border: "2px solid rgba(201,165,90,0.4)" }} />
         )}
         <p style={{ fontSize: "14px", color: "#ccc", fontFamily: "'Work Sans', sans-serif" }}>
-          <strong style={{ color: "#FFFFFF", display: "block" }}>{t.name}</strong>
+          <strong style={{ color: "#FFFFFF", display: "block", fontSize: "15px" }}>{t.name}</strong>
           <span style={{ color: "#666" }}>{t.title}</span>
         </p>
       </div>
+      {/* Quote */}
+      <span style={{ fontSize: "48px", fontFamily: "'Frank Ruhl Libre', Georgia, serif", color: "#CC0000", lineHeight: 1, display: "block", marginBottom: "-8px" }}>
+        &ldquo;
+      </span>
+      <p style={{ fontSize: "16px", color: "rgba(255,255,255,0.85)", lineHeight: 1.75, fontStyle: "italic", fontFamily: "'Work Sans', sans-serif" }}>
+        {t.quote}
+      </p>
     </div>
   );
 }
