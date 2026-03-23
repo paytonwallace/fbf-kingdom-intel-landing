@@ -291,7 +291,7 @@ function Hero({ onOpen }: { onOpen: () => void }) {
             fontFamily: "'Work Sans', sans-serif",
             maxWidth: "480px",
           }}>
-            AI Increases Speed. <span style={{ color: "#BB945A", fontWeight: 700 }}>Kingdom Intelligence Determines Dominion.</span> Join Larry &amp; Staci Wallace for a FREE 3-day live event built to give faith-driven leaders the tools to scale without compromise.
+            AI may increase speed, but discernment determines direction.{" "}<span style={{ color: "#BB945A", fontWeight: 700 }}>Learn how to scale your business with Spirit-led strategy, structure, and systems.</span>{" "}For faith-driven business owners ready to scale without compromise.
           </p>
 
           {/* CTA */}
