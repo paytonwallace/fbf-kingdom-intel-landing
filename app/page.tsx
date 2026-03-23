@@ -293,7 +293,7 @@ function Hero({ onOpen }: { onOpen: () => void }) {
             fontFamily: "'Work Sans', sans-serif",
             maxWidth: "480px",
           }}>
-            AI increases speed. Kingdom Intelligence increases discernment over AI.{" "}<span style={{ color: "#BB945A", fontWeight: 700 }}>Learn how to scale your business with Spirit-led strategy, structure, and systems</span>{" "}that multiply your efforts and help you scale without compromise.
+            AI increases speed.{" "}<span style={{ color: "#BB945A", fontWeight: 700 }}>Kingdom Intelligence increases discernment over AI.</span>{" "}Learn how to scale your business with Spirit-led strategy, structure, and systems that multiply your efforts and help you scale without compromise.
           </p>
 
           {/* CTA */}
