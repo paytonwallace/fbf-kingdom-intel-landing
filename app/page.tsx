@@ -154,160 +154,79 @@ function CTAButton({ text = "REGISTER FOR FREE", dark = false, onOpen }: { text?
 /* -- HERO -- */
 function Hero({ onOpen }: { onOpen: () => void }) {
   return (
-    <section className="hero-section" style={{
-      display: "flex",
-      flexDirection: "column",
-      background: "#0d0d0d",
-      position: "relative",
-      overflow: "hidden",
-    }}>
-      {/* Dark cityscape texture overlay on right side */}
+    <section className="hero-section" style={{ background: "#0d0d0d", position: "relative", overflow: "hidden" }}>
+      {/* Dark overlay */}
       <div style={{
-        position: "absolute",
-        inset: 0,
+        position: "absolute", inset: 0,
         background: "linear-gradient(105deg, #0d0d0d 38%, rgba(13,13,13,0.7) 55%, rgba(13,13,13,0.3) 100%)",
-        zIndex: 2,
-        pointerEvents: "none",
+        zIndex: 2, pointerEvents: "none",
       }} />
-      {/* Building texture pattern - right side */}
+      {/* Grid texture */}
       <div style={{
-        position: "absolute",
-        right: 0,
-        top: 0,
-        width: "62%",
-        height: "100%",
-        backgroundImage: `repeating-linear-gradient(
-          90deg,
-          transparent,
-          transparent 38px,
-          rgba(255,255,255,0.018) 38px,
-          rgba(255,255,255,0.018) 40px
-        ), repeating-linear-gradient(
-          180deg,
-          transparent,
-          transparent 58px,
-          rgba(255,255,255,0.018) 58px,
-          rgba(255,255,255,0.018) 60px
-        )`,
+        position: "absolute", right: 0, top: 0, width: "62%", height: "100%",
+        backgroundImage: `repeating-linear-gradient(90deg,transparent,transparent 38px,rgba(255,255,255,0.018) 38px,rgba(255,255,255,0.018) 40px),repeating-linear-gradient(180deg,transparent,transparent 58px,rgba(255,255,255,0.018) 58px,rgba(255,255,255,0.018) 60px)`,
         zIndex: 1,
       }} />
 
       {/* FBF Logo */}
-      <div className="hero-logo-bar" style={{ position: "absolute", top: 0, left: 0, width: "100%", zIndex: 10, padding: "28px 5vw" }}>
-        <img src="/images/fbf-logo-white.png" alt="Fueled By Fire" className="hero-logo" style={{ height: "56px", width: "auto", display: "block" }} />
+      <div className="hero-logo-bar">
+        <img src="/images/fbf-logo-white.png" alt="Fueled By Fire" className="hero-logo" />
       </div>
 
       {/* Main content row */}
-      <div className="hero-content-row" style={{ display: "flex", flex: 1, minHeight: "100vh", position: "relative", zIndex: 3 }}>
+      <div className="hero-content-row" style={{ position: "relative", zIndex: 3 }}>
 
-        {/* LEFT — Staci & Larry photo */}
-        <div className="hero-photo-col" style={{
-          flex: "0 0 48%",
-          position: "relative",
-          display: "flex",
-          alignItems: "flex-end",
-          justifyContent: "center",
-          overflow: "hidden",
-        }}>
+        {/* Photo col */}
+        <div className="hero-photo-col">
           <img
             src="/images/staci-larry-hero.avif"
             alt="Staci and Larry Wallace"
             className="hero-photo"
-            style={{
-              width: "100%",
-              height: "100%",
-              objectFit: "contain",
-              objectPosition: "bottom center",
-              position: "absolute",
-              bottom: 0,
-              left: 0,
-            }}
           />
-          {/* Fade into bg on right edge */}
           <div style={{
-            position: "absolute",
-            inset: 0,
+            position: "absolute", inset: 0,
             background: "linear-gradient(to right, transparent 60%, #0d0d0d 100%)",
             pointerEvents: "none",
           }} />
         </div>
 
-        {/* RIGHT — Text content */}
-        <div className="hero-text-col" style={{
-          flex: "0 0 52%",
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          alignItems: "center",
-          textAlign: "center",
-          padding: "120px 5vw 80px 0vw",
-        }}>
+        {/* Text col */}
+        <div className="hero-text-col">
 
-          {/* Main headline */}
+          {/* Headline */}
           <div style={{ marginBottom: "28px" }}>
             <div style={{
-              fontSize: "clamp(72px, 10.5vw, 148px)",
-              fontWeight: 400,
-              color: "#FFFFFF",
-              lineHeight: 0.88,
-              textTransform: "uppercase" as const,
-              letterSpacing: "0.01em",
+              fontSize: "clamp(72px, 10.5vw, 148px)", fontWeight: 400, color: "#FFFFFF",
+              lineHeight: 0.88, textTransform: "uppercase" as const, letterSpacing: "0.01em",
               fontFamily: "'Anton', sans-serif",
-            }}>
-              KINGDOM
-            </div>
+            }}>KINGDOM</div>
             <div style={{
-              fontSize: "clamp(48px, 6.8vw, 100px)",
-              fontWeight: 400,
-              color: "#BB945A",
-              lineHeight: 0.92,
-              textTransform: "uppercase" as const,
-              letterSpacing: "0.08em",
+              fontSize: "clamp(48px, 6.8vw, 100px)", fontWeight: 400, color: "#BB945A",
+              lineHeight: 0.92, textTransform: "uppercase" as const, letterSpacing: "0.08em",
               fontFamily: "'Bebas Neue', sans-serif",
-            }}>
-              INTELLIGENCE
-            </div>
+            }}>INTELLIGENCE</div>
             <div style={{
-              fontSize: "clamp(16px, 2vw, 28px)",
-              fontWeight: 400,
-              color: "rgba(255,255,255,0.75)",
-              lineHeight: 1.2,
-              textTransform: "uppercase" as const,
-              letterSpacing: "0.4em",
-              fontFamily: "'Bebas Neue', sans-serif",
-              marginTop: "10px",
-            }}>
-              MASTERCLASS
-            </div>
+              fontSize: "clamp(16px, 2vw, 28px)", fontWeight: 400, color: "rgba(255,255,255,0.75)",
+              lineHeight: 1.2, textTransform: "uppercase" as const, letterSpacing: "0.4em",
+              fontFamily: "'Bebas Neue', sans-serif", marginTop: "10px",
+            }}>MASTERCLASS</div>
           </div>
 
           {/* Divider */}
-          <div style={{ width: "60px", height: "2px", background: "#BB945A", marginBottom: "28px", margin: "0 auto 28px" }} />
+          <div style={{ width: "60px", height: "2px", background: "#BB945A", margin: "0 auto 28px" }} />
 
           {/* Subline */}
           <p style={{
-            fontSize: "clamp(14px, 1.4vw, 18px)",
-            color: "rgba(255,255,255,0.65)",
-            lineHeight: 1.7,
-            marginBottom: "36px",
-            fontFamily: "'Work Sans', sans-serif",
-            maxWidth: "480px",
+            fontSize: "clamp(14px, 1.4vw, 18px)", color: "rgba(255,255,255,0.65)",
+            lineHeight: 1.7, marginBottom: "36px", fontFamily: "'Work Sans', sans-serif", maxWidth: "480px",
           }}>
             AI increases speed.{" "}<span style={{ color: "#BB945A", fontWeight: 700 }}>Kingdom Intelligence increases discernment over AI.</span>{" "}Learn how to scale your business with Spirit-led strategy, structure, and systems that multiply your efforts and help you scale without compromise.
           </p>
 
-          {/* CTA */}
           <CTAButton onOpen={onOpen} />
 
           {/* Event details bar */}
-          <div className="hero-event-bar" style={{
-            display: "flex",
-            gap: "40px",
-            marginTop: "48px",
-            paddingTop: "28px",
-            borderTop: "1px solid rgba(255,255,255,0.12)",
-            flexWrap: "wrap" as const,
-          }}>
+          <div className="hero-event-bar">
             <div>
               <div style={{ fontSize: "10px", letterSpacing: "0.2em", textTransform: "uppercase" as const, color: "#BB945A", fontFamily: "'Work Sans', sans-serif", fontWeight: 700, marginBottom: "4px" }}>Date</div>
               <div style={{ fontSize: "clamp(13px, 1.2vw, 16px)", color: "#FFFFFF", fontFamily: "'Work Sans', sans-serif", fontWeight: 600 }}>April 14–16 @ 12 PM Central</div>
