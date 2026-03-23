@@ -154,8 +154,7 @@ function CTAButton({ text = "REGISTER FOR FREE", dark = false, onOpen }: { text?
 /* -- HERO -- */
 function Hero({ onOpen }: { onOpen: () => void }) {
   return (
-    <section style={{
-      minHeight: "100vh",
+    <section className="hero-section" style={{
       display: "flex",
       flexDirection: "column",
       background: "#0d0d0d",
@@ -193,16 +192,16 @@ function Hero({ onOpen }: { onOpen: () => void }) {
         zIndex: 1,
       }} />
 
-      {/* FBF Logo top left */}
-      <div style={{ position: "absolute", top: 0, left: 0, width: "100%", zIndex: 10, padding: "28px 5vw" }}>
-        <img src="/images/fbf-logo-white.png" alt="Fueled By Fire" style={{ height: "56px", width: "auto", display: "block" }} />
+      {/* FBF Logo */}
+      <div className="hero-logo-bar" style={{ position: "absolute", top: 0, left: 0, width: "100%", zIndex: 10, padding: "28px 5vw" }}>
+        <img src="/images/fbf-logo-white.png" alt="Fueled By Fire" className="hero-logo" style={{ height: "56px", width: "auto", display: "block" }} />
       </div>
 
       {/* Main content row */}
-      <div style={{ display: "flex", flex: 1, minHeight: "100vh", position: "relative", zIndex: 3 }}>
+      <div className="hero-content-row" style={{ display: "flex", flex: 1, minHeight: "100vh", position: "relative", zIndex: 3 }}>
 
         {/* LEFT — Staci & Larry photo */}
-        <div style={{
+        <div className="hero-photo-col" style={{
           flex: "0 0 48%",
           position: "relative",
           display: "flex",
@@ -213,6 +212,7 @@ function Hero({ onOpen }: { onOpen: () => void }) {
           <img
             src="/images/staci-larry-hero.avif"
             alt="Staci and Larry Wallace"
+            className="hero-photo"
             style={{
               width: "100%",
               height: "100%",
@@ -233,7 +233,7 @@ function Hero({ onOpen }: { onOpen: () => void }) {
         </div>
 
         {/* RIGHT — Text content */}
-        <div style={{
+        <div className="hero-text-col" style={{
           flex: "0 0 52%",
           display: "flex",
           flexDirection: "column",
@@ -300,7 +300,7 @@ function Hero({ onOpen }: { onOpen: () => void }) {
           <CTAButton onOpen={onOpen} />
 
           {/* Event details bar */}
-          <div style={{
+          <div className="hero-event-bar" style={{
             display: "flex",
             gap: "40px",
             marginTop: "48px",
