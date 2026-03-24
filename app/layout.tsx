@@ -162,8 +162,8 @@ a { color: inherit; text-decoration: none; }
   .hero-logo-bar { position: relative; top: auto; left: auto; width: 100%; padding: 20px 20px 0; background: #0d0d0d; }
   .hero-logo { height: 36px; }
   .hero-content-row { flex-direction: column; min-height: auto; }
-  .hero-photo-col { flex: none; width: 100%; height: 380px; min-height: 380px; position: relative; }
-  .hero-photo { object-fit: cover; object-position: center 15%; position: absolute; width: 100%; height: 100%; }
+  .hero-photo-col { flex: none; width: 100%; height: 420px; min-height: 420px; position: relative; }
+  .hero-photo { object-fit: cover; object-position: center top; position: absolute; width: 100%; height: 100%; }
   /* On mobile: change right-fade overlay to bottom-fade so photo is visible */
   .hero-photo-col > div { background: linear-gradient(to bottom, transparent 55%, #0d0d0d 100%) !important; }
   /* On mobile: lighten the big diagonal overlay so photo isn't buried */
