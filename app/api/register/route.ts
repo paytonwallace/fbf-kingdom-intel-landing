@@ -40,17 +40,17 @@ export async function POST(req: NextRequest) {
     const contactData = await contactRes.json();
     const vid = contactData.vid;
 
-    // Step 2: Add contact to KI Masterclass list (list ID 1015)
+    // Step 2: Add contact to KI Masterclass list (list ID 1015) using v3 API
     if (vid) {
       await fetch(
-        `https://api.hubapi.com/contacts/v1/lists/${KI_LIST_ID}/add`,
+        `https://api.hubapi.com/crm/v3/lists/${KI_LIST_ID}/memberships/add`,
         {
-          method: "POST",
+          method: "PUT",
           headers: {
             "Content-Type": "application/json",
             Authorization: `Bearer ${HUBSPOT_PAT}`,
           },
-          body: JSON.stringify({ vids: [vid] }),
+          body: JSON.stringify([String(vid)]),
         }
       );
     }
