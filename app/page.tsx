@@ -626,7 +626,7 @@ export default function Home() {
     <>
       {modalOpen && <RegisterModal onClose={close} />}
       <TopBanner onOpen={open} />
-      <main style={{ paddingTop: "40px" }}>
+      <main style={{ paddingTop: "43px" }}>
         <Hero onOpen={open} />
         <EventDetails />
         <VSLSection onOpen={open} />
