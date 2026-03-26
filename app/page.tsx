@@ -233,7 +233,7 @@ function Hero({ onOpen }: { onOpen: () => void }) {
             </div>
             <div>
               <div style={{ fontSize: "10px", letterSpacing: "0.2em", textTransform: "uppercase" as const, color: "#BB945A", fontFamily: "'Work Sans', sans-serif", fontWeight: 700, marginBottom: "4px" }}>Register</div>
-              <div style={{ fontSize: "clamp(13px, 1.2vw, 16px)", color: "#FFFFFF", fontFamily: "'Work Sans', sans-serif", fontWeight: 600 }}>www.fbfchallenge.com</div>
+              <div style={{ fontSize: "clamp(13px, 1.2vw, 16px)", color: "#FFFFFF", fontFamily: "'Work Sans', sans-serif", fontWeight: 600 }}>www.kingdomintel.com</div>
             </div>
           </div>
         </div>
@@ -585,9 +585,9 @@ function Footer() {
       <p style={{ fontSize: "14px", color: "rgba(255,255,255,0.3)", marginBottom: "6px", fontFamily: "'Work Sans', sans-serif" }}>&copy; 2026 Fueled By Fire. All Rights Reserved.</p>
       <p style={{ fontSize: "13px", color: "rgba(255,255,255,0.2)", marginBottom: "20px", fontFamily: "'Work Sans', sans-serif" }}>10% of every program fee supports Epiphany Global (Uganda) &amp; EMwomen.</p>
       <div style={{ display: "flex", justifyContent: "center", gap: "28px" }}>
-        <a href="#" style={{ fontSize: "12px", color: "rgba(255,255,255,0.3)", fontFamily: "'Work Sans', sans-serif" }}>Privacy Policy</a>
-        <a href="#" style={{ fontSize: "12px", color: "rgba(255,255,255,0.3)", fontFamily: "'Work Sans', sans-serif" }}>Terms of Service</a>
-        <a href="#" style={{ fontSize: "12px", color: "rgba(255,255,255,0.3)", fontFamily: "'Work Sans', sans-serif" }}>Contact</a>
+        <a href="https://www.fbfchallenge.com/privacy" style={{ fontSize: "12px", color: "rgba(255,255,255,0.3)", fontFamily: "'Work Sans', sans-serif" }}>Privacy Policy</a>
+        <a href="https://www.fbfchallenge.com/terms" style={{ fontSize: "12px", color: "rgba(255,255,255,0.3)", fontFamily: "'Work Sans', sans-serif" }}>Terms of Service</a>
+        <a href="https://www.fbfchallenge.com/disclaimer" style={{ fontSize: "12px", color: "rgba(255,255,255,0.3)", fontFamily: "'Work Sans', sans-serif" }}>Disclaimer</a>
       </div>
     </footer>
   );
