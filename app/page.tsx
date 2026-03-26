@@ -351,16 +351,16 @@ function Invitation({ onOpen }: { onOpen: () => void }) {
               A Kingdom Blueprint for Scaling Business Without Sacrificing Family, Peace, or Purpose.
             </h2>
             <div style={{ width: "48px", height: "2px", background: "#CC0000", marginBottom: "28px", borderRadius: "2px" }} />
-            <p style={{ fontSize: "15px", color: "rgba(255,255,255,0.75)", lineHeight: 1.85, marginBottom: "16px", fontFamily: "'Work Sans', sans-serif" }}>
-              While AI increases speed, <span style={{ color: "#C9A55A", fontWeight: 700 }}>Kingdom Intelligence determines dominion, authority, and long-term impact in the marketplace.</span> The leaders who will thrive are not simply adopting new tools. They are developing the Spirit-led wisdom, operational foresight, and leadership structure required to steward growth well.
+            <p style={{ fontSize: "17px", color: "rgba(255,255,255,0.82)", lineHeight: 1.85, marginBottom: "20px", fontFamily: "'Work Sans', sans-serif" }}>
+              While AI increases speed, <span style={{ color: "#C9A55A", fontWeight: 700, fontSize: "19px" }}>Kingdom Intelligence determines dominion, authority, and long-term impact in the marketplace.</span> The leaders who will thrive are not simply adopting new tools. They are developing the Spirit-led wisdom, operational foresight, and leadership structure required to steward growth well.
             </p>
-            <p style={{ fontSize: "15px", color: "rgba(255,255,255,0.75)", lineHeight: 1.85, marginBottom: "16px", fontFamily: "'Work Sans', sans-serif" }}>
+            <p style={{ fontSize: "17px", color: "rgba(255,255,255,0.82)", lineHeight: 1.85, marginBottom: "20px", fontFamily: "'Work Sans', sans-serif" }}>
               This three-day immersive experience is designed for faith-driven leaders who are ready to build highly profitable, purpose-driven companies without sacrificing their peace, family, or calling.
             </p>
-            <p style={{ fontSize: "15px", color: "rgba(255,255,255,0.75)", lineHeight: 1.85, marginBottom: "16px", fontFamily: "'Work Sans', sans-serif" }}>
-              Each day will guide you through our <span style={{ color: "#C9A55A", fontWeight: 700 }}>E.C.H.O. Framework</span>: a step-by-step process that fuses spiritual alignment with practical business strategy. When your life and leadership align with your divine mandate, you stop chasing money and begin igniting movements.
+            <p style={{ fontSize: "17px", color: "rgba(255,255,255,0.82)", lineHeight: 1.85, marginBottom: "20px", fontFamily: "'Work Sans', sans-serif" }}>
+              Each day will guide you through our <span style={{ color: "#C9A55A", fontWeight: 700, fontSize: "19px" }}>E.C.H.O. Framework</span>: a step-by-step process that fuses spiritual alignment with practical business strategy. When your life and leadership align with your divine mandate, you stop chasing money and begin igniting movements.
             </p>
-            <p style={{ fontSize: "16px", color: "#FFFFFF", lineHeight: 1.7, marginBottom: "28px", fontFamily: "'Frank Ruhl Libre', Georgia, serif", fontWeight: 700, fontStyle: "italic" }}>
+            <p style={{ fontSize: "19px", color: "#FFFFFF", lineHeight: 1.7, marginBottom: "28px", fontFamily: "'Frank Ruhl Libre', Georgia, serif", fontWeight: 700, fontStyle: "italic" }}>
               What will your echo be? Playing small has never built a Kingdom.<br />Now is the moment to go ALL IN.
             </p>
             <p style={{ fontSize: "17px", fontStyle: "italic", color: "rgba(255,255,255,0.5)", marginBottom: "32px", fontFamily: "'Frank Ruhl Libre', Georgia, serif" }}>
