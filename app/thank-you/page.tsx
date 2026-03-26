@@ -185,16 +185,16 @@ export default function ThankYou() {
         </div>
 
         {/* ── FOOTER ── */}
-        <footer style={{ background: "#080808", borderTop: "1px solid rgba(255,255,255,0.06)", padding: "48px 20px", textAlign: "center" }}>
-          <img src="/images/fbf-logo-white.png" alt="Fueled By Fire" style={{ height: "40px", display: "inline-block", marginBottom: "20px" }} />
-          <p style={{ fontSize: "13px", color: "rgba(255,255,255,0.25)", marginBottom: "6px" }}>Fueled By Fire&reg; LLC &nbsp;|&nbsp; Copyright &copy; 2020&ndash;2026 &nbsp;|&nbsp; All Rights Reserved</p>
-          <p style={{ fontSize: "13px", color: "rgba(255,255,255,0.2)", marginBottom: "16px" }}>10% of every program fee supports Epiphany Global (Uganda) &amp; EMwomen.</p>
-          <div style={{ display: "flex", justifyContent: "center", gap: "20px" }}>
-            {["Privacy Policy", "Terms of Service", "Disclaimer"].map((t, i) => (
-              <a key={i} href="#" style={{ fontSize: "12px", color: "rgba(255,255,255,0.25)" }}>{t}</a>
-            ))}
-          </div>
-        </footer>
+<footer style={{ background: "#080808", borderTop: "1px solid rgba(255,255,255,0.06)", padding: "48px 20px", textAlign: "center" }}>
+  <img src="/images/fbf-logo-white.png" alt="Fueled By Fire" style={{ height: "40px", display: "inline-block", marginBottom: "20px" }} />
+  <p style={{ fontSize: "13px", color: "rgba(255,255,255,0.25)", marginBottom: "6px" }}>Fueled By Fire&reg; LLC &nbsp;|&nbsp; Copyright &copy; 2020&ndash;2026 &nbsp;|&nbsp; All Rights Reserved</p>
+  <p style={{ fontSize: "13px", color: "rgba(255,255,255,0.2)", marginBottom: "16px" }}>10% of every program fee supports Epiphany Global &amp; EMwomen.</p>
+  <div style={{ display: "flex", justifyContent: "center", gap: "20px" }}>
+    <a href="https://www.fbfchallenge.com/privacy" style={{ fontSize: "12px", color: "rgba(255,255,255,0.25)" }}>Privacy Policy</a>
+    <a href="https://www.fbfchallenge.com/terms" style={{ fontSize: "12px", color: "rgba(255,255,255,0.3)" }}>Terms of Service</a>
+    <a href="https://www.fbfchallenge.com/disclaimer" style={{ fontSize: "12px", color: "rgba(255,255,255,0.3)" }}>Disclaimer</a>
+  </div>
+</footer>
 
       </body>
     </html>
