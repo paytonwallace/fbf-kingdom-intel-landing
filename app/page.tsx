@@ -199,19 +199,11 @@ function Hero({ onOpen }: { onOpen: () => void }) {
       </div>
 
       {/* Main content row */}
-      <div style={{ display: "flex", flex: 1, minHeight: "100vh", position: "relative", zIndex: 3 }}>
+      <div className="hero-content-row" style={{ display: "flex", flex: 1, minHeight: "100vh", position: "relative", zIndex: 3 }}>
 
         {/* LEFT — Staci & Larry photo */}
-        <div style={{
-          flex: "0 0 48%",
-          position: "relative",
-          display: "flex",
-          alignItems: "flex-end",
-          justifyContent: "center",
-          overflow: "hidden",
-        }}>
-          <img
-            src="/images/staci-larry-hero.avif"
+        <div className="hero-right" style={{ flex: "0 0 48%", position: "relative", display: "flex", alignItems: "flex-end", justifyContent: "center", overflow: "hidden", }}>
+          <img className="hero-img" src="/images/staci-larry-hero.avif"
             alt="Staci and Larry Wallace"
             style={{
               width: "100%",
