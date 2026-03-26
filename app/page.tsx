@@ -414,10 +414,10 @@ function AboutStaci() {
 
 /* -- ECHO BLUEPRINT -- */
 const echoItems = [
-  { letter: "E", label: "Economic Stewardship", tagline: "Build the infrastructure your vision demands.", description: "Design profitable systems that fund the mission \u2014 Vision & Strategy, Operational Systems, Leadership Infrastructure, and Financial Intelligence." },
-  { letter: "C", label: "Culture Architecture", tagline: "Stop being the ceiling of your company.", description: "Create an environment that attracts, develops, and multiplies leaders who carry the vision \u2014 without you becoming the bottleneck." },
-  { letter: "H", label: "Human Infrastructure", tagline: "Build a company that runs beyond the founder.", description: "Transition from founder-dependent to team-managed. Your company should scale beyond you, not because of you." },
-  { letter: "O", label: "Operational Excellence", tagline: "Install systems that scale with precision.", description: "Deploy AI, automation, and operational architecture that removes friction, increases speed, and allows your company to grow without chaos." },
+  { letter: "E", label: "Economic Stewardship", tagline: "ECONOMIC STEWARDSHIP", description: "Design profitable systems and financial architecture that fund and sustain your God-sized vision." },
+  { letter: "C", label: "Culture Architecture", tagline: "CULTURE ARCHITECTURE", description: "Create an environment that attracts, develops, and multiplies leaders who carry the vision without you becoming the bottleneck." },
+  { letter: "H", label: "Human Infrastructure", tagline: "HUMAN INFRASTRUCTURE", description: "Transition from founder-dependent to team-managed. Your company should scale beyond you, not because of you." },
+  { letter: "O", label: "Operational Excellence", tagline: "OPERATIONAL EXCELLENCE", description: "Deploy AI, automation, and operational architecture that removes friction, increases speed, and allows your company to grow without chaos." },
 ];
 
 function ECHOBlueprint({ onOpen }: { onOpen: () => void }) {
@@ -426,7 +426,7 @@ function ECHOBlueprint({ onOpen }: { onOpen: () => void }) {
   return (
     <section style={{ background: "#111111", padding: "80px 20px" }}>
       <div ref={ref} className="section-reveal" style={{ maxWidth: "1000px", margin: "0 auto" }}>
-        <p style={{ fontSize: "12px", fontWeight: 700, letterSpacing: "0.22em", textTransform: "uppercase" as const, color: "#C9A55A", marginBottom: "16px", textAlign: "center", fontFamily: "'Work Sans', sans-serif" }}>What You Will Learn</p>
+        <p style={{ fontSize: "14px", fontWeight: 600, color: "#CC0000", marginBottom: "16px", textAlign: "center", fontFamily: "'Work Sans', sans-serif", lineHeight: 1.7, maxWidth: "560px", margin: "0 auto 16px" }}>Learn to govern AI using our signature <strong style={{ color: "#FFFFFF" }}>E.C.H.O. Framework</strong> to build a team and business that scale, operate, and grow even when you&rsquo;re not in the room.</p>
         <h2 style={{ fontSize: "clamp(28px, 4vw, 48px)", fontWeight: 900, color: "#FFFFFF", marginBottom: "12px", textAlign: "center", lineHeight: 1.1 }}>The E.C.H.O. Blueprint</h2>
         <p style={{ fontSize: "16px", color: "rgba(255,255,255,0.45)", textAlign: "center", marginBottom: "56px", fontFamily: "'Work Sans', sans-serif", maxWidth: "560px", margin: "0 auto 56px" }}>
           When these layers align, leadership creates an ECHO that outlives the founder.
@@ -434,18 +434,19 @@ function ECHOBlueprint({ onOpen }: { onOpen: () => void }) {
         <div className="echo-grid" style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "16px", marginBottom: "40px" }}>
           {echoItems.map((item, i) => (
             <button key={i} onClick={() => setActive(i)} style={{ background: active === i ? "rgba(201,165,90,0.12)" : "rgba(255,255,255,0.03)", border: active === i ? "1px solid rgba(201,165,90,0.6)" : "1px solid rgba(255,255,255,0.08)", borderRadius: "12px", padding: "32px 20px", cursor: "pointer", textAlign: "center", transition: "all 0.25s ease", outline: "none" }}>
-              <div style={{ fontSize: "clamp(52px, 6vw, 72px)", fontWeight: 900, lineHeight: 1, color: active === i ? "#C9A55A" : "rgba(255,255,255,0.15)", fontFamily: "'Frank Ruhl Libre', Georgia, serif", transition: "color 0.25s ease", marginBottom: "12px" }}>{item.letter}</div>
+              <div style={{ fontSize: "clamp(52px, 6vw, 72px)", fontWeight: 900, lineHeight: 1, color: active === i ? "#FFFFFF" : "rgba(255,255,255,0.15)", fontFamily: "'Frank Ruhl Libre', Georgia, serif", transition: "color 0.25s ease", marginBottom: "12px" }}>{item.letter}</div>
               <p style={{ fontSize: "11px", fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase" as const, color: active === i ? "#C9A55A" : "rgba(255,255,255,0.35)", fontFamily: "'Work Sans', sans-serif", transition: "color 0.25s ease", lineHeight: 1.4 }}>{item.label}</p>
             </button>
           ))}
         </div>
         <div className="echo-detail" style={{ background: "rgba(201,165,90,0.06)", border: "1px solid rgba(201,165,90,0.2)", borderRadius: "16px", padding: "40px 48px", minHeight: "140px" }}>
-          <p style={{ fontSize: "11px", fontWeight: 700, letterSpacing: "0.18em", textTransform: "uppercase" as const, color: "#C9A55A", marginBottom: "12px", fontFamily: "'Work Sans', sans-serif" }}>{echoItems[active].letter}: {echoItems[active].label}</p>
-          <h3 style={{ fontSize: "clamp(20px, 2.5vw, 28px)", fontWeight: 900, color: "#FFFFFF", marginBottom: "14px", lineHeight: 1.2 }}>{echoItems[active].tagline}</h3>
-          <p style={{ fontSize: "16px", color: "rgba(255,255,255,0.65)", lineHeight: 1.75, fontFamily: "'Work Sans', sans-serif", maxWidth: "700px" }}>{echoItems[active].description}</p>
+          
+          <h3 style={{ fontSize: "clamp(22px, 2.8vw, 32px)", fontWeight: 900, color: "#FFFFFF", marginBottom: "14px", lineHeight: 1.2 }}>{echoItems[active].tagline}</h3>
+          <p style={{ fontSize: "17px", color: "rgba(255,255,255,0.72)", lineHeight: 1.8, fontFamily: "'Work Sans', sans-serif", maxWidth: "700px" }}>{echoItems[active].description}</p>
         </div>
         <div style={{ textAlign: "center", marginTop: "40px" }}>
-          <CTAButton onOpen={onOpen} />
+          <button onClick={onOpen} className="cta-btn" style={{ background: "linear-gradient(135deg, #AA0000 0%, #CC0000 50%, #AA0000 100%)", color: "#FFFFFF", fontWeight: 800, padding: "18px 48px", borderRadius: "5px", fontSize: "18px", cursor: "pointer", textTransform: "uppercase", letterSpacing: "0.08em", boxShadow: "0 6px 24px rgba(204,0,0,0.45)", fontFamily: "'Work Sans', sans-serif", border: "none" }}>REGISTER FOR FREE</button>
+          <div style={{ fontSize: "13px", color: "rgba(255,255,255,0.55)", fontStyle: "italic", marginTop: "10px" }}>$7,500 Value. Limited seats. Live online event.</div>
         </div>
       </div>
     </section>
