@@ -19,6 +19,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <meta property="og:title" content="Kingdom Intelligence Masterclass | Fueled By Fire" />
+        <meta property="og:description" content="Free 3-day live event April 14-16, 2026. Learn how to scale your business with Spirit-led strategy, operational efficiency, and predictable cash flow in the AI era." />
+        <meta property="og:image" content="https://www.kingdomintel.com/images/og-share.jpg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="1200" />
+        <meta property="og:url" content="https://www.kingdomintel.com" />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content="https://www.kingdomintel.com/images/og-share.jpg" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
