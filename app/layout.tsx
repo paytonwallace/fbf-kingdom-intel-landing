@@ -169,7 +169,8 @@ a { color: inherit; text-decoration: none; }
   /* On mobile: lighten the big diagonal overlay so photo isn't buried */
   .hero-section > div:first-child { background: linear-gradient(180deg, rgba(13,13,13,0.3) 0%, rgba(13,13,13,0.15) 50%, rgba(13,13,13,0.6) 100%) !important; }
   .hero-text-col { flex: none; width: 100%; padding: 20px 24px 48px; align-items: center; text-align: center; }
-  .hero-event-bar { gap: 20px; margin-top: 32px; }
+  .hero-event-bar { gap: 20px; margin-top: 32px; justify-content: center !important; }
+  .hero-event-bar > div:last-child { display: none !important; }
 
   /* ── CTA BUTTON — full width on mobile ── */
   .cta-wrapper { display: flex !important; flex-direction: column !important; align-items: stretch !important; width: 100% !important; }
