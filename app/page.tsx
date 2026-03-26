@@ -289,7 +289,7 @@ function VSLSection({ onOpen }: { onOpen: () => void }) {
           See Why Thousands of Kingdom CEOs<br />Are Going ALL IN
         </h2>
         <div style={{ position: "relative", paddingBottom: "56.25%", height: 0, overflow: "hidden", borderRadius: "12px", boxShadow: "0 20px 60px rgba(0,0,0,0.6)", border: "1px solid rgba(201,165,90,0.2)", background: "#111" }}>
-          <iframe src="https://www.youtube.com/embed/VIDEO_ID_HERE?rel=0&modestbranding=1" title="Kingdom Intelligence Masterclass" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", border: "none" }} />
+          <iframe src="https://player.vimeo.com/video/1177090365?badge=0&autopause=0&player_id=0&app_id=58479" title="Kingdom Intelligence Masterclass" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" allowFullScreen style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", border: "none" }} />
         </div>
         <div style={{ marginTop: "40px" }}>
           <CTAButton text="RESERVE MY FREE SEAT" onOpen={onOpen} />
@@ -642,3 +642,4 @@ export default function Home() {
     </>
   );
 }
+
