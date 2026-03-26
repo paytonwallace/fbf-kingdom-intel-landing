@@ -429,7 +429,7 @@ function ECHOBlueprint({ onOpen }: { onOpen: () => void }) {
         <p style={{ fontSize: "14px", fontWeight: 600, color: "#CC0000", marginBottom: "16px", textAlign: "center", fontFamily: "'Work Sans', sans-serif", lineHeight: 1.7, maxWidth: "560px", margin: "0 auto 16px" }}>Learn to govern AI using our signature <strong style={{ color: "#FFFFFF" }}>E.C.H.O. Framework</strong> to build a team and business that scale, operate, and grow even when you&rsquo;re not in the room.</p>
         <h2 style={{ fontSize: "clamp(28px, 4vw, 48px)", fontWeight: 900, color: "#FFFFFF", marginBottom: "12px", textAlign: "center", lineHeight: 1.1 }}>The E.C.H.O. Blueprint</h2>
         <p style={{ fontSize: "16px", color: "rgba(255,255,255,0.45)", textAlign: "center", marginBottom: "56px", fontFamily: "'Work Sans', sans-serif", maxWidth: "560px", margin: "0 auto 56px" }}>
-          When these layers align, leadership creates an ECHO that outlives the founder.
+          Learn to govern AI using our signature E.C.H.O. Framework to build a team and business that scale, operate, and grow even when you&rsquo;re not in the room.
         </p>
         <div className="echo-grid" style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "16px", marginBottom: "40px" }}>
           {echoItems.map((item, i) => (
