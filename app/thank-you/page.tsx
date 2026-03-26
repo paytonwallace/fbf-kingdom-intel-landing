@@ -102,10 +102,10 @@ export default function ThankYou() {
         </section>
 
         {/* ── SECTION 2: WHAT YOU GET ── */}
-        <section style={{ background: "#111111", padding: "80px 24px" }}>
+        <section style={{ background: "#FFFFFF", padding: "80px 24px" }}>
           <div style={{ maxWidth: "1060px", margin: "0 auto" }}>
-            <p style={{ fontSize: "12px", fontWeight: 700, letterSpacing: "0.22em", textTransform: "uppercase", color: "#C9A55A", textAlign: "center", marginBottom: "16px" }}>Inside the Community</p>
-            <h2 style={{ fontSize: "clamp(26px, 4vw, 42px)", fontWeight: 900, color: "#FFFFFF", textAlign: "center", marginBottom: "52px", lineHeight: 1.15 }}>
+            <p style={{ fontSize: "12px", fontWeight: 700, letterSpacing: "0.22em", textTransform: "uppercase", color: "#CC0000", textAlign: "center", marginBottom: "16px" }}>Inside the Community</p>
+            <h2 style={{ fontSize: "clamp(26px, 4vw, 42px)", fontWeight: 900, color: "#111111", textAlign: "center", marginBottom: "52px", lineHeight: 1.15 }}>
               What Awaits You in the Kingdom Intel Network
             </h2>
             <div className="features-grid animate-2" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "20px" }}>
@@ -117,10 +117,17 @@ export default function ThankYou() {
                 { icon: "🌍", title: "Kingdom Impact Network", body: "Connect with leaders across industries who are using business as a platform for generosity and global impact." },
                 { icon: "📋", title: "Masterclass Workbook", body: "Download the Kingdom Intelligence workbook inside the community and come prepared for every session." },
               ].map((f, i) => (
-                <div key={i} className="feature-card" style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.07)", borderRadius: "14px", padding: "28px 24px" }}>
-                  <div style={{ fontSize: "28px", marginBottom: "14px", lineHeight: 1 }}>{f.icon}</div>
-                  <h3 style={{ fontSize: "16px", fontWeight: 700, color: "#FFFFFF", marginBottom: "8px", fontFamily: "'Work Sans', sans-serif" }}>{f.title}</h3>
-                  <p style={{ fontSize: "14px", color: "rgba(255,255,255,0.6)", lineHeight: 1.7 }}>{f.body}</p>
+                <div key={i} className="feature-card" style={{ background: "#F8F8F8", border: "1px solid #E8E8E8", borderRadius: "14px", padding: "28px 24px" }}>
+                  <div style={{ marginBottom: "14px", lineHeight: 1 }}>
+                  {f.icon === "VIDEO" && <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#CC0000" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>}
+                  {f.icon === "COMMUNITY" && <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#CC0000" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>}
+                  {f.icon === "ENCOURAGEMENT" && <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#CC0000" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>}
+                  {f.icon === "EVENT" && <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#CC0000" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>}
+                  {f.icon === "NETWORK" && <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#CC0000" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>}
+                  {f.icon === "WORKBOOK" && <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#CC0000" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>}
+                </div>
+                  <h3 style={{ fontSize: "16px", fontWeight: 700, color: "#111111", marginBottom: "8px", fontFamily: "'Work Sans', sans-serif" }}>{f.title}</h3>
+                  <p style={{ fontSize: "14px", color: "#555555", lineHeight: 1.7 }}>{f.body}</p>
                 </div>
               ))}
             </div>
