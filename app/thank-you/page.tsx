@@ -15,7 +15,7 @@ export default function ThankYou() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@400;700;900&family=Work+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Anton&family=Frank+Ruhl+Libre:wght@400;700;900&family=Work+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
         <style>{`
           *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
           body { font-family: 'Work Sans', sans-serif; background: #080808; color: #FFFFFF; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
@@ -75,7 +75,7 @@ export default function ThankYou() {
                 <p style={{ fontSize: "12px", fontWeight: 700, letterSpacing: "0.22em", textTransform: "uppercase", color: "#C9A55A", marginBottom: "20px" }}>
                   Welcome to the Fueled By Fire Community
                 </p>
-                <h1 style={{ fontSize: "clamp(28px, 4vw, 48px)", fontWeight: 900, color: "#FFFFFF", lineHeight: 1.1, marginBottom: "8px" }}>
+                <h1 style={{ fontSize: "clamp(28px, 4vw, 48px)", fontWeight: 400, color: "#FFFFFF", lineHeight: 1.1, marginBottom: "8px", fontFamily: "'Anton', sans-serif", textTransform: "uppercase", letterSpacing: "0.01em" }}>
                   One More Step Before You Go.
                 </h1>
                 <h2 style={{ fontSize: "clamp(22px, 3vw, 34px)", fontWeight: 700, color: "#CC0000", lineHeight: 1.2, marginBottom: "32px" }}>
