@@ -38,6 +38,8 @@ export default function ThankYou() {
             .gold-btn { width: 100% !important; text-align: center !important; display: block !important; }
           }
         `}</style>
+        {/* Facebook Pixel - CompleteRegistration */}
+        <script dangerouslySetInnerHTML={{ __html: `fbq('track', 'CompleteRegistration');` }} />
       </head>
       <body>
 
