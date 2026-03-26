@@ -83,7 +83,7 @@ export default function ThankYou() {
                 </h2>
                 <div style={{ width: "48px", height: "3px", background: "#C9A55A", marginBottom: "32px", borderRadius: "2px" }} />
                 <p style={{ fontSize: "16px", color: "rgba(255,255,255,0.7)", lineHeight: 1.85, marginBottom: "20px" }}>
-                  Make sure to <strong style={{ color: "#FFFFFF" }}>check your email</strong> for a welcome message from Staci with everything you need. (Check spam/promotions if you don&rsquo;t see it.)
+                  Make sure to <strong style={{ color: "#FFFFFF" }}>check your email</strong>{" "}for a welcome message from Staci with everything you need. (Check spam/promotions if you don&rsquo;t see it.)
                 </p>
                 <p style={{ fontSize: "16px", color: "rgba(255,255,255,0.7)", lineHeight: 1.85, marginBottom: "40px" }}>
                   Join the <strong style={{ color: "#C9A55A" }}>Fueled By Fire Facebook Community</strong>, a growing tribe of over 30,000 faith-driven leaders building businesses with God-sized vision. Connect, grow, and stay updated with everything happening in the Masterclass.
