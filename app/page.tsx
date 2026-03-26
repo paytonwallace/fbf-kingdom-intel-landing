@@ -248,7 +248,6 @@ function EventDetails() {
   return (
     <section style={{ background: "#FFFFFF", padding: "80px 20px" }}>
       <div ref={ref} className="section-reveal" style={{ maxWidth: "860px", margin: "0 auto", textAlign: "center" }}>
-        <p style={{ fontSize: "12px", fontWeight: 700, letterSpacing: "0.22em", textTransform: "uppercase" as const, color: "#CC0000", marginBottom: "16px", fontFamily: "'Work Sans', sans-serif" }}>What This Is</p>
         <h2 style={{ fontSize: "clamp(28px, 4vw, 44px)", fontWeight: 900, color: "#111111", lineHeight: 1.15, marginBottom: "28px" }}>
           We Are Entering the Most Disruptive Economic Shift in Modern History.
         </h2>
@@ -256,9 +255,7 @@ function EventDetails() {
           AI is accelerating business at a pace the world has never seen. Yet most leaders still don&rsquo;t know how to position their companies for what&rsquo;s coming.
         </p>
         <p style={{ fontSize: "18px", color: "#111111", lineHeight: 1.85, marginBottom: "32px", maxWidth: "780px", margin: "0 auto 32px", fontFamily: "'Work Sans', sans-serif", fontWeight: 600 }}>
-          That&rsquo;s why Larry &amp; Staci Wallace created the Kingdom Intelligence Masterclass,
-          a FREE 3-day live event built to give faith-driven leaders the E.C.H.O. Framework, the G.R.O.W.T.H. Method,
-          and the spiritual intelligence to scale without sacrificing what matters most.
+          AI accelerates speed, but Kingdom Intelligence governs it with discernment. That&rsquo;s why Larry and Staci Wallace created the Kingdom Intelligence Masterclass, a free three-day live event where they teach the E.C.H.O. Framework and show leaders how to scale operations, increase sales, and build profitable businesses through Spirit-led wisdom, without sacrificing what matters most.
         </p>
         <div className="event-details-row" style={{ display: "flex", justifyContent: "center", gap: "40px", flexWrap: "wrap", marginBottom: "32px" }}>
           {[
