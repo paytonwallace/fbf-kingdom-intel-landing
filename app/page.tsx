@@ -617,9 +617,9 @@ export default function Home() {
       <TopBanner onOpen={open} />
       <main style={{ paddingTop: "43px" }}>
         <Hero onOpen={open} />
-        <div className="event-vsl-wrapper">
-          <div className="event-order"><EventDetails /></div>
+        <div className="event-vsl-wrapper" style={{ display: "flex", flexDirection: "column" }}>
           <div className="vsl-order"><VSLSection onOpen={open} /></div>
+          <div className="event-order"><EventDetails /></div>
         </div>
         <Testimonials3 />
         <Invitation onOpen={open} />
