@@ -255,7 +255,7 @@ function EventDetails() {
           AI is accelerating business at a pace the world has never seen. Yet most leaders still don&rsquo;t know how to position their companies for what&rsquo;s coming.
         </p>
         <p style={{ fontSize: "18px", color: "#111111", lineHeight: 1.85, marginBottom: "32px", maxWidth: "780px", margin: "0 auto 32px", fontFamily: "'Work Sans', sans-serif", fontWeight: 600 }}>
-          AI accelerates speed, but Kingdom Intelligence governs it with discernment. That&rsquo;s why Larry and Staci Wallace created the Kingdom Intelligence Masterclass, a free three-day live event where they teach the E.C.H.O. Framework and show leaders how to scale operations, increase sales, and build profitable businesses through Spirit-led wisdom, without sacrificing what matters most.
+          That&rsquo;s why Larry and Staci Wallace created the Kingdom Intelligence Masterclass, a free three-day live event where they teach the E.C.H.O. Framework and show leaders how to scale operations, increase sales, and build profitable businesses through Spirit-led wisdom, without sacrificing what matters most.
         </p>
         <div className="event-details-row" style={{ display: "flex", justifyContent: "center", gap: "40px", flexWrap: "wrap", marginBottom: "32px" }}>
           {[
