@@ -179,7 +179,7 @@ function Hero({ onOpen }: { onOpen: () => void }) {
         {/* Photo col */}
         <div className="hero-photo-col">
           <img
-            src="/images/staci-larry-hero.avif"
+            src="/images/staci-larry-hero-2026.png"
             alt="Staci and Larry Wallace"
             className="hero-photo"
           />
