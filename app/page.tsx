@@ -421,20 +421,20 @@ function ECHOBlueprint({ onOpen }: { onOpen: () => void }) {
   return (
     <section style={{ background: "#111111", padding: "80px 20px" }}>
       <div ref={ref} className="section-reveal" style={{ maxWidth: "1000px", margin: "0 auto" }}>
-        <p style={{ fontSize: "14px", fontWeight: 600, color: "#CC0000", marginBottom: "16px", textAlign: "center", fontFamily: "'Work Sans', sans-serif", lineHeight: 1.7, maxWidth: "560px", margin: "0 auto 16px" }}>Learn to govern AI using our signature <strong style={{ color: "#FFFFFF" }}>E.C.H.O. Framework</strong> to build a team and business that scale, operate, and grow even when you&rsquo;re not in the room.</p>
-        <h2 style={{ fontSize: "clamp(28px, 4vw, 48px)", fontWeight: 900, color: "#FFFFFF", marginBottom: "12px", textAlign: "center", lineHeight: 1.1 }}>The E.C.H.O. Blueprint</h2>
+        
+        <h2 style={{ fontSize: "clamp(28px, 4vw, 48px)", fontWeight: 900, color: "#FFFFFF", marginBottom: "12px", textAlign: "center", lineHeight: 1.1 }}>The E.C.H.O. Framework</h2>
         <p style={{ fontSize: "16px", color: "rgba(255,255,255,0.45)", textAlign: "center", marginBottom: "56px", fontFamily: "'Work Sans', sans-serif", maxWidth: "560px", margin: "0 auto 56px" }}>
           Learn to govern AI using our signature E.C.H.O. Framework to build a team and business that scale, operate, and grow even when you&rsquo;re not in the room.
         </p>
         <div className="echo-grid" style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "16px", marginBottom: "40px" }}>
           {echoItems.map((item, i) => (
-            <button key={i} onClick={() => setActive(i)} style={{ background: active === i ? "rgba(201,165,90,0.12)" : "rgba(255,255,255,0.03)", border: active === i ? "1px solid rgba(201,165,90,0.6)" : "1px solid rgba(255,255,255,0.08)", borderRadius: "12px", padding: "32px 20px", cursor: "pointer", textAlign: "center", transition: "all 0.25s ease", outline: "none" }}>
+            <button key={i} onClick={() => setActive(i)} style={{ background: active === i ? "rgba(204,0,0,0.1)" : "rgba(255,255,255,0.03)", border: active === i ? "1px solid rgba(204,0,0,0.6)" : "1px solid rgba(255,255,255,0.08)", borderRadius: "12px", padding: "32px 20px", cursor: "pointer", textAlign: "center", transition: "all 0.25s ease", outline: "none" }}>
               <div style={{ fontSize: "clamp(52px, 6vw, 72px)", fontWeight: 900, lineHeight: 1, color: active === i ? "#FFFFFF" : "rgba(255,255,255,0.15)", fontFamily: "'Frank Ruhl Libre', Georgia, serif", transition: "color 0.25s ease", marginBottom: "12px" }}>{item.letter}</div>
-              <p style={{ fontSize: "11px", fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase" as const, color: active === i ? "#C9A55A" : "rgba(255,255,255,0.35)", fontFamily: "'Work Sans', sans-serif", transition: "color 0.25s ease", lineHeight: 1.4 }}>{item.label}</p>
+              <p style={{ fontSize: "11px", fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase" as const, color: active === i ? "#CC0000" : "rgba(255,255,255,0.35)", fontFamily: "'Work Sans', sans-serif", transition: "color 0.25s ease", lineHeight: 1.4 }}>{item.label}</p>
             </button>
           ))}
         </div>
-        <div className="echo-detail" style={{ background: "rgba(201,165,90,0.06)", border: "1px solid rgba(201,165,90,0.2)", borderRadius: "16px", padding: "40px 48px", minHeight: "140px" }}>
+        <div className="echo-detail" style={{ background: "rgba(204,0,0,0.06)", border: "1px solid rgba(204,0,0,0.2)", borderRadius: "16px", padding: "40px 48px", minHeight: "140px" }}>
           
           <h3 style={{ fontSize: "clamp(22px, 2.8vw, 32px)", fontWeight: 900, color: "#FFFFFF", marginBottom: "14px", lineHeight: 1.2 }}>{echoItems[active].tagline}</h3>
           <p style={{ fontSize: "17px", color: "rgba(255,255,255,0.72)", lineHeight: 1.8, fontFamily: "'Work Sans', sans-serif", maxWidth: "700px" }}>{echoItems[active].description}</p>
