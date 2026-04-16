@@ -1,0 +1,492 @@
+.pageShell {
+  background: #ffffff;
+  color: #111111;
+}
+
+.container {
+  width: min(calc(100% - 2rem), 1180px);
+  margin: 0 auto;
+}
+
+.topBanner {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  background: linear-gradient(90deg, #aa0000 0%, #cc0000 50%, #aa0000 100%);
+}
+
+.topBannerInner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 11px 0;
+}
+
+.topBannerInner span,
+.topBannerInner a {
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2.64px;
+  text-transform: uppercase;
+  font-family: "Work Sans", system-ui, sans-serif;
+}
+
+.topBannerInner a {
+  color: #ffe599;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.heroSection,
+.topicsSection,
+.finalSection {
+  background: #0d0d0d;
+  color: #ffffff;
+}
+
+.heroSection,
+.featuredSection,
+.topicsSection,
+.audienceSection,
+.finalSection {
+  position: relative;
+  padding: 88px 0;
+}
+
+.heroSection {
+  overflow: hidden;
+}
+
+.heroOverlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 18% 16%, rgba(187, 148, 90, 0.18), transparent 28%),
+    linear-gradient(125deg, rgba(255, 255, 255, 0.03), transparent 38%);
+}
+
+.heroLayout {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(360px, 0.95fr);
+  gap: 48px;
+  align-items: center;
+}
+
+.heroKicker,
+.eyebrow,
+.cardEyebrow {
+  margin: 0;
+  color: #c9a55a;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2.64px;
+  text-transform: uppercase;
+  font-family: "Work Sans", system-ui, sans-serif;
+}
+
+.eyebrowLight {
+  color: #c9a55a;
+}
+
+.heroWordmark {
+  display: flex;
+  flex-direction: column;
+  margin-top: 14px;
+  font-family: "Frank Ruhl Libre", Georgia, serif;
+  font-size: clamp(3.1rem, 7.6vw, 5.35rem);
+  font-weight: 900;
+  line-height: 0.92;
+  text-transform: uppercase;
+}
+
+.heroWordmarkAccent {
+  color: #bb945a;
+}
+
+.heroSubtitle {
+  margin: 20px 0 0;
+  font-family: "Frank Ruhl Libre", Georgia, serif;
+  font-size: clamp(1.55rem, 3vw, 2.55rem);
+  line-height: 1.05;
+}
+
+.heroDescription,
+.sectionCopy,
+.featuredCard p,
+.topicCard p,
+.audienceList li,
+.heroNote p,
+.pullQuote p {
+  font-size: 18px;
+  line-height: 1.72;
+  font-family: "Work Sans", system-ui, sans-serif;
+}
+
+.heroDescription {
+  max-width: 58ch;
+  margin: 22px 0 0;
+  color: rgba(255, 255, 255, 0.68);
+}
+
+.heroActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 34px;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 54px;
+  padding: 18px 34px;
+  border-radius: 5px;
+  border: none;
+  font-size: 17px;
+  font-weight: 800;
+  letter-spacing: 1.44px;
+  text-transform: uppercase;
+  font-family: "Work Sans", system-ui, sans-serif;
+  transition: transform 180ms ease, box-shadow 180ms ease, filter 180ms ease;
+}
+
+.button:hover,
+.featuredCard:hover,
+.topicCard:hover {
+  transform: translateY(-2px);
+}
+
+.buttonGold {
+  background: linear-gradient(135deg, #c9a55a 0%, #e8d080 45%, #bb945a 100%);
+  color: #120800;
+  box-shadow: 0 6px 24px rgba(185, 148, 90, 0.45);
+}
+
+.buttonGhost {
+  border: 1px solid rgba(201, 165, 90, 0.28);
+  background: rgba(255, 255, 255, 0.04);
+  color: #ffffff;
+}
+
+.buttonRed {
+  background: linear-gradient(90deg, #aa0000 0%, #cc0000 50%, #aa0000 100%);
+  color: #ffffff;
+  box-shadow: 0 10px 32px rgba(170, 0, 0, 0.28);
+}
+
+.platformRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+.platformRow span {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.05);
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-family: "Work Sans", system-ui, sans-serif;
+}
+
+.heroVisual {
+  position: relative;
+  min-height: 640px;
+}
+
+.heroFrame {
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+  min-height: 640px;
+  border-radius: 24px;
+  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.35);
+}
+
+.heroImage {
+  object-fit: cover;
+  object-position: center 18%;
+}
+
+.heroImageShade {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(13, 13, 13, 0.06) 0%, rgba(13, 13, 13, 0.2) 100%),
+    linear-gradient(90deg, rgba(13, 13, 13, 0.08) 0%, rgba(13, 13, 13, 0) 42%);
+}
+
+.heroNote {
+  position: absolute;
+  right: -18px;
+  bottom: 28px;
+  width: min(320px, 78%);
+  padding: 24px 24px 22px;
+  border-radius: 18px;
+  background: linear-gradient(145deg, rgba(20, 20, 20, 0.96), rgba(35, 27, 17, 0.94));
+  border: 1px solid rgba(201, 165, 90, 0.2);
+  box-shadow: 0 24px 56px rgba(0, 0, 0, 0.3);
+}
+
+.heroNote h3 {
+  margin: 12px 0 10px;
+  font-family: "Frank Ruhl Libre", Georgia, serif;
+  font-size: 1.8rem;
+  line-height: 1.04;
+}
+
+.heroNote p {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.featuredSection,
+.audienceSection {
+  background: #f7f4ee;
+}
+
+.sectionHeading {
+  max-width: 820px;
+  margin-bottom: 38px;
+}
+
+.heading,
+.lightHeading {
+  margin: 0;
+  font-family: "Frank Ruhl Libre", Georgia, serif;
+  font-size: clamp(2.35rem, 4vw, 3.7rem);
+  font-weight: 900;
+  line-height: 1.08;
+}
+
+.heading {
+  color: #111111;
+}
+
+.lightHeading {
+  color: #ffffff;
+}
+
+.sectionCopy {
+  margin: 18px 0 0;
+  color: #444444;
+}
+
+.sectionCopyLight {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.featuredGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.featuredCard {
+  padding: 28px;
+  border-radius: 18px;
+  background: linear-gradient(180deg, #ffffff 0%, #fbf8f1 100%);
+  border: 1px solid rgba(17, 17, 17, 0.08);
+  box-shadow: 0 22px 50px rgba(0, 0, 0, 0.08);
+  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+}
+
+.featuredCard:hover {
+  box-shadow: 0 28px 58px rgba(0, 0, 0, 0.12);
+  border-color: rgba(187, 148, 90, 0.28);
+}
+
+.featuredCard h3,
+.topicCard h3 {
+  margin: 14px 0 12px;
+  font-family: "Frank Ruhl Libre", Georgia, serif;
+  font-size: 1.8rem;
+  line-height: 1.08;
+}
+
+.featuredCard p {
+  color: #444444;
+}
+
+.topicsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.topicCard {
+  padding: 26px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(204, 0, 0, 0.18);
+  transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+}
+
+.topicCard:hover {
+  border-color: rgba(201, 165, 90, 0.38);
+  box-shadow: 0 20px 46px rgba(0, 0, 0, 0.24);
+}
+
+.topicCard p {
+  margin-top: 12px;
+  color: rgba(255, 255, 255, 0.68);
+}
+
+.audienceGrid {
+  display: grid;
+  grid-template-columns: minmax(300px, 0.88fr) minmax(0, 1fr);
+  gap: 44px;
+  align-items: center;
+}
+
+.audienceImageWrap {
+  position: relative;
+  min-height: 560px;
+  overflow: hidden;
+  border-radius: 24px;
+  background: #121212;
+  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.15);
+}
+
+.audienceImage {
+  object-fit: cover;
+  object-position: center 22%;
+}
+
+.audienceCopy {
+  display: flex;
+  flex-direction: column;
+}
+
+.audienceList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 14px;
+}
+
+.audienceList li {
+  position: relative;
+  padding-left: 18px;
+  color: #444444;
+}
+
+.audienceList li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 13px;
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: #bb945a;
+}
+
+.pullQuote {
+  margin-top: 28px;
+  padding: 22px 24px;
+  border-radius: 18px;
+  background: rgba(17, 17, 17, 0.04);
+  border-left: 4px solid #bb945a;
+}
+
+.pullQuote p {
+  color: #111111;
+}
+
+.finalShell {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 28px;
+  align-items: center;
+  padding: 36px 40px;
+  border-radius: 22px;
+  border: 1px solid rgba(201, 165, 90, 0.16);
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.04), rgba(34, 28, 20, 0.78));
+  box-shadow: 0 28px 72px rgba(0, 0, 0, 0.24);
+}
+
+@media (max-width: 1080px) {
+  .heroLayout,
+  .audienceGrid,
+  .finalShell {
+    grid-template-columns: 1fr;
+  }
+
+  .featuredGrid,
+  .topicsGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .heroNote {
+    right: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .heroSection,
+  .featuredSection,
+  .topicsSection,
+  .audienceSection,
+  .finalSection {
+    padding: 64px 0;
+  }
+
+  .topBannerInner {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.4rem;
+    padding: 10px 0;
+  }
+
+  .heroLayout {
+    gap: 28px;
+  }
+
+  .heroActions {
+    flex-direction: column;
+  }
+
+  .button {
+    width: 100%;
+  }
+
+  .heroVisual,
+  .heroFrame {
+    min-height: 420px;
+  }
+
+  .heroNote {
+    position: relative;
+    right: auto;
+    bottom: auto;
+    width: 100%;
+    margin-top: 16px;
+  }
+
+  .featuredGrid,
+  .topicsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .audienceImageWrap {
+    min-height: 360px;
+  }
+
+  .finalShell {
+    padding: 28px 24px;
+  }
+}
