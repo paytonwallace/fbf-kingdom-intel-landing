@@ -269,6 +269,45 @@ export default function NetworkPage() {
         </div>
       </section>
 
+      <section className={styles.personalWordSection}>
+        <div className={styles.container}>
+          <div className={styles.personalWordLayout}>
+            <div className={styles.personalWordImageWrap}>
+              <img src="/images/staci-larry-split.webp" alt="Larry and Staci Wallace seated together" />
+            </div>
+            <div className={styles.personalWordCopy}>
+              <p className={styles.eyebrow}>A Personal Word From Larry &amp; Staci</p>
+              <h2 className={styles.heading}>
+                A Kingdom blueprint for scaling business without sacrificing family, peace, or purpose.
+              </h2>
+              <div className={styles.personalWordRule} />
+              <p className={styles.sectionCopy}>
+                Kingdom Intel Network was built for leaders who want more than content. It is a strategic
+                room for CEOs and founders who need wise counsel, fast access, and real momentum in the
+                middle of real decisions.
+              </p>
+              <p className={styles.sectionCopy}>
+                Inside this room, you step into monthly CEO Think Tanks, executive Q&amp;A, monthly
+                trainings, a live member community, and future Kingdom Intel Masterclass VIP rooms designed
+                to keep you close to the conversations that matter most.
+              </p>
+              <p className={styles.sectionCopy}>
+                If you are called to build something profitable, purpose-driven, and generational, this is
+                where clarity, alignment, and high-trust relationships come together.
+              </p>
+              <p className={styles.personalWordSignature}>
+                Blessings,
+                <br />
+                <strong>Larry &amp; Staci Wallace</strong>
+              </p>
+              <a className={`${styles.button} ${styles.buttonRed}`} href={paymentUrl} target="_blank" rel="noreferrer">
+                Join The Network
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section className={styles.finalCtaSection}>
         <div className={`${styles.container} ${styles.finalCtaLayout}`}>
           <div className={styles.finalCtaImageWrap}>
