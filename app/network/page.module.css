@@ -536,15 +536,20 @@
   display: block;
 }
 
-.eventsLayout {
+.eventsIntro {
+  max-width: 820px;
+  margin-bottom: 34px;
+}
+
+.eventsBody {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(320px, 0.92fr);
   gap: 44px;
-  align-items: start;
+  align-items: center;
 }
 
-.eventsCopy {
-  padding-top: 10px;
+.eventsText {
+  max-width: 560px;
 }
 
 .eventsImageWrap {
@@ -568,31 +573,12 @@
   display: block;
 }
 
-.eventsTags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin: 26px 0 18px;
-}
-
-.eventsTags span {
-  display: inline-flex;
-  align-items: center;
-  padding: 10px 14px;
-  border-radius: 999px;
-  border: 1px solid rgba(17, 17, 17, 0.08);
-  background: rgba(17, 17, 17, 0.04);
-  color: #111111;
-  font-size: 14px;
-  font-weight: 600;
-  font-family: "Work Sans", system-ui, sans-serif;
-}
-
 .eventsNote {
-  margin: 0 0 28px;
+  margin: 14px 0 0;
   color: #666666;
   font-size: 15px;
   line-height: 1.7;
+  font-style: italic;
   font-family: "Work Sans", system-ui, sans-serif;
 }
 
@@ -713,7 +699,7 @@
   .testimonialGrid,
   .communityProof,
   .personalWordLayout,
-  .eventsLayout,
+  .eventsBody,
   .finalCtaLayout {
     grid-template-columns: 1fr;
   }
@@ -742,10 +728,6 @@
 
   .personalWordCopy {
     padding: 42px 30px;
-  }
-
-  .eventsCopy {
-    padding-top: 0;
   }
 
   .personalWordCopy::before {
@@ -790,7 +772,6 @@
   }
 
   .heroActions,
-  .eventsTags,
   .tagRow {
     gap: 12px;
   }
