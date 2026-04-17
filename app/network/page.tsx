@@ -364,6 +364,33 @@ export default function NetworkPage() {
           </div>
         </div>
       </section>
+
+      <footer className={styles.siteFooter}>
+        <div className={styles.container}>
+          <div className={styles.footerInner}>
+            <img
+              src="/images/fbf-logo-white.png"
+              alt="Fueled By Fire"
+              className={styles.footerLogo}
+            />
+            <p className={styles.footerCopyright}>&copy; 2026 Fueled By Fire. All Rights Reserved.</p>
+            <p className={styles.footerSupport}>
+              10% of every program fee supports Epiphany Global (Uganda) &amp; EMwomen.
+            </p>
+            <div className={styles.footerLinks}>
+              <a href="https://www.fbfchallenge.com/privacy" target="_blank" rel="noreferrer">
+                Privacy Policy
+              </a>
+              <a href="https://www.fbfchallenge.com/terms" target="_blank" rel="noreferrer">
+                Terms of Service
+              </a>
+              <a href="https://www.fbfchallenge.com/disclaimer" target="_blank" rel="noreferrer">
+                Disclaimer
+              </a>
+            </div>
+          </div>
+        </div>
+      </footer>
     </main>
   );
 }
