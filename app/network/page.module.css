@@ -552,6 +552,10 @@
   max-width: 560px;
 }
 
+.eventsText .button {
+  margin-top: 22px;
+}
+
 .eventsImageWrap {
   overflow: hidden;
   border-radius: 24px;
@@ -574,7 +578,7 @@
 }
 
 .eventsNote {
-  margin: 14px 0 0;
+  margin: 16px 0 0;
   color: #666666;
   font-size: 15px;
   line-height: 1.7;
