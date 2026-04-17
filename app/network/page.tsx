@@ -185,6 +185,105 @@ export default function NetworkPage() {
         </div>
       </section>
 
+      <section className={styles.communitySection}>
+        <div className={styles.container}>
+          <div className={styles.communityProof}>
+            <div className={styles.communityCopy}>
+              <p className={styles.communityLabel}>Inside The Member Community</p>
+              <h3>Ask questions, access monthly trainings, follow the event calendar, and use free resources.</h3>
+              <p>
+                Members get a real community hub built for collaboration, weekly events, on-demand support,
+                and a place to stay close to everything happening inside the Network.
+              </p>
+            </div>
+            <div className={styles.communityImage}>
+              <img
+                src="/community-app-screenshot.png"
+                alt="Kingdom Intel Network member community app showing community feed, events, and resources"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className={styles.finalCtaSection}>
+        <div className={`${styles.container} ${styles.finalCtaLayout}`}>
+          <div className={styles.finalCtaImageWrap}>
+            <img src="/final-cta-prayer.jpg" alt="Fueled by Fire community gathered in prayer" />
+          </div>
+          <div className={styles.finalCtaCopy}>
+            <p className={`${styles.eyebrow} ${styles.eyebrowLight}`}>Our Shared Mission</p>
+            <h2 className={styles.lightHeading}>Raising a generation of Kingdom CEOs.</h2>
+            <p className={`${styles.sectionCopy} ${styles.sectionCopyLight}`}>
+              Fueled by Fire exists to equip leaders to build highly profitable, purpose-driven businesses that
+              glorify God in the marketplace. If you are ready to build with excellence, integrity, generosity,
+              and generational legacy, this is the room to step into.
+            </p>
+            <div className={styles.finalCtaActions}>
+              <a className={`${styles.button} ${styles.buttonRed}`} href={paymentUrl} target="_blank" rel="noreferrer">
+                Join The Network
+              </a>
+              <p>2 CEO Think Tank calls monthly. Quick executive Q&amp;A. Monthly trainings. Future Masterclass VIP room access.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className={styles.eventsSection}>
+        <div className={styles.container}>
+          <div className={styles.eventsLayout}>
+            <div className={styles.eventsCopy}>
+              <p className={styles.eyebrow}>Yearly Events &amp; Invites</p>
+              <h2 className={styles.heading}>
+                Get invited into Perspective leadership development events and stay close to what is
+                happening all year.
+              </h2>
+              <p className={styles.sectionCopy}>
+                As a Kingdom Intel Network member, you get invited into Perspective gatherings and other
+                leadership development experiences that have happened in places like the beach, the Grand
+                Canyon, and the Smoky Mountains.
+              </p>
+              <p className={styles.sectionCopy}>
+                You also get access to the live events calendar inside the member community, so you can
+                see upcoming online events, trainings, and member moments in one place.
+              </p>
+              <div className={styles.eventsTags}>
+                <span>Perspective leadership events</span>
+                <span>Beach, Grand Canyon, Smoky Mountains</span>
+                <span>Member events calendar access</span>
+                <span>Online and in-person invites</span>
+              </div>
+              <p className={styles.eventsNote}>Event invitations are included. Tickets and travel are not included.</p>
+              <a className={`${styles.button} ${styles.buttonRed}`} href={paymentUrl} target="_blank" rel="noreferrer">
+                Join The Network
+              </a>
+            </div>
+            <div className={styles.eventsImageWrap}>
+              <img
+                src="/perspective-group.jpg"
+                alt="Perspective leadership development event group photo"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className={styles.conversionSection}>
+        <div className={`${styles.container} ${styles.conversionShell}`}>
+          <div>
+            <p className={`${styles.eyebrow} ${styles.eyebrowLight}`}>Join Kingdom Intel Network</p>
+            <h2 className={styles.lightHeading}>Get in the room for $197 per month.</h2>
+            <p className={`${styles.sectionCopy} ${styles.sectionCopyLight}`}>
+              2 CEO Think Tank calls, executive Q&amp;A, monthly trainings, member community access, and
+              future Kingdom Intel Masterclass VIP rooms.
+            </p>
+          </div>
+          <a className={`${styles.button} ${styles.buttonGold}`} href={paymentUrl} target="_blank" rel="noreferrer">
+            Join The Network
+          </a>
+        </div>
+      </section>
+
       <section className={styles.testimonialsSection}>
         <div className={styles.container}>
           <SectionHeading
@@ -266,105 +365,6 @@ export default function NetworkPage() {
               <a className={`${styles.button} ${styles.buttonRed}`} href={paymentUrl} target="_blank" rel="noreferrer">
                 Join The Network
               </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className={styles.conversionSection}>
-        <div className={`${styles.container} ${styles.conversionShell}`}>
-          <div>
-            <p className={`${styles.eyebrow} ${styles.eyebrowLight}`}>Join Kingdom Intel Network</p>
-            <h2 className={styles.lightHeading}>Get in the room for $197 per month.</h2>
-            <p className={`${styles.sectionCopy} ${styles.sectionCopyLight}`}>
-              2 CEO Think Tank calls, executive Q&amp;A, monthly trainings, member community access, and
-              future Kingdom Intel Masterclass VIP rooms.
-            </p>
-          </div>
-          <a className={`${styles.button} ${styles.buttonGold}`} href={paymentUrl} target="_blank" rel="noreferrer">
-            Join The Network
-          </a>
-        </div>
-      </section>
-
-      <section className={styles.communitySection}>
-        <div className={styles.container}>
-          <div className={styles.communityProof}>
-            <div className={styles.communityCopy}>
-              <p className={styles.communityLabel}>Inside The Member Community</p>
-              <h3>Ask questions, access monthly trainings, follow the event calendar, and use free resources.</h3>
-              <p>
-                Members get a real community hub built for collaboration, weekly events, on-demand support,
-                and a place to stay close to everything happening inside the Network.
-              </p>
-            </div>
-            <div className={styles.communityImage}>
-              <img
-                src="/community-app-screenshot.png"
-                alt="Kingdom Intel Network member community app showing community feed, events, and resources"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className={styles.eventsSection}>
-        <div className={styles.container}>
-          <div className={styles.eventsLayout}>
-            <div className={styles.eventsCopy}>
-              <p className={styles.eyebrow}>Yearly Events &amp; Invites</p>
-              <h2 className={styles.heading}>
-                Get invited into Perspective leadership development events and stay close to what is
-                happening all year.
-              </h2>
-              <p className={styles.sectionCopy}>
-                As a Kingdom Intel Network member, you get invited into Perspective gatherings and other
-                leadership development experiences that have happened in places like the beach, the Grand
-                Canyon, and the Smoky Mountains.
-              </p>
-              <p className={styles.sectionCopy}>
-                You also get access to the live events calendar inside the member community, so you can
-                see upcoming online events, trainings, and member moments in one place.
-              </p>
-              <div className={styles.eventsTags}>
-                <span>Perspective leadership events</span>
-                <span>Beach, Grand Canyon, Smoky Mountains</span>
-                <span>Member events calendar access</span>
-                <span>Online and in-person invites</span>
-              </div>
-              <p className={styles.eventsNote}>Event invitations are included. Tickets and travel are not included.</p>
-              <a className={`${styles.button} ${styles.buttonRed}`} href={paymentUrl} target="_blank" rel="noreferrer">
-                Join The Network
-              </a>
-            </div>
-            <div className={styles.eventsImageWrap}>
-              <img
-                src="/perspective-group.jpg"
-                alt="Perspective leadership development event group photo"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className={styles.finalCtaSection}>
-        <div className={`${styles.container} ${styles.finalCtaLayout}`}>
-          <div className={styles.finalCtaImageWrap}>
-            <img src="/final-cta-prayer.jpg" alt="Fueled by Fire community gathered in prayer" />
-          </div>
-          <div className={styles.finalCtaCopy}>
-            <p className={`${styles.eyebrow} ${styles.eyebrowLight}`}>Our Shared Mission</p>
-            <h2 className={styles.lightHeading}>Raising a generation of Kingdom CEOs.</h2>
-            <p className={`${styles.sectionCopy} ${styles.sectionCopyLight}`}>
-              Fueled by Fire exists to equip leaders to build highly profitable, purpose-driven businesses that
-              glorify God in the marketplace. If you are ready to build with excellence, integrity, generosity,
-              and generational legacy, this is the room to step into.
-            </p>
-            <div className={styles.finalCtaActions}>
-              <a className={`${styles.button} ${styles.buttonRed}`} href={paymentUrl} target="_blank" rel="noreferrer">
-                Join The Network
-              </a>
-              <p>2 CEO Think Tank calls monthly. Quick executive Q&amp;A. Monthly trainings. Future Masterclass VIP room access.</p>
             </div>
           </div>
         </div>
