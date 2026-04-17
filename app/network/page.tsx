@@ -4,7 +4,7 @@ import styles from "./page.module.css";
 export const metadata: Metadata = {
   title: "Kingdom Intel Network | Fueled By Fire",
   description:
-    "A strategic room for Kingdom-minded CEOs and entrepreneurial leaders with CEO think tank calls, executive Q&A, member community access, and exclusive event invites.",
+    "A strategic room for Kingdom-minded CEOs and entrepreneurial leaders with monthly CEO think tanks, executive Q&A, member community access, monthly trainings, future Masterclass VIP rooms, and exclusive event invites.",
 };
 
 const paymentUrl = "https://buy.stripe.com/28EbJ27sB0h82mMfAV5kk01";
@@ -107,7 +107,7 @@ export default function NetworkPage() {
       <div className={styles.topBanner}>
         <div className={styles.container}>
           <div className={styles.topBannerInner}>
-            <span>$197 per month | 2 CEO Think Tank calls monthly | Quick executive Q&amp;A inside the community</span>
+            <span>$197 per month | 2 CEO Think Tank calls monthly | Executive Q&amp;A | Future Masterclass VIP rooms</span>
             <a href={paymentUrl} target="_blank" rel="noreferrer">
               Join now
             </a>
@@ -136,8 +136,9 @@ export default function NetworkPage() {
             <p className={styles.heroSubtitle}>Helping you build business God's way.</p>
             <p className={styles.heroDescription}>
               This is not a typical online community. It is a strategic environment where Kingdom-minded CEOs
-              and entrepreneurial leaders gather to sharpen one another, exchange wisdom, and steward the
-              assignments God has placed in their hands.
+              and entrepreneurial leaders gather for executive-level access, sharp peer counsel, monthly
+              trainings, and the kind of real-time support that helps you steward the assignments God has
+              placed in your hands.
             </p>
             <div className={styles.heroActions}>
               <a className={`${styles.button} ${styles.buttonGold}`} href={paymentUrl} target="_blank" rel="noreferrer">
@@ -154,7 +155,7 @@ export default function NetworkPage() {
             <SectionHeading
               eyebrow="Who This Is For"
               title="This room is built for leaders carrying real assignments."
-              description="For CEOs, founders, and operators who want Spirit-led strategy, stronger execution, and a trusted room of peers who understand the weight of leadership. Inside this room, you will find leaders building companies, strengthening families, expanding influence, and pursuing Kingdom impact in the marketplace."
+              description="For CEOs, founders, and operators who want Spirit-led strategy, stronger execution, and a trusted room of peers who understand the weight of leadership. Inside this room, you will find leaders building companies, strengthening families, expanding influence, and pursuing Kingdom impact in the marketplace with real access to answers, relationships, and momentum."
             />
             <div className={styles.tagRow}>
               <span>Peer-level strategy</span>
@@ -171,8 +172,10 @@ export default function NetworkPage() {
             </div>
             <ul className={styles.bulletList}>
               <li>2 CEO Think Tank calls every month</li>
-              <li>Executive Q&amp;A for real business decisions</li>
-              <li>Peer-level Kingdom CEO community access</li>
+              <li>Fast executive Q&amp;A for real business decisions</li>
+              <li>Peer-level Kingdom CEO community inside the member app</li>
+              <li>Monthly trainings, weekly event calendar, and free resources</li>
+              <li>Access to future Kingdom Intel Masterclass VIP rooms</li>
               <li>Exclusive invites to in-person and online events</li>
             </ul>
             <a className={`${styles.button} ${styles.buttonRed} ${styles.fullButton}`} href={paymentUrl} target="_blank" rel="noreferrer">
@@ -235,7 +238,8 @@ export default function NetworkPage() {
             <p className={`${styles.eyebrow} ${styles.eyebrowLight}`}>Join Kingdom Intel Network</p>
             <h2 className={styles.lightHeading}>Get in the room for $197 per month.</h2>
             <p className={`${styles.sectionCopy} ${styles.sectionCopyLight}`}>
-              2 CEO Think Tank calls, executive Q&amp;A, and a trusted Kingdom CEO room built for real decisions.
+              2 CEO Think Tank calls, executive Q&amp;A, monthly trainings, member community access, and
+              future Kingdom Intel Masterclass VIP rooms.
             </p>
           </div>
           <a className={`${styles.button} ${styles.buttonGold}`} href={paymentUrl} target="_blank" rel="noreferrer">
@@ -249,10 +253,10 @@ export default function NetworkPage() {
           <div className={styles.communityProof}>
             <div className={styles.communityCopy}>
               <p className={styles.communityLabel}>Inside The Member Community</p>
-              <h3>Ask questions, access trainings, follow the event calendar, and use free resources.</h3>
+              <h3>Ask questions, access monthly trainings, follow the event calendar, and use free resources.</h3>
               <p>
-                Members get a real community hub built for collaboration, monthly trainings, weekly events,
-                and on-demand support.
+                Members get a real community hub built for collaboration, weekly events, on-demand support,
+                and a place to stay close to everything happening inside the Network.
               </p>
             </div>
             <div className={styles.communityImage}>
@@ -282,7 +286,7 @@ export default function NetworkPage() {
               <a className={`${styles.button} ${styles.buttonRed}`} href={paymentUrl} target="_blank" rel="noreferrer">
                 Join The Network
               </a>
-              <p>2 CEO Think Tank calls monthly. Quick executive Q&amp;A in the community. Kingdom-centered leadership support.</p>
+              <p>2 CEO Think Tank calls monthly. Quick executive Q&amp;A. Monthly trainings. Future Masterclass VIP room access.</p>
             </div>
           </div>
         </div>
