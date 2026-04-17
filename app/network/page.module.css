@@ -1,6 +1,8 @@
 .pageShell {
   background: #ffffff;
   color: #111111;
+  --section-space: 80px;
+  --section-space-mobile: 64px;
 }
 
 .container {
@@ -53,9 +55,10 @@
 .conversionSection,
 .communitySection,
 .personalWordSection,
+.eventsSection,
 .finalCtaSection {
   position: relative;
-  padding: 80px 0;
+  padding: var(--section-space) 0;
 }
 
 .heroSection {
@@ -443,8 +446,8 @@
 }
 
 .conversionSection {
-  padding-top: 56px;
-  padding-bottom: 56px;
+  padding-top: 68px;
+  padding-bottom: 68px;
 }
 
 .conversionShell {
@@ -475,7 +478,6 @@
 
 .personalWordSection {
   background: #ffffff;
-  padding-top: 20px;
 }
 
 .eventsSection {
@@ -537,23 +539,31 @@
 .eventsLayout {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(320px, 0.92fr);
-  gap: 36px;
-  align-items: center;
+  gap: 44px;
+  align-items: start;
+}
+
+.eventsCopy {
+  padding-top: 10px;
 }
 
 .eventsImageWrap {
   overflow: hidden;
-  min-height: 480px;
   border-radius: 24px;
   border: 1px solid rgba(17, 17, 17, 0.08);
   box-shadow: 0 24px 60px rgba(0, 0, 0, 0.12);
   background: #111111;
+  padding: 16px;
+  aspect-ratio: 4 / 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .eventsImageWrap img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;
+  object-fit: contain;
   object-position: center;
   display: block;
 }
@@ -726,11 +736,16 @@
   }
 
   .eventsImageWrap {
-    min-height: 380px;
+    aspect-ratio: auto;
+    min-height: 0;
   }
 
   .personalWordCopy {
     padding: 42px 30px;
+  }
+
+  .eventsCopy {
+    padding-top: 0;
   }
 
   .personalWordCopy::before {
@@ -745,7 +760,8 @@
 
   .topBannerInner {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
+    text-align: center;
     padding: 10px 0;
   }
 
@@ -757,7 +773,7 @@
   .personalWordSection,
   .eventsSection,
   .finalCtaSection {
-    padding: 68px 0;
+    padding: var(--section-space-mobile) 0;
   }
 
   .heroLayout {
@@ -771,6 +787,16 @@
 
   .heroPhotoFade {
     background: linear-gradient(to bottom, transparent 58%, #0d0d0d 100%);
+  }
+
+  .heroActions,
+  .eventsTags,
+  .tagRow {
+    gap: 12px;
+  }
+
+  .heroActions {
+    flex-direction: column;
   }
 
   .button {
@@ -787,12 +813,23 @@
     gap: 16px;
   }
 
-  .finalCtaImageWrap {
-    min-height: 320px;
+  .sectionHeading {
+    margin-bottom: 28px;
   }
 
-  .personalWordSection {
-    padding-top: 0;
+  .conversionShell,
+  .communityProof {
+    padding-left: 22px;
+    padding-right: 22px;
+  }
+
+  .communityProof {
+    padding-top: 22px;
+    padding-bottom: 22px;
+  }
+
+  .finalCtaImageWrap {
+    min-height: 320px;
   }
 
   .personalWordImageWrap {
@@ -800,7 +837,7 @@
   }
 
   .eventsImageWrap {
-    min-height: 280px;
+    padding: 10px;
   }
 
   .personalWordCopy {

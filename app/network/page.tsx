@@ -232,43 +232,6 @@ export default function NetworkPage() {
         </div>
       </section>
 
-      <section className={styles.conversionSection}>
-        <div className={`${styles.container} ${styles.conversionShell}`}>
-          <div>
-            <p className={`${styles.eyebrow} ${styles.eyebrowLight}`}>Join Kingdom Intel Network</p>
-            <h2 className={styles.lightHeading}>Get in the room for $197 per month.</h2>
-            <p className={`${styles.sectionCopy} ${styles.sectionCopyLight}`}>
-              2 CEO Think Tank calls, executive Q&amp;A, monthly trainings, member community access, and
-              future Kingdom Intel Masterclass VIP rooms.
-            </p>
-          </div>
-          <a className={`${styles.button} ${styles.buttonGold}`} href={paymentUrl} target="_blank" rel="noreferrer">
-            Join The Network
-          </a>
-        </div>
-      </section>
-
-      <section className={styles.communitySection}>
-        <div className={styles.container}>
-          <div className={styles.communityProof}>
-            <div className={styles.communityCopy}>
-              <p className={styles.communityLabel}>Inside The Member Community</p>
-              <h3>Ask questions, access monthly trainings, follow the event calendar, and use free resources.</h3>
-              <p>
-                Members get a real community hub built for collaboration, weekly events, on-demand support,
-                and a place to stay close to everything happening inside the Network.
-              </p>
-            </div>
-            <div className={styles.communityImage}>
-              <img
-                src="/community-app-screenshot.png"
-                alt="Kingdom Intel Network member community app showing community feed, events, and resources"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
       <section className={styles.personalWordSection}>
         <div className={styles.container}>
           <div className={styles.personalWordLayout}>
@@ -303,6 +266,43 @@ export default function NetworkPage() {
               <a className={`${styles.button} ${styles.buttonRed}`} href={paymentUrl} target="_blank" rel="noreferrer">
                 Join The Network
               </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className={styles.conversionSection}>
+        <div className={`${styles.container} ${styles.conversionShell}`}>
+          <div>
+            <p className={`${styles.eyebrow} ${styles.eyebrowLight}`}>Join Kingdom Intel Network</p>
+            <h2 className={styles.lightHeading}>Get in the room for $197 per month.</h2>
+            <p className={`${styles.sectionCopy} ${styles.sectionCopyLight}`}>
+              2 CEO Think Tank calls, executive Q&amp;A, monthly trainings, member community access, and
+              future Kingdom Intel Masterclass VIP rooms.
+            </p>
+          </div>
+          <a className={`${styles.button} ${styles.buttonGold}`} href={paymentUrl} target="_blank" rel="noreferrer">
+            Join The Network
+          </a>
+        </div>
+      </section>
+
+      <section className={styles.communitySection}>
+        <div className={styles.container}>
+          <div className={styles.communityProof}>
+            <div className={styles.communityCopy}>
+              <p className={styles.communityLabel}>Inside The Member Community</p>
+              <h3>Ask questions, access monthly trainings, follow the event calendar, and use free resources.</h3>
+              <p>
+                Members get a real community hub built for collaboration, weekly events, on-demand support,
+                and a place to stay close to everything happening inside the Network.
+              </p>
+            </div>
+            <div className={styles.communityImage}>
+              <img
+                src="/community-app-screenshot.png"
+                alt="Kingdom Intel Network member community app showing community feed, events, and resources"
+              />
             </div>
           </div>
         </div>
