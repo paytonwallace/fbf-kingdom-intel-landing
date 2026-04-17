@@ -263,22 +263,6 @@ export default function NetworkPage() {
         </div>
       </section>
 
-      <section className={styles.conversionSection}>
-        <div className={`${styles.container} ${styles.conversionShell}`}>
-          <div>
-            <p className={`${styles.eyebrow} ${styles.eyebrowLight}`}>Join Kingdom Intel Network</p>
-            <h2 className={styles.lightHeading}>Get in the room for $197 per month.</h2>
-            <p className={`${styles.sectionCopy} ${styles.sectionCopyLight}`}>
-              2 CEO Think Tank calls, executive Q&amp;A, monthly trainings, member community access, and
-              future Kingdom Intel Masterclass VIP rooms.
-            </p>
-          </div>
-          <a className={`${styles.button} ${styles.buttonGold}`} href={paymentUrl} target="_blank" rel="noreferrer">
-            Join The Network
-          </a>
-        </div>
-      </section>
-
       <section className={styles.testimonialsSection}>
         <div className={styles.container}>
           <SectionHeading
@@ -323,6 +307,22 @@ export default function NetworkPage() {
               <span key={item}>{item}</span>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className={styles.conversionSection}>
+        <div className={`${styles.container} ${styles.conversionShell}`}>
+          <div>
+            <p className={`${styles.eyebrow} ${styles.eyebrowLight}`}>Join Kingdom Intel Network</p>
+            <h2 className={styles.lightHeading}>Get in the room for $197 per month.</h2>
+            <p className={`${styles.sectionCopy} ${styles.sectionCopyLight}`}>
+              2 CEO Think Tank calls, executive Q&amp;A, monthly trainings, member community access, and
+              future Kingdom Intel Masterclass VIP rooms.
+            </p>
+          </div>
+          <a className={`${styles.button} ${styles.buttonGold}`} href={paymentUrl} target="_blank" rel="noreferrer">
+            Join The Network
+          </a>
         </div>
       </section>
 
