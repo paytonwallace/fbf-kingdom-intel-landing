@@ -4,7 +4,7 @@ import styles from "./page.module.css";
 export const metadata: Metadata = {
   title: "Kingdom Intelligence Network | Fueled By Fire",
   description:
-    "A strategic room for Kingdom-minded CEOs with monthly CEO think tanks, executive Q&A, member community access, monthly trainings, future Masterclass VIP rooms, and exclusive event invites.",
+    "An online community of Christian entrepreneurs building business God's way with weekly mentorship, executive Q&A, replays, resources, and exclusive event invites.",
 };
 
 const paymentUrl = "https://buy.stripe.com/28EbJ27sB0h82mMfAV5kk01";
@@ -107,7 +107,7 @@ export default function NetworkPage() {
       <div className={styles.topBanner}>
         <div className={styles.container}>
           <div className={styles.topBannerInner}>
-            <span>$197 per month | 2 CEO Think Tank calls monthly | Executive Q&amp;A | Future Masterclass VIP rooms</span>
+            <span>$197 per month | Weekly mentorship | Executive Q&amp;A | Future Masterclass VIP rooms</span>
             <a href={paymentUrl} target="_blank" rel="noreferrer">
               Join now
             </a>
@@ -135,9 +135,10 @@ export default function NetworkPage() {
             </div>
             <p className={styles.heroSubtitle}>Helping you build business God's way.</p>
             <p className={styles.heroDescription}>
-              This isn't another online community. It's a strategic room where Kingdom-minded CEOs and
-              entrepreneurial leaders gather for executive-level access, sharp peer counsel, monthly
-              trainings, and real-time support for the decisions that matter most.
+              This is a room full of Kingdom leaders and business owners who are actively making it
+              Heaven on earth in the marketplace. With executive-level access, peer counsel, monthly
+              trainings, and real-time support for the decisions that matter most by those doing
+              business the Kingdom Way.
             </p>
             <div className={styles.heroActions}>
               <a className={`${styles.button} ${styles.buttonGold}`} href={paymentUrl} target="_blank" rel="noreferrer">
@@ -153,13 +154,13 @@ export default function NetworkPage() {
           <div>
             <SectionHeading
               eyebrow="Who This Is For"
-              title="This room is built for leaders carrying real assignments."
-              description="For CEOs, founders, and operators who want Spirit-led strategy, stronger execution, and a trusted room of peers who understand the weight of leadership. This is where leaders build companies, strengthen families, expand influence, and pursue Kingdom impact with real access to answers, relationships, and momentum."
+              title="A faith-filled network for leaders who build His way."
+              description="The Kingdom Intelligence Network is an online community of Christian entrepreneurs and business owners learning to build business God's way. This is where faith, leadership, and marketplace growth come together in one room."
             />
             <div className={styles.tagRow}>
-              <span>Peer-level strategy</span>
-              <span>Executive access</span>
-              <span>Exclusive event invites</span>
+              <span>Christian entrepreneurs</span>
+              <span>Weekly mentorship</span>
+              <span>Kingdom business</span>
             </div>
           </div>
           <div className={styles.pricingCard}>
@@ -170,10 +171,11 @@ export default function NetworkPage() {
               <span>per month</span>
             </div>
             <ul className={styles.bulletList}>
-              <li>2 CEO Think Tank calls every month</li>
-              <li>Fast executive Q&amp;A for real business decisions</li>
-              <li>Peer-level Kingdom CEO community inside the member app</li>
-              <li>Monthly trainings, weekly event calendar, and free resources</li>
+              <li>Weekly mentorship with successful Christian leaders</li>
+              <li>Executive Q&amp;A and peer counsel for real business decisions</li>
+              <li>Podcast, Masterclass, and training replays</li>
+              <li>Direct access to CEO mentors, guests, and members inside the app</li>
+              <li>Weekly events calendar and free resources</li>
               <li>Access to future Kingdom Intelligence Masterclass VIP rooms</li>
               <li>Exclusive invites to in-person and online events</li>
             </ul>
@@ -189,10 +191,11 @@ export default function NetworkPage() {
           <div className={styles.communityProof}>
             <div className={styles.communityCopy}>
               <p className={styles.communityLabel}>Inside The Member Community</p>
-              <h3>Ask questions, access monthly trainings, follow the event calendar, and use free resources.</h3>
+              <h3>Ask questions, watch replays, follow the calendar, and stay close to the room.</h3>
               <p>
-                The member app keeps you close to the room with weekly events, ongoing conversation, and
-                on-demand support when you need answers fast.
+                Inside the member community, you get weekly mentorship touchpoints, podcast and
+                Masterclass replays, direct messaging access, and resources to build your brand, your
+                business, and your faith.
               </p>
             </div>
             <div className={styles.communityImage}>
@@ -212,17 +215,17 @@ export default function NetworkPage() {
           </div>
           <div className={styles.finalCtaCopy}>
             <p className={`${styles.eyebrow} ${styles.eyebrowLight}`}>Our Shared Mission</p>
-            <h2 className={styles.lightHeading}>Raising a generation of Kingdom CEOs.</h2>
+            <h2 className={styles.lightHeading}>Building businesses God's way.</h2>
             <p className={`${styles.sectionCopy} ${styles.sectionCopyLight}`}>
-              Fueled by Fire equips leaders to build highly profitable, purpose-driven businesses that glorify
-              God in the marketplace. If you're ready to build with excellence, integrity, generosity, and
-              legacy in mind, this is the room to step into.
+              Fueled by Fire exists to equip Christian entrepreneurs to lead with wisdom, grow with
+              integrity, and bring Heaven into the marketplace. Kingdom Intelligence Network is where that
+              mission becomes practical every week.
             </p>
             <div className={styles.finalCtaActions}>
               <a className={`${styles.button} ${styles.buttonRed}`} href={paymentUrl} target="_blank" rel="noreferrer">
                 Join The Network
               </a>
-              <p>2 CEO Think Tank calls monthly. Executive Q&amp;A. Monthly trainings. Future Masterclass VIP room access.</p>
+              <p>Weekly mentorship. Executive Q&amp;A. Replays, resources, and future Masterclass VIP room access.</p>
             </div>
           </div>
         </div>
@@ -243,8 +246,8 @@ export default function NetworkPage() {
                 experiences hosted in places like the beach, the Grand Canyon, and the Smoky Mountains.
               </p>
               <p className={styles.sectionCopy}>
-                You also get access to the live member events calendar, so you can track upcoming online
-                events, trainings, and key moments all in one place.
+                You also get access to the live events calendar inside the community, so you can stay
+                close to upcoming online trainings, special calls, and member moments all year.
               </p>
               <a className={`${styles.button} ${styles.buttonRed}`} href={paymentUrl} target="_blank" rel="noreferrer">
                 Join The Network
@@ -314,8 +317,8 @@ export default function NetworkPage() {
             <p className={`${styles.eyebrow} ${styles.eyebrowLight}`}>Join Kingdom Intelligence Network</p>
             <h2 className={styles.lightHeading}>Get in the room for $197 per month.</h2>
             <p className={`${styles.sectionCopy} ${styles.sectionCopyLight}`}>
-              2 CEO Think Tank calls, executive Q&amp;A, member community access, monthly trainings, and
-              future Kingdom Intelligence Masterclass VIP rooms.
+              Weekly mentorship, executive Q&amp;A, replays, free resources, and access to a Christian
+              business community built to help you grow God's way.
             </p>
           </div>
           <a className={`${styles.button} ${styles.buttonGold}`} href={paymentUrl} target="_blank" rel="noreferrer">
@@ -337,18 +340,18 @@ export default function NetworkPage() {
               </h2>
               <div className={styles.personalWordRule} />
               <p className={styles.sectionCopy}>
-                Kingdom Intelligence Network was built for leaders who need more than content. It's a strategic room
-                for CEOs and founders who need wise counsel, fast access, and real momentum in the middle of
-                real decisions.
+                Kingdom Intelligence Network was built for Christian entrepreneurs who want more than
+                inspiration. It was built for people who want wise counsel, real relationships, and
+                practical mentorship while they build.
               </p>
               <p className={styles.sectionCopy}>
-                Inside this room, you step into monthly CEO Think Tanks, executive Q&amp;A, monthly
-                trainings, a live member community, and future Kingdom Intelligence Masterclass VIP rooms
-                that keep you close to the conversations that matter most.
+                Inside this room, you get weekly access to leaders, ongoing support inside the community,
+                replays and trainings you can return to, and future Kingdom Intelligence Masterclass VIP
+                rooms that keep you close to the right conversations.
               </p>
               <p className={styles.sectionCopy}>
-                If you're called to build something profitable, purpose-driven, and generational, this is
-                where clarity, alignment, and high-trust relationships come together.
+                If you want to build a profitable business without separating your faith from your
+                leadership, we would be honored to build with you here.
               </p>
               <p className={styles.personalWordSignature}>
                 Blessings,
