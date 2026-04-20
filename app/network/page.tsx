@@ -157,6 +157,12 @@ export default function NetworkPage() {
               title="A faith-filled network for leaders who build His way."
               description="The Kingdom Intelligence Network is an online community of Christian entrepreneurs and business owners learning to build business God's way. This is where faith, leadership, and marketplace growth come together in one room."
             />
+            <p className={styles.sectionCopy}>
+              In a world rapidly changing through AI, it is more important than ever to build with Kingdom
+              Intelligence and discernment in the marketplace. This is a network of leaders and business
+              owners who refuse to build by the world&apos;s standards and instead lead with wisdom, conviction,
+              and Spirit-led strategy.
+            </p>
             <div className={styles.tagRow}>
               <span>Christian entrepreneurs</span>
               <span>Weekly mentorship</span>
