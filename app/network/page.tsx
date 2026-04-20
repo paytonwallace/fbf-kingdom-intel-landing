@@ -7,7 +7,7 @@ export const metadata: Metadata = {
     "An online community of Christian entrepreneurs building business God's way with weekly mentorship, executive Q&A, replays, resources, and exclusive event invites.",
 };
 
-const paymentUrl = "https://buy.stripe.com/28EbJ27sB0h82mMfAV5kk01";
+const paymentUrl = "https://vault.fbfmastery.com/checkout/network";
 
 const featuredTestimonials = [
   {
