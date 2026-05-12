@@ -460,13 +460,26 @@
     #0d0d0d;
 }
 
+.expectSection .sectionHeading {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.expectSection .sectionCopy {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .expectGrid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 18px;
+  align-items: stretch;
 }
 
 .expectCard {
+  height: 100%;
   padding: 26px;
   border-radius: 18px;
   border: 1px solid rgba(201, 165, 90, 0.22);
@@ -623,18 +636,18 @@
   border-radius: 24px;
   border: 1px solid rgba(17, 17, 17, 0.08);
   box-shadow: 0 24px 60px rgba(0, 0, 0, 0.12);
-  background: #111111;
-  padding: 16px;
-  aspect-ratio: 4 / 3;
+  background: #f7f4ee;
+  padding: 0;
+  aspect-ratio: 16 / 9;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: stretch;
+  justify-content: stretch;
 }
 
 .eventsImageWrap img {
   width: 100%;
-  height: auto;
-  object-fit: contain;
+  height: 100%;
+  object-fit: cover;
   object-position: center;
   display: block;
 }
@@ -857,12 +870,15 @@
   .audienceGrid,
   .featuredTestimonials,
   .testimonialGrid,
-  .expectGrid,
   .communityProof,
   .personalWordLayout,
   .eventsBody,
   .finalCtaLayout {
     grid-template-columns: 1fr;
+  }
+
+  .expectGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .conversionShell {
@@ -883,7 +899,7 @@
   }
 
   .eventsImageWrap {
-    aspect-ratio: auto;
+    aspect-ratio: 16 / 9;
     min-height: 0;
   }
 
@@ -979,8 +995,30 @@
     min-height: 320px;
   }
 
+  .expectGrid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .expectCard {
+    padding: 22px;
+  }
+
+  .expectIcon {
+    margin-bottom: 14px;
+  }
+
+  .eventsIntro,
+  .eventsText {
+    max-width: none;
+  }
+
+  .eventsBody {
+    gap: 24px;
+  }
+
   .eventsImageWrap {
-    padding: 10px;
+    aspect-ratio: 16 / 10;
   }
 
   .personalWordCopy {
