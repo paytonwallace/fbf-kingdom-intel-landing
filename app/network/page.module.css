@@ -947,11 +947,24 @@
     width: min(calc(100% - 1.25rem), 1180px);
   }
 
+  .pageShell {
+    overflow-x: hidden;
+  }
+
   .topBannerInner {
     flex-direction: column;
     align-items: center;
     text-align: center;
     padding: 10px 0;
+    gap: 6px;
+  }
+
+  .topBannerInner span,
+  .topBannerInner a {
+    max-width: 32ch;
+    font-size: 10px;
+    line-height: 1.35;
+    letter-spacing: 1.2px;
   }
 
   .heroSection,
@@ -969,14 +982,59 @@
   .heroLayout {
     grid-template-columns: 1fr;
     gap: 24px;
+    justify-items: center;
+    text-align: center;
   }
 
   .heroVisual {
-    min-height: 420px;
+    width: 100%;
+    max-width: 430px;
+    min-height: 390px;
+    border-radius: 16px;
+  }
+
+  .heroPhoto {
+    transform: none;
+    object-position: center top;
   }
 
   .heroPhotoFade {
     background: linear-gradient(to bottom, transparent 58%, #0d0d0d 100%);
+  }
+
+  .heroCopy {
+    width: 100%;
+    max-width: 430px;
+    margin: 0 auto;
+  }
+
+  .heroKicker,
+  .eyebrow,
+  .cardEyebrow {
+    letter-spacing: 1.45px;
+  }
+
+  .heroWordmark {
+    align-items: center;
+    font-size: clamp(2.38rem, 14vw, 3.25rem);
+    line-height: 0.96;
+    letter-spacing: -0.045em;
+    max-width: 100%;
+  }
+
+  .heroSubtitle {
+    max-width: 13ch;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: clamp(1.45rem, 8vw, 2.05rem);
+  }
+
+  .heroDescription {
+    max-width: 34ch;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 16px;
+    line-height: 1.62;
   }
 
   .heroActions,
@@ -986,10 +1044,14 @@
 
   .heroActions {
     flex-direction: column;
+    align-items: center;
   }
 
   .button {
     width: 100%;
+    max-width: 360px;
+    padding-left: 24px;
+    padding-right: 24px;
   }
 
   .featuredQuote,
@@ -1003,7 +1065,21 @@
   }
 
   .sectionHeading {
+    max-width: 430px;
+    margin-left: auto;
+    margin-right: auto;
     margin-bottom: 28px;
+    text-align: center;
+  }
+
+  .sectionCopy {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .heading,
+  .lightHeading {
+    font-size: clamp(2rem, 10.5vw, 2.65rem);
   }
 
   .conversionShell,
@@ -1028,20 +1104,38 @@
   .expectGrid {
     grid-template-columns: 1fr;
     gap: 14px;
+    width: 100%;
+    max-width: 430px;
+    margin: 0 auto;
   }
 
   .expectCard {
     padding: 18px;
+    text-align: center;
   }
 
   .expectIcon {
     width: 38px;
     height: 38px;
     margin-bottom: 12px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .expectImageWrap img {
     min-height: 300px;
+  }
+
+  .expectImageWrap,
+  .eventsImageWrap,
+  .communityProof,
+  .personalWordLayout,
+  .conversionShell,
+  .finalCtaLayout {
+    width: 100%;
+    max-width: 430px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .eventsIntro,
@@ -1051,10 +1145,15 @@
 
   .eventsBody {
     gap: 24px;
+    justify-items: center;
   }
 
   .eventsImageWrap {
     aspect-ratio: 16 / 10;
+  }
+
+  .eventsText {
+    text-align: center;
   }
 
   .personalWordCopy {
