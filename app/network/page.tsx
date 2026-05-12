@@ -121,8 +121,8 @@ export default function NetworkPage() {
           <div className={styles.heroVisual}>
             <img
               className={styles.heroPhoto}
-              src="https://www.kingdomintel.com/images/staci-larry-hero-2026.png"
-              alt="Larry and Staci Wallace"
+              src="/images/kingdom-intel-network-hero.jpg"
+              alt="Kingdom Intelligence Network"
             />
             <div className={styles.heroPhotoFade} />
           </div>
@@ -405,3 +405,4 @@ export default function NetworkPage() {
     </main>
   );
 }
+
