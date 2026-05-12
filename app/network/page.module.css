@@ -43,6 +43,7 @@
 
 .heroSection,
 .testimonialsSection,
+.expectSection,
 .conversionSection,
 .finalCtaSection {
   background: #0d0d0d;
@@ -52,6 +53,7 @@
 .heroSection,
 .audienceSection,
 .testimonialsSection,
+.expectSection,
 .conversionSection,
 .communitySection,
 .personalWordSection,
@@ -450,6 +452,60 @@
   color: #ffffff;
 }
 
+.expectSection {
+  padding-top: 72px;
+  padding-bottom: 76px;
+  background:
+    radial-gradient(circle at 12% 16%, rgba(201, 165, 90, 0.14), transparent 28%),
+    #0d0d0d;
+}
+
+.expectGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.expectCard {
+  padding: 26px;
+  border-radius: 18px;
+  border: 1px solid rgba(201, 165, 90, 0.22);
+  background: rgba(255, 255, 255, 0.045);
+  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.18);
+}
+
+.expectIcon {
+  display: inline-flex;
+  width: 42px;
+  height: 42px;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 18px;
+  border-radius: 999px;
+  background: rgba(201, 165, 90, 0.12);
+  color: #e8d080;
+  font-size: 20px;
+  font-weight: 800;
+  font-family: "Work Sans", system-ui, sans-serif;
+}
+
+.expectCard h3 {
+  margin: 0;
+  color: #ffffff;
+  font-family: "Frank Ruhl Libre", Georgia, serif;
+  font-size: 1.55rem;
+  line-height: 1.08;
+  text-transform: capitalize;
+}
+
+.expectCard p {
+  margin: 12px 0 0;
+  color: rgba(255, 255, 255, 0.66);
+  font-size: 16px;
+  line-height: 1.6;
+  font-family: "Work Sans", system-ui, sans-serif;
+}
+
 .conversionSection {
   padding-top: 68px;
   padding-bottom: 68px;
@@ -801,6 +857,7 @@
   .audienceGrid,
   .featuredTestimonials,
   .testimonialGrid,
+  .expectGrid,
   .communityProof,
   .personalWordLayout,
   .eventsBody,
@@ -854,6 +911,7 @@
   .heroSection,
   .audienceSection,
   .testimonialsSection,
+  .expectSection,
   .conversionSection,
   .communitySection,
   .personalWordSection,

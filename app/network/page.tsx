@@ -79,6 +79,39 @@ const marqueeTestimonials = [
   "Delbert Friesen - President, Earthmax",
 ];
 
+const expectationCards = [
+  {
+    icon: "✦",
+    title: "vision",
+    copy: "Clarify the God-sized assignment and the next faithful steps.",
+  },
+  {
+    icon: "↗",
+    title: "marketing",
+    copy: "Sharpen your message, offers, funnels, and growth plan.",
+  },
+  {
+    icon: "▦",
+    title: "operations",
+    copy: "Build systems, team rhythms, and capacity that can scale.",
+  },
+  {
+    icon: "◈",
+    title: "ai + tools",
+    copy: "Use AI wisely to save time, improve decisions, and move faster.",
+  },
+  {
+    icon: "$",
+    title: "money",
+    copy: "Strengthen cash flow, pricing, profit, and financial clarity.",
+  },
+  {
+    icon: "◎",
+    title: "leadership",
+    copy: "Lead with wisdom, conviction, and Spirit-led confidence.",
+  },
+];
+
 function SectionHeading({
   eyebrow,
   title,
@@ -268,8 +301,8 @@ export default function NetworkPage() {
             </div>
             <div className={styles.eventsImageWrap}>
               <img
-                src="/perspective-group.jpg"
-                alt="Perspective leadership development event group photo"
+                src="/images/kingdom-intel-events-invites.jpg"
+                alt="Kingdom Intelligence Network events and invites"
               />
             </div>
           </div>
@@ -318,6 +351,26 @@ export default function NetworkPage() {
           <div className={styles.testimonialMarquee}>
             {marqueeTestimonials.map((item) => (
               <span key={item}>{item}</span>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className={styles.expectSection}>
+        <div className={styles.container}>
+          <SectionHeading
+            eyebrow="What You Can Expect"
+            title="Practical help for the vision God put in your hands."
+            description="Bring the real problems, decisions, and growth opportunities in your business. We work the room together."
+            light
+          />
+          <div className={styles.expectGrid}>
+            {expectationCards.map((item) => (
+              <article key={item.title} className={styles.expectCard}>
+                <div className={styles.expectIcon}>{item.icon}</div>
+                <h3>{item.title}</h3>
+                <p>{item.copy}</p>
+              </article>
             ))}
           </div>
         </div>
