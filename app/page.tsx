@@ -174,8 +174,8 @@ function Hero({ onOpen }: { onOpen: () => void }) {
         {/* Photo col */}
         <div className="hero-photo-col">
           <img
-            src="/images/staci-larry-hero-2026.png"
-            alt="Staci and Larry Wallace"
+            src="/images/kingdom-intel-masterclass-hero.jpg"
+            alt="Kingdom Intelligence Masterclass"
             className="hero-photo"
           />
           </div>
@@ -547,7 +547,7 @@ function FinalCTA({ onOpen }: { onOpen: () => void }) {
   return (
     <section style={{ background: "#FFFFFF", padding: "100px 20px", position: "relative", overflow: "hidden" }}>
       <div ref={ref} className="section-reveal" style={{ maxWidth: "820px", margin: "0 auto", textAlign: "center", position: "relative", zIndex: 1 }}>
-        <p style={{ fontSize: "12px", fontWeight: 700, letterSpacing: "0.22em", textTransform: "uppercase" as const, color: "#CC0000", marginBottom: "20px", fontFamily: "'Work Sans', sans-serif" }}>June 19ndash;11, 2026 &middot; Free Live Event</p>
+        <p style={{ fontSize: "12px", fontWeight: 700, letterSpacing: "0.22em", textTransform: "uppercase" as const, color: "#CC0000", marginBottom: "20px", fontFamily: "'Work Sans', sans-serif" }}>June 9&ndash;11, 2026 &middot; Free Live Event</p>
         <h2 style={{ fontSize: "clamp(34px, 5vw, 56px)", fontWeight: 900, color: "#111111", marginBottom: "20px", lineHeight: 1.1 }}>
           Playing Small Has Never<br />Changed The World.
         </h2>
@@ -633,4 +633,5 @@ export default function Home() {
     </>
   );
 }
+
 

@@ -46,7 +46,7 @@ export default function ThankYou() {
         {/* ── REGISTERED BANNER ── */}
         <div style={{ background: "linear-gradient(90deg, #AA0000 0%, #CC0000 50%, #AA0000 100%)", padding: "14px 20px", textAlign: "center" }}>
           <p style={{ fontSize: "13px", fontWeight: 700, letterSpacing: "0.18em", textTransform: "uppercase", color: "#FFFFFF" }}>
-            &#10003; &nbsp;You Are Registered · April 14&ndash;16, 2026 &nbsp;&middot;&nbsp; 12:00 PM CST &nbsp;&middot;&nbsp; Free Live Online Event
+            &#10003; &nbsp;You Are Registered · June 9&ndash;11, 2026 &nbsp;&middot;&nbsp; 12:00 PM CST &nbsp;&middot;&nbsp; Free Live Online Event
           </p>
         </div>
 
@@ -204,3 +204,4 @@ export default function ThankYou() {
     </html>
   );
 }
+
