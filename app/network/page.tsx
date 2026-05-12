@@ -212,8 +212,8 @@ export default function NetworkPage() {
             </div>
             <div className={styles.communityImage}>
               <img
-                src="/community-app-screenshot.png"
-                alt="Kingdom Intelligence Network member community app showing community feed, events, and resources"
+                src="/images/kingdom-intel-community-right.jpg"
+                alt="Kingdom Intelligence Network community"
               />
             </div>
           </div>
@@ -405,4 +405,5 @@ export default function NetworkPage() {
     </main>
   );
 }
+
 
