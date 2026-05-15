@@ -211,9 +211,26 @@ export default function NetworkPage() {
           <div className={styles.pricingCard}>
             <p className={styles.cardEyebrow}>Membership</p>
             <h3 className={styles.membershipTitle}>The Kingdom Intelligence Network</h3>
-            <div className={styles.priceRow}>
-              <strong>$197</strong>
-              <span>per month</span>
+            <div className={styles.billingSelector}>
+              <input className={styles.billingToggleInput} type="checkbox" id="network-billing-toggle" />
+              <label className={styles.billingToggle} htmlFor="network-billing-toggle" aria-label="Toggle between monthly and six month pay in full pricing">
+                <span>Monthly</span>
+                <span>Pay in full</span>
+              </label>
+              <div className={`${styles.priceOption} ${styles.monthlyPrice}`}>
+                <div className={styles.priceRow}>
+                  <strong>$197</strong>
+                  <span>per month</span>
+                </div>
+                <p className={styles.priceNote}>Flexible monthly membership.</p>
+              </div>
+              <div className={`${styles.priceOption} ${styles.paidInFullPrice}`}>
+                <div className={styles.priceRow}>
+                  <strong>$997</strong>
+                  <span>6 months paid in full</span>
+                </div>
+                <p className={styles.priceNote}>Get one month free when you pay in full for 6 months.</p>
+              </div>
             </div>
             <ul className={styles.bulletList}>
               <li>Weekly mentorship with successful Christian leaders</li>

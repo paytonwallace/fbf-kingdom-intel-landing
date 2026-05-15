@@ -299,6 +299,94 @@
   margin-top: 16px;
 }
 
+.billingSelector {
+  margin-top: 20px;
+}
+
+.billingToggleInput {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.billingToggle {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0;
+  padding: 5px;
+  border-radius: 999px;
+  border: 1px solid rgba(17, 17, 17, 0.1);
+  background: #f1ece1;
+  cursor: pointer;
+  font: 800 12px/1 "Work Sans", system-ui, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #6d6252;
+}
+
+.billingToggle::before {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  width: calc(50% - 5px);
+  height: calc(100% - 10px);
+  border-radius: 999px;
+  background: #111111;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.16);
+  transition: transform 180ms ease;
+}
+
+.billingToggle span {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  min-height: 38px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  transition: color 180ms ease;
+}
+
+.billingToggle span:first-child {
+  color: #ffffff;
+}
+
+.billingToggleInput:checked + .billingToggle::before {
+  transform: translateX(100%);
+}
+
+.billingToggleInput:checked + .billingToggle span:first-child {
+  color: #6d6252;
+}
+
+.billingToggleInput:checked + .billingToggle span:last-child {
+  color: #ffffff;
+}
+
+.priceOption {
+  margin-top: 8px;
+}
+
+.paidInFullPrice {
+  display: none;
+}
+
+.billingToggleInput:checked ~ .monthlyPrice {
+  display: none;
+}
+
+.billingToggleInput:checked ~ .paidInFullPrice {
+  display: block;
+}
+
+.priceNote {
+  margin: 10px 0 0;
+  color: #8a1c13;
+  font: 800 13px/1.5 "Work Sans", system-ui, sans-serif;
+}
+
 .priceRow strong {
   font-family: "Frank Ruhl Libre", Georgia, serif;
   font-size: 4rem;
