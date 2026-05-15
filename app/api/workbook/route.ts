@@ -1,8 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 
-const BREVO_API_KEY = process.env.BREVO_API_KEY || "";
-const BREVO_WORKBOOK_LIST_ID = Number(process.env.BREVO_WORKBOOK_LIST_ID || process.env.BREVO_KIM_WORKBOOK_LIST_ID || "15");
 const ATTIO_API_KEY = process.env.ATTIO_API_KEY || "";
+const ATTIO_KIM_QUALIFICATION_LIST_ID = process.env.ATTIO_KIM_QUALIFICATION_LIST_ID || "cd32653d-1176-454d-9e35-dc258b85a3ae";
 const SLACK_WORKBOOK_WEBHOOK_URL = process.env.SLACK_WORKBOOK_WEBHOOK_URL || "";
 
 type WorkbookPayload = {
@@ -68,9 +67,9 @@ function answer(value?: string) {
 
 function formatWorkbookNote(payload: WorkbookPayload, contact: WorkbookContact) {
   return [
-    "# Kingdom Intelligence Masterclass workbook form",
+    "# Kingdom Intelligence Masterclass qualification form",
     "",
-    `**Name:** ${[contact.firstName, contact.lastName].filter(Boolean).join(" ") || "Not provided"}`,
+    `**Name:** ${[contact.firstName, contact.lastName].filter(Boolean).join(" ")}`,
     `**Email:** ${contact.email}`,
     `**Company:** ${contact.company}`,
     `**Best describes them:** ${answer(payload.whichOfTheFollowingBestDescribesYou)}`,
@@ -85,51 +84,31 @@ function formatWorkbookNote(payload: WorkbookPayload, contact: WorkbookContact) 
   ].join("\n");
 }
 
-async function upsertBrevoWorkbookContact(contact: WorkbookContact) {
-  const attributes: Record<string, string> = {
-    FIRSTNAME: contact.firstName,
-    LASTNAME: contact.lastName,
-    COMPANY: contact.company,
-  };
-
-  await fetchJson(
-    "https://api.brevo.com/v3/contacts",
-    {
-      method: "POST",
-      headers: {
-        "api-key": BREVO_API_KEY,
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-      body: JSON.stringify({
-        email: contact.email,
-        attributes,
-        listIds: [BREVO_WORKBOOK_LIST_ID],
-        updateEnabled: true,
-      }),
-    },
-    "Brevo workbook contact"
-  );
-}
-
-async function upsertAttioPerson(contact: WorkbookContact) {
-  if (!ATTIO_API_KEY) return { skipped: true };
-
+function attioPersonValues(payload: WorkbookPayload, contact: WorkbookContact) {
   const values: Record<string, unknown> = {
     email_addresses: [{ email_address: contact.email }],
-  };
-
-  if (contact.firstName || contact.lastName) {
-    values.name = [{
+    name: [{
       first_name: contact.firstName,
       last_name: contact.lastName,
-      full_name: [contact.firstName, contact.lastName].filter(Boolean).join(" "),
-    }];
-  }
+      full_name: `${contact.firstName} ${contact.lastName}`.trim(),
+    }],
+    description: `Company: ${contact.company}`,
+    which_of_the_following_best_describes_you_1776883175: payload.whichOfTheFollowingBestDescribesYou,
+    if_we_could_help_you_achieve_one_thing_what_would_it_be_1776883138: payload.oneThing,
+    how_would_achieving_this_outcome_improve_your_business_or_life_1776883137: payload.outcomeImpact,
+    any_other_decision_makers_1776883126: payload.otherDecisionMakers,
+    want_results_1776883169: payload.wantResults,
+    what_area_do_you_need_the_most_help_with_1776883171: payload.helpAreas || [],
+    how_would_you_like_for_us_to_connect_with_you_for_this_session_phone_or_zoom_1776883137: payload.sessionConnectionPreference || "",
+    have_you_attended_one_of_our_free_online_workshops_or_masterclasses_1776883136: payload.attendedWorkshop,
+    which_range_best_represents_your_current_monthly_business_or_household_income_1776883177: payload.monthlyIncomeRange,
+  };
 
-  if (contact.company) {
-    values.description = `Company: ${contact.company}`;
-  }
+  return values;
+}
+
+async function upsertAttioPerson(payload: WorkbookPayload, contact: WorkbookContact) {
+  if (!ATTIO_API_KEY) throw new Error("ATTIO_API_KEY is not configured");
 
   const person = await fetchJson(
     "https://api.attio.com/v2/objects/people/records?matching_attribute=email_addresses",
@@ -140,15 +119,35 @@ async function upsertAttioPerson(contact: WorkbookContact) {
         "Content-Type": "application/json",
         Accept: "application/json",
       },
-      body: JSON.stringify({ data: { values } }),
+      body: JSON.stringify({ data: { values: attioPersonValues(payload, contact) } }),
     },
-    "Attio workbook contact"
+    "Attio qualification contact"
   );
 
   const recordId = person?.data?.id?.record_id;
-  if (!recordId) throw new Error("Attio workbook contact failed: missing record id");
+  if (!recordId) throw new Error("Attio qualification contact failed: missing record id");
 
-  return { skipped: false, recordId };
+  return { recordId };
+}
+
+async function addAttioQualificationListEntry(recordId: string) {
+  if (!ATTIO_KIM_QUALIFICATION_LIST_ID) return { skipped: true };
+
+  await fetchJson(
+    `https://api.attio.com/v2/lists/${encodeURIComponent(ATTIO_KIM_QUALIFICATION_LIST_ID)}/entries`,
+    {
+      method: "PUT",
+      headers: {
+        Authorization: `Bearer ${ATTIO_API_KEY}`,
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify({ data: { parent_record_id: recordId, parent_object: "people", entry_values: {} } }),
+    },
+    "Attio K.I.M. qualification list entry"
+  );
+
+  return { skipped: false };
 }
 
 async function createAttioWorkbookNote(recordId: string, payload: WorkbookPayload, contact: WorkbookContact) {
@@ -165,13 +164,13 @@ async function createAttioWorkbookNote(recordId: string, payload: WorkbookPayloa
         data: {
           parent_object: "people",
           parent_record_id: recordId,
-          title: "Kingdom Intelligence Masterclass workbook form",
+          title: "Kingdom Intelligence Masterclass qualification form",
           format: "plaintext",
           content: formatWorkbookNote(payload, contact),
         },
       }),
     },
-    "Attio workbook note"
+    "Attio qualification note"
   );
 }
 
@@ -179,10 +178,11 @@ async function notifySlack(payload: WorkbookPayload, contact: WorkbookContact) {
   if (!SLACK_WORKBOOK_WEBHOOK_URL) return { skipped: true };
 
   const text = [
-    "New Kingdom Intelligence Masterclass workbook form submission",
-    `Name: ${[contact.firstName, contact.lastName].filter(Boolean).join(" ") || "Not provided"}`,
+    "New Kingdom Intelligence Masterclass qualification form submission",
+    `Name: ${contact.firstName} ${contact.lastName}`,
     `Email: ${contact.email}`,
     `Company: ${contact.company}`,
+    `Income: ${answer(payload.monthlyIncomeRange)}`,
     `Best describes them: ${answer(payload.whichOfTheFollowingBestDescribesYou)}`,
     `Wants help with: ${payload.helpAreas?.length ? payload.helpAreas.join(", ") : "Not provided"}`,
     `Timeline: ${answer(payload.wantResults)}`,
@@ -194,13 +194,14 @@ async function notifySlack(payload: WorkbookPayload, contact: WorkbookContact) {
     body: JSON.stringify({
       text,
       blocks: [
-        { type: "header", text: { type: "plain_text", text: "New KIM workbook submission" } },
-        { type: "section", text: { type: "mrkdwn", text: `*${[contact.firstName, contact.lastName].filter(Boolean).join(" ") || contact.email}* submitted the workbook form.` } },
+        { type: "header", text: { type: "plain_text", text: "New KIM qualification form" } },
+        { type: "section", text: { type: "mrkdwn", text: `*${contact.firstName} ${contact.lastName}* submitted the KIM qualification form.` } },
         {
           type: "section",
           fields: [
             { type: "mrkdwn", text: `*Email:*\n${contact.email}` },
             { type: "mrkdwn", text: `*Company:*\n${contact.company}` },
+            { type: "mrkdwn", text: `*Income:*\n${answer(payload.monthlyIncomeRange)}` },
             { type: "mrkdwn", text: `*Best describes them:*\n${answer(payload.whichOfTheFollowingBestDescribesYou)}` },
             { type: "mrkdwn", text: `*Timeline:*\n${answer(payload.wantResults)}` },
             { type: "mrkdwn", text: `*Needs help with:*\n${payload.helpAreas?.length ? payload.helpAreas.join(", ") : "Not provided"}` },
@@ -218,8 +219,8 @@ async function notifySlack(payload: WorkbookPayload, contact: WorkbookContact) {
 
 export async function POST(req: NextRequest) {
   try {
-    if (!BREVO_API_KEY || !BREVO_WORKBOOK_LIST_ID) {
-      return NextResponse.json({ error: "Workbook form is not configured" }, { status: 500 });
+    if (!ATTIO_API_KEY) {
+      return NextResponse.json({ error: "Attio is not configured" }, { status: 500 });
     }
 
     const payload = (await req.json()) as WorkbookPayload;
@@ -231,6 +232,8 @@ export async function POST(req: NextRequest) {
     };
 
     const missing = [
+      ["firstName", contact.firstName],
+      ["lastName", contact.lastName],
       ["email", contact.email],
       ["company", contact.company],
       ["whichOfTheFollowingBestDescribesYou", payload.whichOfTheFollowingBestDescribesYou],
@@ -249,20 +252,13 @@ export async function POST(req: NextRequest) {
 
     const results: Record<string, unknown> = {};
 
-    await upsertBrevoWorkbookContact(contact);
-    results.brevo = { skipped: false };
+    const attio = await upsertAttioPerson(payload, contact);
+    results.attio = { skipped: false, recordId: attio.recordId };
 
-    try {
-      const attio = await upsertAttioPerson(contact);
-      results.attio = attio;
-      if (!attio.skipped && attio.recordId) {
-        await createAttioWorkbookNote(attio.recordId, payload, contact);
-        results.attioNote = { skipped: false };
-      }
-    } catch (error) {
-      console.error(error);
-      results.attio = { skipped: false, error: "Attio sync failed" };
-    }
+    results.attioList = await addAttioQualificationListEntry(attio.recordId);
+
+    await createAttioWorkbookNote(attio.recordId, payload, contact);
+    results.attioNote = { skipped: false };
 
     try {
       results.slack = await notifySlack(payload, contact);

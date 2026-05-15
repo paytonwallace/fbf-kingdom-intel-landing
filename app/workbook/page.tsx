@@ -121,8 +121,8 @@ export default function WorkbookPage() {
                 </div>
 
                 <div className={styles.formGridTwo}>
-                  <div><FieldLabel>First name</FieldLabel><TextInput value={form.firstName} onChange={(e) => setField("firstName", e.target.value)} /></div>
-                  <div><FieldLabel>Last name</FieldLabel><TextInput value={form.lastName} onChange={(e) => setField("lastName", e.target.value)} /></div>
+                  <div><FieldLabel required>First name</FieldLabel><TextInput required value={form.firstName} onChange={(e) => setField("firstName", e.target.value)} /></div>
+                  <div><FieldLabel required>Last name</FieldLabel><TextInput required value={form.lastName} onChange={(e) => setField("lastName", e.target.value)} /></div>
                 </div>
 
                 <div className={styles.formGridTwo}>
