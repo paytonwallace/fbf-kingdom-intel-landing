@@ -1517,21 +1517,132 @@
     grid-template-columns: 1fr;
   }
 
-  .workbookForm,
-  .successCard,
-  .workbookSidebar {
-    padding: 22px;
+  .workbookHero {
+    padding-top: 30px;
+    padding-bottom: 36px;
   }
 
-  .workbookHeroImage {
-    min-height: 0;
+  .workbookHeroLayout,
+  .workbookHeroCoverLayout {
+    gap: 24px;
+    width: 100%;
+    max-width: 430px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .workbookHeroCopy {
+    width: 100%;
+  }
+
+  .workbookLogo {
+    height: 42px;
+    margin-bottom: 18px;
+  }
+
+  .workbookHeroCompact .workbookTitle,
+  .workbookTitle {
+    max-width: none;
+    font-size: clamp(2.25rem, 12vw, 3.25rem);
+    line-height: 1;
+    letter-spacing: -0.035em;
+  }
+
+  .workbookHeroCopy .heroDescription {
+    max-width: 30ch;
+    font-size: 15px;
   }
 
   .workbookHeroCard {
-    padding: 8px;
+    width: 100%;
+    border-radius: 16px;
+    padding: 6px;
   }
 
+  .workbookHeroImage {
+    border-radius: 10px;
+  }
+
+  .workbookFormSection {
+    padding-top: 34px;
+    padding-bottom: 56px;
+  }
+
+  .workbookFormLayout {
+    gap: 20px;
+  }
+
+  .workbookForm,
+  .successCard,
+  .workbookSidebar {
+    padding: 20px;
+    border-radius: 18px;
+  }
+
+  .workbookSidebar .heading {
+    font-size: clamp(1.75rem, 9vw, 2.35rem);
+  }
+
+  .workbookForm {
+    gap: 18px;
+    box-shadow: 0 18px 48px rgba(0, 0, 0, 0.11);
+  }
+
+  .formIntro h2 {
+    font-size: clamp(1.85rem, 9vw, 2.35rem);
+  }
+
+  .formIntro p,
+  .formError,
+  .workbookPendingNote {
+    font-size: 14px;
+  }
+
+  .formLabel,
+  .checkboxFieldset legend {
+    font-size: 15px;
+    line-height: 1.35;
+  }
+
+  .formInput {
+    min-height: 48px;
+    padding: 13px 14px;
+    font-size: 16px;
+  }
+
+  .checkboxFieldset {
+    padding: 14px;
+  }
+
+  .checkboxOption {
+    padding: 11px;
+    font-size: 14px;
+  }
+
+  .radioRow {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 430px) {
+  .container {
+    width: min(calc(100% - 1rem), 1180px);
+  }
+
+  .workbookHeroLayout,
+  .workbookHeroCoverLayout {
+    max-width: 100%;
+  }
+
+  .workbookForm,
+  .successCard,
+  .workbookSidebar {
+    padding: 18px;
+  }
+
+  .workbookHeroCompact .workbookTitle,
   .workbookTitle {
-    font-size: clamp(2.45rem, 13vw, 3.8rem);
+    font-size: clamp(2.05rem, 12.5vw, 2.8rem);
   }
 }
