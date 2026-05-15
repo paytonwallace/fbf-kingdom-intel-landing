@@ -1572,15 +1572,14 @@
     gap: 20px;
   }
 
-  .workbookForm,
-  .successCard,
   .workbookSidebar {
-    padding: 20px;
-    border-radius: 18px;
+    display: none;
   }
 
-  .workbookSidebar .heading {
-    font-size: clamp(1.75rem, 9vw, 2.35rem);
+  .workbookForm,
+  .successCard {
+    padding: 20px;
+    border-radius: 18px;
   }
 
   .workbookForm {
@@ -1636,8 +1635,7 @@
   }
 
   .workbookForm,
-  .successCard,
-  .workbookSidebar {
+  .successCard {
     padding: 18px;
   }
 
