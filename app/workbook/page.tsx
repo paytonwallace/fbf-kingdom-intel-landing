@@ -15,6 +15,7 @@ const initialForm = {
   firstName: "",
   lastName: "",
   email: "",
+  phone: "",
   company: "",
   whichOfTheFollowingBestDescribesYou: "",
   oneThing: "",
@@ -127,6 +128,10 @@ export default function WorkbookPage() {
 
                 <div className={styles.formGridTwo}>
                   <div><FieldLabel required>Email</FieldLabel><TextInput required type="email" value={form.email} onChange={(e) => setField("email", e.target.value)} /></div>
+                  <div><FieldLabel required>Phone</FieldLabel><TextInput required type="tel" value={form.phone} onChange={(e) => setField("phone", e.target.value)} /></div>
+                </div>
+
+                <div className={styles.formGridTwo}>
                   <div><FieldLabel required>Company name</FieldLabel><TextInput required value={form.company} onChange={(e) => setField("company", e.target.value)} /></div>
                 </div>
 

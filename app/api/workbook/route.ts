@@ -8,6 +8,7 @@ type WorkbookPayload = {
   firstName?: string;
   lastName?: string;
   email?: string;
+  phone?: string;
   company?: string;
   whichOfTheFollowingBestDescribesYou?: string;
   oneThing?: string;
@@ -28,6 +29,7 @@ type WorkbookContact = {
   firstName: string;
   lastName: string;
   email: string;
+  phone: string;
   company: string;
 };
 
@@ -92,6 +94,7 @@ function formatWorkbookNote(payload: WorkbookPayload, contact: WorkbookContact) 
     "",
     `**Name:** ${[contact.firstName, contact.lastName].filter(Boolean).join(" ")}`,
     `**Email:** ${contact.email}`,
+    `**Phone:** ${contact.phone}`,
     `**Company:** ${contact.company}`,
     `**Best describes them:** ${answer(payload.whichOfTheFollowingBestDescribesYou)}`,
     `**One thing they want help achieving:** ${answer(payload.oneThing)}`,
@@ -105,24 +108,15 @@ function formatWorkbookNote(payload: WorkbookPayload, contact: WorkbookContact) 
   ].join("\n");
 }
 
-function attioPersonValues(payload: WorkbookPayload, contact: WorkbookContact) {
+function attioPersonValues(contact: WorkbookContact) {
   const values: Record<string, unknown> = {
     email_addresses: [{ email_address: contact.email }],
+    phone_numbers: [{ phone_number: contact.phone }],
     name: [{
       first_name: contact.firstName,
       last_name: contact.lastName,
       full_name: `${contact.firstName} ${contact.lastName}`.trim(),
     }],
-    description: `Company: ${contact.company}`,
-    which_of_the_following_best_describes_you_1776883175: payload.whichOfTheFollowingBestDescribesYou,
-    if_we_could_help_you_achieve_one_thing_what_would_it_be_1776883138: payload.oneThing,
-    how_would_achieving_this_outcome_improve_your_business_or_life_1776883137: payload.outcomeImpact,
-    any_other_decision_makers_1776883126: payload.otherDecisionMakers,
-    want_results_1776883169: payload.wantResults,
-    what_area_do_you_need_the_most_help_with_1776883171: payload.helpAreas || [],
-    how_would_you_like_for_us_to_connect_with_you_for_this_session_phone_or_zoom_1776883137: payload.sessionConnectionPreference || "",
-    have_you_attended_one_of_our_free_online_workshops_or_masterclasses_1776883136: payload.attendedWorkshop,
-    which_range_best_represents_your_current_monthly_business_or_household_income_1776883177: payload.monthlyIncomeRange,
   };
 
   return values;
@@ -140,7 +134,7 @@ async function upsertAttioPerson(payload: WorkbookPayload, contact: WorkbookCont
         "Content-Type": "application/json",
         Accept: "application/json",
       },
-      body: JSON.stringify({ data: { values: attioPersonValues(payload, contact) } }),
+      body: JSON.stringify({ data: { values: attioPersonValues(contact) } }),
     },
     "Attio qualification contact"
   );
@@ -202,6 +196,7 @@ async function notifySlack(payload: WorkbookPayload, contact: WorkbookContact) {
     "New Kingdom Intelligence Masterclass qualification form submission",
     `Name: ${contact.firstName} ${contact.lastName}`,
     `Email: ${contact.email}`,
+    `Phone: ${contact.phone}`,
     `Company: ${contact.company}`,
     `Income: ${answer(payload.monthlyIncomeRange)}`,
     `Best describes them: ${answer(payload.whichOfTheFollowingBestDescribesYou)}`,
@@ -221,6 +216,7 @@ async function notifySlack(payload: WorkbookPayload, contact: WorkbookContact) {
           type: "section",
           fields: [
             { type: "mrkdwn", text: `*Email:*\n${contact.email}` },
+            { type: "mrkdwn", text: `*Phone:*\n${contact.phone}` },
             { type: "mrkdwn", text: `*Company:*\n${contact.company}` },
             { type: "mrkdwn", text: `*Income:*\n${answer(payload.monthlyIncomeRange)}` },
             { type: "mrkdwn", text: `*Best describes them:*\n${answer(payload.whichOfTheFollowingBestDescribesYou)}` },
@@ -249,6 +245,7 @@ export async function POST(req: NextRequest) {
       firstName: clean(payload.firstName),
       lastName: clean(payload.lastName),
       email: normalizeEmail(payload.email),
+      phone: clean(payload.phone),
       company: clean(payload.company),
     };
 
@@ -256,6 +253,7 @@ export async function POST(req: NextRequest) {
       ["firstName", contact.firstName],
       ["lastName", contact.lastName],
       ["email", contact.email],
+      ["phone", contact.phone],
       ["company", contact.company],
       ["whichOfTheFollowingBestDescribesYou", payload.whichOfTheFollowingBestDescribesYou],
       ["oneThing", payload.oneThing],
