@@ -1,8 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
 
-const HUBSPOT_PAT = process.env.HUBSPOT_PAT || "";
-const HUBSPOT_LIST_ID = "1015";
-
 const ATTIO_API_KEY = process.env.ATTIO_API_KEY || "";
 const ATTIO_MASTERCLASS_LIST_ID = process.env.ATTIO_MASTERCLASS_LIST_ID || "";
 const BREVO_API_KEY = process.env.BREVO_API_KEY || "";
@@ -193,51 +190,6 @@ async function upsertSimpleTextingContact(contact: Required<Pick<RegistrationPay
   return { skipped: false };
 }
 
-async function upsertHubSpotContact(contact: Required<Pick<RegistrationPayload, "email" | "firstName" | "lastName">> & { phone: string }) {
-  if (!HUBSPOT_PAT) return { skipped: true };
-
-  const contactBody = {
-    properties: [
-      { property: "email", value: contact.email },
-      { property: "firstname", value: contact.firstName },
-      { property: "lastname", value: contact.lastName },
-      { property: "phone", value: contact.phone || "" },
-      { property: "hs_lead_status", value: "NEW" },
-      { property: "lifecyclestage", value: "lead" },
-    ],
-  };
-
-  const contactData = await fetchJson(
-    "https://api.hubapi.com/contacts/v1/contact/createOrUpdate/email/" + encodeURIComponent(contact.email),
-    {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${HUBSPOT_PAT}`,
-      },
-      body: JSON.stringify(contactBody),
-    },
-    "HubSpot contact"
-  );
-
-  if (contactData?.vid) {
-    await fetchJson(
-      `https://api.hubapi.com/crm/v3/lists/${HUBSPOT_LIST_ID}/memberships/add`,
-      {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${HUBSPOT_PAT}`,
-        },
-        body: JSON.stringify([String(contactData.vid)]),
-      },
-      "HubSpot list"
-    );
-  }
-
-  return { skipped: false, vid: contactData?.vid };
-}
-
 export async function POST(req: NextRequest) {
   try {
     const payload = (await req.json()) as RegistrationPayload;
@@ -261,8 +213,6 @@ export async function POST(req: NextRequest) {
     } else {
       results.simpleTexting = { skipped: true, reason: "missing sms consent or phone" };
     }
-
-    results.hubSpot = await upsertHubSpotContact(contact);
 
     return NextResponse.json({ ok: true, results });
   } catch (e) {
