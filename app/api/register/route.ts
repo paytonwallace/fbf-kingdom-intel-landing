@@ -102,15 +102,14 @@ async function upsertAttioContact(contact: Required<Pick<RegistrationPayload, "e
 async function upsertBrevoContact(contact: Required<Pick<RegistrationPayload, "email" | "firstName" | "lastName">> & { phone: string }) {
   if (!BREVO_API_KEY || !BREVO_MASTERCLASS_LIST_ID) return { skipped: true };
 
-  const attributes: Record<string, string> = {
-    FIRSTNAME: contact.firstName,
-    LASTNAME: contact.lastName,
-  };
-  if (contact.phone) attributes.SMS = contact.phone;
+  const sendToBrevo = async (includeSms: boolean) => {
+    const attributes: Record<string, string> = {
+      FIRSTNAME: contact.firstName,
+      LASTNAME: contact.lastName,
+    };
+    if (includeSms && contact.phone) attributes.SMS = contact.phone;
 
-  await fetchJson(
-    "https://api.brevo.com/v3/contacts",
-    {
+    const res = await fetch("https://api.brevo.com/v3/contacts", {
       method: "POST",
       headers: {
         "api-key": BREVO_API_KEY,
@@ -123,11 +122,33 @@ async function upsertBrevoContact(contact: Required<Pick<RegistrationPayload, "e
         listIds: [BREVO_MASTERCLASS_LIST_ID],
         updateEnabled: true,
       }),
-    },
-    "Brevo contact"
-  );
+    });
 
-  return { skipped: false };
+    const text = await res.text();
+    const responseBody = text ? JSON.parse(text) : null;
+
+    if (!res.ok) {
+      return { ok: false, status: res.status, body: responseBody };
+    }
+
+    return { ok: true, status: res.status, body: responseBody };
+  };
+
+  const withSms = await sendToBrevo(Boolean(contact.phone));
+  if (withSms.ok) return { skipped: false };
+
+  const duplicateSms =
+    withSms.status === 400 &&
+    withSms.body?.code === "duplicate_parameter" &&
+    typeof withSms.body?.message === "string" &&
+    withSms.body.message.toLowerCase().includes("sms is already associated");
+
+  if (duplicateSms && contact.phone) {
+    const withoutSms = await sendToBrevo(false);
+    if (withoutSms.ok) return { skipped: false, smsSkipped: "duplicate_sms" };
+  }
+
+  throw new Error(`Brevo contact failed (${withSms.status}): ${JSON.stringify(withSms.body)}`);
 }
 
 async function upsertSimpleTextingContact(contact: Required<Pick<RegistrationPayload, "email" | "firstName" | "lastName">> & { phone: string }) {
