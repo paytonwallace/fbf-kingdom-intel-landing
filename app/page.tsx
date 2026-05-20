@@ -586,7 +586,8 @@ function TopBanner({ onOpen }: { onOpen: () => void }) {
       style={{
         position: "fixed", top: 0, left: 0, width: "100%", zIndex: 9998,
         background: "linear-gradient(90deg, #AA0000 0%, #CC0000 50%, #AA0000 100%)",
-        border: "none", cursor: "pointer", padding: "11px 20px",
+        border: "none", cursor: "pointer", height: "43px", padding: "0 20px",
+        boxSizing: "border-box",
         display: "flex", alignItems: "center", justifyContent: "center", gap: "12px",
         transition: "filter 0.2s",
       }}
