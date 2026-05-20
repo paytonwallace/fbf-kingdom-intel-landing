@@ -67,6 +67,10 @@ function answer(value?: string) {
   return clean(value || "") || "Not provided";
 }
 
+function isPhoneError(error: unknown) {
+  return error instanceof Error && /phone|number/i.test(error.message);
+}
+
 function normalizeSelect(value?: string, options: string[] = []) {
   const raw = clean(value || "");
   if (!raw) return raw;
@@ -111,13 +115,16 @@ function formatWorkbookNote(payload: WorkbookPayload, contact: WorkbookContact) 
 function attioPersonValues(contact: WorkbookContact) {
   const values: Record<string, unknown> = {
     email_addresses: [{ email_address: contact.email }],
-    phone_numbers: [{ original_phone_number: contact.phone }],
     name: [{
       first_name: contact.firstName,
       last_name: contact.lastName,
       full_name: `${contact.firstName} ${contact.lastName}`.trim(),
     }],
   };
+
+  if (contact.phone) {
+    values.phone_numbers = [{ original_phone_number: contact.phone }];
+  }
 
   return values;
 }
@@ -253,7 +260,6 @@ export async function POST(req: NextRequest) {
       ["firstName", contact.firstName],
       ["lastName", contact.lastName],
       ["email", contact.email],
-      ["phone", contact.phone],
       ["company", contact.company],
       ["whichOfTheFollowingBestDescribesYou", payload.whichOfTheFollowingBestDescribesYou],
       ["oneThing", payload.oneThing],
@@ -271,8 +277,17 @@ export async function POST(req: NextRequest) {
 
     const results: Record<string, unknown> = {};
 
-    const attio = await upsertAttioPerson(payload, contact);
-    results.attio = { skipped: false, recordId: attio.recordId };
+    let attio;
+    let phoneSkipped = false;
+    try {
+      attio = await upsertAttioPerson(payload, contact);
+    } catch (error) {
+      if (!contact.phone || !isPhoneError(error)) throw error;
+      console.error(error);
+      attio = await upsertAttioPerson(payload, { ...contact, phone: "" });
+      phoneSkipped = true;
+    }
+    results.attio = { skipped: false, recordId: attio.recordId, phoneSkipped };
 
     results.attioList = await addAttioQualificationListEntry(attio.recordId);
 

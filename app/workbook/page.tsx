@@ -128,7 +128,7 @@ export default function WorkbookPage() {
 
                 <div className={styles.formGridTwo}>
                   <div><FieldLabel required>Email</FieldLabel><TextInput required type="email" value={form.email} onChange={(e) => setField("email", e.target.value)} /></div>
-                  <div><FieldLabel required>Phone</FieldLabel><TextInput required type="tel" value={form.phone} onChange={(e) => setField("phone", e.target.value)} /></div>
+                  <div><FieldLabel>Phone</FieldLabel><TextInput type="tel" value={form.phone} onChange={(e) => setField("phone", e.target.value)} /></div>
                 </div>
 
                 <div className={styles.formGridTwo}>
