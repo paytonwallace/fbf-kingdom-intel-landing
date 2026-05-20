@@ -124,7 +124,7 @@ a { color: inherit; text-decoration: none; }
 .hero-content-row {
   display: flex;
   flex: 1;
-  min-height: 100vh;
+  min-height: calc(100vh - 43px);
 }
 .hero-photo-col {
   flex: 0 0 48%;
@@ -136,9 +136,9 @@ a { color: inherit; text-decoration: none; }
 }
 .hero-photo {
   width: 100%;
-  height: 115%;
+  height: 118%;
   object-fit: cover;
-  object-position: center 8%;
+  object-position: center top;
   position: absolute;
   top: 0; left: 0;
 }
