@@ -9,23 +9,19 @@ export const metadata: Metadata = {
 
 const COMMUNITY_URL =
   "https://vault.fbfmastery.com/join?invitation_token=b0c8c0451f281ece962ad9e00e5c739000d5e1b9-e61c108d-7479-4d7b-8079-f258420879bb";
-const CALENDAR_URL = "https://evt.to/sg6n5mfdzgjr";
 
 const MASTERCLASS_DAYS = [
   {
-    day: "day one",
-    title: "kingdom intelligence",
-    copy: "Get clear on the operating system for hearing God, seeing patterns, and making decisions with wisdom.",
+    day: "day 1",
+    title: "june 9",
   },
   {
-    day: "day two",
-    title: "spiritual strategy",
-    copy: "Learn how to apply discernment to business, leadership, offers, team decisions, and next-step execution.",
+    day: "day 2",
+    title: "june 10",
   },
   {
-    day: "day three",
-    title: "activation + next steps",
-    copy: "Walk away with practical direction, community support, and a clearer path for building with God.",
+    day: "day 3",
+    title: "june 11",
   },
 ];
 
@@ -123,20 +119,12 @@ export default function ThankYou() {
 
               <div className="heroActions">
                 <a
-                  href={CALENDAR_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="outlineButton"
-                >
-                  add event to calendar
-                </a>
-                <a
                   href={COMMUNITY_URL}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="goldButton"
                 >
-                  join community + introduce yourself
+                  join community + add to calendar
                   <ArrowIcon />
                 </a>
               </div>
@@ -153,7 +141,6 @@ export default function ThankYou() {
                 <article className="dayCard" key={item.day}>
                   <p>{item.day}</p>
                   <h3>{item.title}</h3>
-                  <span>{item.copy}</span>
                 </article>
               ))}
             </div>
@@ -309,7 +296,6 @@ export default function ThankYou() {
           margin-top: 30px;
         }
 
-        .outlineButton,
         .goldButton {
           display: inline-flex;
           align-items: center;
@@ -326,19 +312,6 @@ export default function ThankYou() {
           letter-spacing: 0.08em;
           text-transform: uppercase;
           transition: filter 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
-        }
-
-        .outlineButton {
-          border: 1px solid rgba(255, 255, 255, 0.28);
-          background: rgba(255, 255, 255, 0.05);
-          color: #ffffff;
-          box-shadow: none;
-        }
-
-        .outlineButton:hover {
-          border-color: rgba(232, 208, 128, 0.64);
-          background: rgba(232, 208, 128, 0.1);
-          transform: translateY(-2px);
         }
 
         .goldButton:hover {
@@ -379,7 +352,7 @@ export default function ThankYou() {
         }
 
         .dayCard {
-          min-height: 190px;
+          min-height: 132px;
           border: 1px solid rgba(187, 148, 90, 0.28);
           border-radius: 6px;
           background: rgba(255, 255, 255, 0.04);
@@ -397,14 +370,8 @@ export default function ThankYou() {
         .dayCard h3 {
           margin: 12px 0 12px;
           color: #ffffff;
-          font: 800 20px/1.15 'Work Sans', sans-serif;
+          font: 800 30px/1.05 'Work Sans', sans-serif;
           text-transform: uppercase;
-        }
-
-        .dayCard span {
-          color: rgba(255, 255, 255, 0.68);
-          font-size: 15px;
-          line-height: 1.6;
         }
 
         .thankFooter {
@@ -459,10 +426,6 @@ export default function ThankYou() {
             line-height: 1.25;
             text-align: center;
             white-space: normal;
-          }
-
-          .outlineButton {
-            width: 100%;
           }
 
           .dayCards {
