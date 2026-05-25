@@ -5,6 +5,21 @@ import { useRouter } from "next/navigation";
 
 const REGISTER_URL = "#register";
 
+async function postWithTimeout(url: string, body: unknown) {
+  const controller = new AbortController();
+  const timeout = window.setTimeout(() => controller.abort(), 5000);
+  try {
+    await fetch(url, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(body),
+      signal: controller.signal,
+    });
+  } finally {
+    window.clearTimeout(timeout);
+  }
+}
+
 /* -- REGISTRATION MODAL -- */
 function RegisterModal({ onClose }: { onClose: () => void }) {
   const [form, setForm] = useState({ email: "", firstName: "", lastName: "", phone: "", agreed: false });
@@ -16,16 +31,11 @@ function RegisterModal({ onClose }: { onClose: () => void }) {
     if (!form.agreed) { alert("Please agree to receive communications to continue."); return; }
     setStatus("loading");
     try {
-      const res = await fetch("/api/register", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
-      });
-      if (res.ok) router.push("/thank-you");
-      else setStatus("error");
+      await postWithTimeout("/api/register", form);
     } catch {
-      setStatus("error");
+      // Keep the visitor flow moving even if a downstream integration is unavailable.
     }
+    router.push("/thank-you");
   };
 
   const inputStyle: React.CSSProperties = {
@@ -64,7 +74,7 @@ function RegisterModal({ onClose }: { onClose: () => void }) {
             <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
               <div>
                 <label style={{ fontSize: "13px", fontWeight: 700, color: "#111", display: "block", marginBottom: "6px", fontFamily: "'Work Sans', sans-serif" }}>Email *</label>
-                <input required type="email" style={inputStyle} value={form.email} onChange={e => setForm(f => ({...f, email: e.target.value}))} />
+                <input required type="text" inputMode="email" autoComplete="email" style={inputStyle} value={form.email} onChange={e => setForm(f => ({...f, email: e.target.value}))} />
               </div>
               <div className="modal-name-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px" }}>
                 <div>

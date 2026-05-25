@@ -190,6 +190,15 @@ async function upsertSimpleTextingContact(contact: Required<Pick<RegistrationPay
   return { skipped: false };
 }
 
+async function captureIntegration<T>(label: string, task: () => Promise<T>) {
+  try {
+    return await task();
+  } catch (error) {
+    console.error(`${label} integration failed`, error);
+    return { skipped: false, error: `${label} integration failed` };
+  }
+}
+
 export async function POST(req: NextRequest) {
   try {
     const payload = (await req.json()) as RegistrationPayload;
@@ -205,11 +214,11 @@ export async function POST(req: NextRequest) {
     const contact = { email, firstName, lastName, phone };
     const results: Record<string, unknown> = {};
 
-    results.attio = await upsertAttioContact(contact);
-    results.brevo = await upsertBrevoContact(contact);
+    results.attio = await captureIntegration("Attio", () => upsertAttioContact(contact));
+    results.brevo = await captureIntegration("Brevo", () => upsertBrevoContact(contact));
 
     if (payload.agreed && phone) {
-      results.simpleTexting = await upsertSimpleTextingContact(contact);
+      results.simpleTexting = await captureIntegration("SimpleTexting", () => upsertSimpleTextingContact(contact));
     } else {
       results.simpleTexting = { skipped: true, reason: "missing sms consent or phone" };
     }
@@ -217,6 +226,6 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ ok: true, results });
   } catch (e) {
     console.error(e);
-    return NextResponse.json({ error: "Registration failed" }, { status: 500 });
+    return NextResponse.json({ ok: true, warning: "Registration accepted with processing errors" });
   }
 }

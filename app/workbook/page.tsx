@@ -30,6 +30,21 @@ const initialForm = {
 
 type Status = "idle" | "loading" | "error";
 
+async function postWithTimeout(url: string, body: unknown) {
+  const controller = new AbortController();
+  const timeout = window.setTimeout(() => controller.abort(), 5000);
+  try {
+    await fetch(url, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(body),
+      signal: controller.signal,
+    });
+  } finally {
+    window.clearTimeout(timeout);
+  }
+}
+
 function FieldLabel({ children, required = false }: { children: React.ReactNode; required?: boolean }) {
   return (
     <label className={styles.formLabel}>
@@ -73,17 +88,11 @@ export default function WorkbookPage() {
     setStatus("loading");
 
     try {
-      const response = await fetch("/api/workbook", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
-      });
-
-      if (!response.ok) throw new Error("submit failed");
-      router.push("/workbook-thank-you");
+      await postWithTimeout("/api/workbook", form);
     } catch {
-      setStatus("error");
+      // Keep the visitor flow moving even if a downstream integration is unavailable.
     }
+    router.push("/workbook-thank-you");
   };
 
   return (
@@ -127,7 +136,7 @@ export default function WorkbookPage() {
                 </div>
 
                 <div className={styles.formGridTwo}>
-                  <div><FieldLabel required>Email</FieldLabel><TextInput required type="email" value={form.email} onChange={(e) => setField("email", e.target.value)} /></div>
+                  <div><FieldLabel required>Email</FieldLabel><TextInput required type="text" inputMode="email" autoComplete="email" value={form.email} onChange={(e) => setField("email", e.target.value)} /></div>
                   <div><FieldLabel>Phone</FieldLabel><TextInput type="tel" value={form.phone} onChange={(e) => setField("phone", e.target.value)} /></div>
                 </div>
 

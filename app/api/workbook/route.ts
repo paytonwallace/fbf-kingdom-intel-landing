@@ -241,12 +241,17 @@ async function notifySlack(payload: WorkbookPayload, contact: WorkbookContact) {
   return { skipped: false };
 }
 
+async function captureIntegration<T>(label: string, task: () => Promise<T>) {
+  try {
+    return await task();
+  } catch (error) {
+    console.error(`${label} integration failed`, error);
+    return { skipped: false, error: `${label} integration failed` };
+  }
+}
+
 export async function POST(req: NextRequest) {
   try {
-    if (!ATTIO_API_KEY) {
-      return NextResponse.json({ error: "Attio is not configured" }, { status: 500 });
-    }
-
     const payload = normalizedPayload((await req.json()) as WorkbookPayload);
     const contact = {
       firstName: clean(payload.firstName),
@@ -277,33 +282,43 @@ export async function POST(req: NextRequest) {
 
     const results: Record<string, unknown> = {};
 
-    let attio;
-    let phoneSkipped = false;
-    try {
-      attio = await upsertAttioPerson(payload, contact);
-    } catch (error) {
-      if (!contact.phone || !isPhoneError(error)) throw error;
-      console.error(error);
-      attio = await upsertAttioPerson(payload, { ...contact, phone: "" });
-      phoneSkipped = true;
+    if (!ATTIO_API_KEY) {
+      results.attio = { skipped: true, reason: "ATTIO_API_KEY is not configured" };
+      results.attioList = { skipped: true, reason: "ATTIO_API_KEY is not configured" };
+      results.attioNote = { skipped: true, reason: "ATTIO_API_KEY is not configured" };
+    } else {
+      const attio = await captureIntegration("Attio qualification contact", async () => {
+        let record;
+        let phoneSkipped = false;
+        try {
+          record = await upsertAttioPerson(payload, contact);
+        } catch (error) {
+          if (!contact.phone || !isPhoneError(error)) throw error;
+          console.error(error);
+          record = await upsertAttioPerson(payload, { ...contact, phone: "" });
+          phoneSkipped = true;
+        }
+        return { skipped: false, recordId: record.recordId, phoneSkipped };
+      });
+      results.attio = attio;
+
+      if ("recordId" in attio && typeof attio.recordId === "string") {
+        results.attioList = await captureIntegration("Attio K.I.M. qualification list entry", () => addAttioQualificationListEntry(attio.recordId));
+        results.attioNote = await captureIntegration("Attio qualification note", async () => {
+          await createAttioWorkbookNote(attio.recordId, payload, contact);
+          return { skipped: false };
+        });
+      } else {
+        results.attioList = { skipped: true, reason: "missing Attio record id" };
+        results.attioNote = { skipped: true, reason: "missing Attio record id" };
+      }
     }
-    results.attio = { skipped: false, recordId: attio.recordId, phoneSkipped };
 
-    results.attioList = await addAttioQualificationListEntry(attio.recordId);
-
-    await createAttioWorkbookNote(attio.recordId, payload, contact);
-    results.attioNote = { skipped: false };
-
-    try {
-      results.slack = await notifySlack(payload, contact);
-    } catch (error) {
-      console.error(error);
-      results.slack = { skipped: false, error: "Slack notification failed" };
-    }
+    results.slack = await captureIntegration("Slack notification", () => notifySlack(payload, contact));
 
     return NextResponse.json({ ok: true, results });
   } catch (error) {
     console.error(error);
-    return NextResponse.json({ error: "Workbook form submission failed" }, { status: 500 });
+    return NextResponse.json({ ok: true, warning: "Workbook form accepted with processing errors" });
   }
 }
